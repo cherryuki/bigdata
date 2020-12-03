@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+C:\Bigdata\source\1_JAVA\.metadata\.plugins\org.eclipse.jdt.core
