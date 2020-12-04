@@ -1,26 +1,26 @@
 package com.lec.condition;
 
 import java.util.Scanner;
-//Á¡¼ö¸¦ ÀÔ·Â¹Ş¾Æ ÇĞÁ¡À» Ãâ·Â
+//ì ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ í•™ì ì„ ì¶œë ¥
 public class Q2_switch {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Á¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		int score = sc.nextInt();
-		int temp = score==100? score-1:score;//100Á¡ÀÏ °æ¿ì¸¦ À§ÇØ ÇÊ¿ä
+		int temp = score==100? score-1:score;//100ì ì¼ ê²½ìš°ë¥¼ ìœ„í•´ í•„ìš”
 		switch(temp/10) {
 		case 9:
-			System.out.println("AÇĞÁ¡"); break;
+			System.out.println("Aí•™ì "); break;
 		case 8:
-			System.out.println("BÇĞÁ¡"); break;
+			System.out.println("Bí•™ì "); break;
 		case 7:
-			System.out.println("CÇĞÁ¡"); break;
+			System.out.println("Cí•™ì "); break;
 		case 6:
-			System.out.println("DÇĞÁ¡"); break;
+			System.out.println("Dí•™ì "); break;
 		case 5: case 4: case 3: case 1: case 0:
-			System.out.println("FÇĞÁ¡"); break;
+			System.out.println("Fí•™ì "); break;
 		default:
-			System.out.println("À¯È¿ÇÏÁö ¾ÊÀº Á¡¼öÀÔ´Ï´Ù"); break;
+			System.out.println("ìœ íš¨í•˜ì§€ ì•Šì€ ì ìˆ˜ì…ë‹ˆë‹¤"); break;
 		}
 	}
 }

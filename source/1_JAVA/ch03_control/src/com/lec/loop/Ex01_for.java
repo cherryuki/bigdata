@@ -6,7 +6,7 @@ public class Ex01_for {
 			for(int j=1 ; j<=i ; j++) {
 				System.out.print('*');
 			}
-			System.out.println();//°³Çà
+			System.out.println();//ê°œí–‰
 		}
 //		for (int j=1 ; j<=5 ; j++) {
 //			System.out.print('*');

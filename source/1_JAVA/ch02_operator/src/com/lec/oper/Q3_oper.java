@@ -1,23 +1,23 @@
 package com.lec.oper;
 
 import java.util.Scanner;
-//±¹¾î, ¿µ¾î, ¼öÇĞ Á¡¼ö¸¦ ÀÔ·Â¹Ş¾Æ ÃÑÁ¡°ú Æò±ÕÀ» Ãâ·Â
+//êµ­ì–´, ì˜ì–´, ìˆ˜í•™ ì ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ ì´ì ê³¼ í‰ê· ì„ ì¶œë ¥
 public class Q3_oper {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("±¹¾î Á¡¼ö: ");
+		System.out.print("êµ­ì–´ ì ìˆ˜: ");
 		int kor = sc.nextInt();
-		System.out.print("¿µ¾î Á¡¼ö: ");
+		System.out.print("ì˜ì–´ ì ìˆ˜: ");
 		int eng = sc.nextInt();
-		System.out.print("¼öÇĞ Á¡¼ö: ");
+		System.out.print("ìˆ˜í•™ ì ìˆ˜: ");
 		int mat = sc.nextInt();
-		int tot = kor + eng + mat; //ÃÑÁ¡
-		double avg = tot/3.0; //Æò±Õ
+		int tot = kor + eng + mat; //ì´ì 
+		double avg = tot/3.0; //í‰ê· 
 //		double avg = (double)tot/3;
-		System.out.printf("±¹¾î: %3d\n", kor);
-		System.out.printf("¿µ¾î: %3d\n", eng);
-		System.out.printf("¼öÇĞ: %3d\n", mat);
-		System.out.printf("ÃÑÁ¡: %3d,\tÆò±Õ: %.2f\n", tot, avg);
+		System.out.printf("êµ­ì–´: %3d\n", kor);
+		System.out.printf("ì˜ì–´: %3d\n", eng);
+		System.out.printf("ìˆ˜í•™: %3d\n", mat);
+		System.out.printf("ì´ì : %3d,\tí‰ê· : %.2f\n", tot, avg);
 		sc.close();
 	}
 }

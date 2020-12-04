@@ -12,8 +12,8 @@ public class Ex02_var {
 		System.out.println("f="+f);
 		System.out.println("d="+d);
 		if(f==d)
-			System.out.println("f¿Í d´Â °°´Ù");
+			System.out.println("fì™€ dëŠ” ê°™ë‹¤");
 		else
-			System.out.println("f¿Í d´Â ´Ù¸£´Ù");
+			System.out.println("fì™€ dëŠ” ë‹¤ë¥´ë‹¤");
 	}
 }

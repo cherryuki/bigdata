@@ -2,27 +2,27 @@ package com.lec.loop;
 
 import java.util.Scanner;
 
-//°¡À§(0),¹ÙÀ§(1),º¸(2) ¹İº¹(-1À» ´©¸£¸é Á¾·á)
+//ê°€ìœ„(0),ë°”ìœ„(1),ë³´(2) ë°˜ë³µ(-1ì„ ëˆ„ë¥´ë©´ ì¢…ë£Œ)
 public class Q1_while {
 	public static void main(String[] args) {
 		int computer, i;
 		Scanner sc = new Scanner(System.in);
 		while(true) {
-			System.out.print("°¡À§(0), ¹ÙÀ§(1), º¸(2)¸¦ ÀÔ·ÂÇÏ¼¼¿ä. Á¾·á¸¦ ¿øÇÏ½Ã¸é -1À» ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.print("ê°€ìœ„(0), ë°”ìœ„(1), ë³´(2)ë¥¼ ì…ë ¥í•˜ì„¸ìš”. ì¢…ë£Œë¥¼ ì›í•˜ì‹œë©´ -1ì„ ì…ë ¥í•˜ì„¸ìš”.");
 			i=sc.nextInt();
 			if(i==-1) {
-				System.out.print("Á¾·áÇÕ´Ï´Ù");
+				System.out.print("ì¢…ë£Œí•©ë‹ˆë‹¤");
 				break;
 			}
-			computer = (int)(Math.random()*3); //0~3¹Ì¸¸ÀÇ Á¤¼ö ³­¼ö
+			computer = (int)(Math.random()*3); //0~3ë¯¸ë§Œì˜ ì •ìˆ˜ ë‚œìˆ˜
 			if(i<0 || i>=3) {
-				System.out.println("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù");
+				System.out.println("ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤");
 			}else if((i+2)%3==computer) {
-				System.out.println("´ç½Å ½Â¸®");
+				System.out.println("ë‹¹ì‹  ìŠ¹ë¦¬");
 			}else if(i==computer) {
-				System.out.println("¹«½ÂºÎ");
+				System.out.println("ë¬´ìŠ¹ë¶€");
 			}else {
-				System.out.println("ÄÄÇ»ÅÍ ½Â¸®");
+				System.out.println("ì»´í“¨í„° ìŠ¹ë¦¬");
 			}//if
 		}//while
 		sc.close();

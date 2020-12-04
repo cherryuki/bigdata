@@ -1,5 +1,5 @@
 package com.lec.oper;
-//ÇÒ´ç(´ëÀÔ)¿¬»êÀÚ: : =, +=, -=, *=, /=, %=,...
+//í• ë‹¹(ëŒ€ì…)ì—°ì‚°ì: : =, +=, -=, *=, /=, %=,...
 public class Ex04_oper {
 	public static void main(String[] args) {
 		int n1 = 10*3;

@@ -1,5 +1,5 @@
 package com.lec.loop;
-//1~10±îÁöÀÇ È¦¼öÀÇ ÇÕÀº 25
+//1~10ê¹Œì§€ì˜ í™€ìˆ˜ì˜ í•©ì€ 25
 public class Q3_for {
 	public static void main(String[] args) {
 		int sum = 0;
@@ -11,6 +11,6 @@ public class Q3_for {
 				sum += i;
 			}
 		}
-		System.out.println("1~10±îÁöÀÇ È¦¼öÀÇ ÇÕÀº"+sum);
+		System.out.println("1~10ê¹Œì§€ì˜ í™€ìˆ˜ì˜ í•©ì€"+sum);
 	}
 }

@@ -1,15 +1,15 @@
 package com.lec.oper;
-//»ïÇ× ¿¬»êÀÚ: __? __:__
+//ì‚¼í•­ ì—°ì‚°ì: __? __:__
 public class Ex03_oper {
 	public static void main(String[] args) {
 		int h=100;
-		System.out.println(h%2==0? "Â¦¼ö":"È¦¼ö");
+		System.out.println(h%2==0? "ì§ìˆ˜":"í™€ìˆ˜");
 //		String result;
-//		result = h%2==0? "Â¦¼ö":"È¦¼ö";
+//		result = h%2==0? "ì§ìˆ˜":"í™€ìˆ˜";
 //		if(h%2==0)
-//			result="Â¦¼ö";
+//			result="ì§ìˆ˜";
 //		else
-//			result="È¦¼ö";
+//			result="í™€ìˆ˜";
 //		System.out.println(result);
 	}
 }

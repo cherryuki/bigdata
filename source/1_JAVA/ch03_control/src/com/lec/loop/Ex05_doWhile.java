@@ -2,26 +2,26 @@ package com.lec.loop;
 
 import java.util.Scanner;
 
-//·Î¶Ç ¹øÈ£(1~45) ÇÏ³ª ¸ÂÃß±â
+//ë¡œë˜ ë²ˆí˜¸(1~45) í•˜ë‚˜ ë§ì¶”ê¸°
 public class Ex05_doWhile {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int lotto = (int)(Math.random()*45)+1; //ÄÄÇ»ÅÍ ·Î¶Ç ³­¼ö
-		int num; //»ç¿ëÀÚ¿¡°Ô ÀÔ·Â¹ŞÀº ¼ö¸¦ ÀúÀåÇÏ´Â º¯¼ö
+		int lotto = (int)(Math.random()*45)+1; //ì»´í“¨í„° ë¡œë˜ ë‚œìˆ˜
+		int num; //ì‚¬ìš©ìì—ê²Œ ì…ë ¥ë°›ì€ ìˆ˜ë¥¼ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
 		int min = 1;
 		int max = 45;
 		do {
-			System.out.printf("%dºÎÅÍ %d±îÁö ¹øÈ£ ÇÑ °³¸¦ ¾Ë¾Æ ¸ÂÃç º¸¼¼¿ä\n", min, max);
+			System.out.printf("%dë¶€í„° %dê¹Œì§€ ë²ˆí˜¸ í•œ ê°œë¥¼ ì•Œì•„ ë§ì¶° ë³´ì„¸ìš”\n", min, max);
 			num = sc.nextInt();
 			if(num>lotto) {
-				System.out.println(num+"º¸´Ù ÀÛÀº ¼ö ÀÔ´Ï´Ù");
+				System.out.println(num+"ë³´ë‹¤ ì‘ì€ ìˆ˜ ì…ë‹ˆë‹¤");
 				max=num-1;
 			}else if(num<lotto) {
-				System.out.println(num+"º¸´Ù Å« ¼ö ÀÔ´Ï´Ù");
+				System.out.println(num+"ë³´ë‹¤ í° ìˆ˜ ì…ë‹ˆë‹¤");
 				min=num+1;
 			} 
 		}while(num!=lotto);
-		System.out.println("ÃàÇÏÇÕ´Ï´Ù. ¸ÂÃß¼Ì½À´Ï´Ù");
+		System.out.println("ì¶•í•˜í•©ë‹ˆë‹¤. ë§ì¶”ì…¨ìŠµë‹ˆë‹¤");
 		sc.close();
 	}
 }

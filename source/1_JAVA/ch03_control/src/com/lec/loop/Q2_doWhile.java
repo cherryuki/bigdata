@@ -1,12 +1,12 @@
 package com.lec.loop;
 
 import java.util.Scanner;
-//가위(0),바위(1),보(2) 반복(당신이 이기면 종료) - while 사용
-public class Q2_while {
+//가위(0),바위(1),보(2) 반복(당신이 이기면 종료) - do while 사용
+public class Q2_doWhile {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int computer, i;
-		while(true) {
+		do {
 			System.out.println("가위(0), 바위(1), 보(2) 중 하나를 선택하세요.(당신이 이길 때까지)");
 			i = sc.nextInt();
 			computer = (int)(Math.random()*3); 
@@ -20,8 +20,9 @@ public class Q2_while {
 			}else if((i+1)%3==computer ){
 				System.out.println("컴퓨터 승리");
 			}
-		}
-		sc.close();
-		System.out.println("bye");
+			}while( (i>-1 || i<3) || ((i+1)%3!=computer)); 
+			sc.close();
+			System.out.println("bye");
 	}
+
 }

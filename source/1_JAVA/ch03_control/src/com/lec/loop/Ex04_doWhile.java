@@ -7,10 +7,10 @@ public class Ex04_doWhile {
 		Scanner sc = new Scanner(System.in);
 		int num;
 		do {
-			System.out.print("Â¦¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-			num = sc.nextInt(); //»ç¿ëÀÚ·ÎºÎÅÍ ÀÔ·Â¹ŞÀº ¼ö¸¦ num¿¡ ÇÒ´ç
+			System.out.print("ì§ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
+			num = sc.nextInt(); //ì‚¬ìš©ìë¡œë¶€í„° ì…ë ¥ë°›ì€ ìˆ˜ë¥¼ numì— í• ë‹¹
 		}while(num%2==1 || num%2==-1 || num==0);
-			System.out.println("ÀÔ·ÂÇÏ½Å Â¦¼ö´Â "+num);
+			System.out.println("ì…ë ¥í•˜ì‹  ì§ìˆ˜ëŠ” "+num);
 			sc.close();
 	}
 }

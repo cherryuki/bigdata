@@ -7,7 +7,7 @@ public class Ex03_while {
 			System.out.print(i+". ");
 			i--;
 		}
-		System.out.println();//°³Çà Ãß°¡
+		System.out.println();//ê°œí–‰ ì¶”ê°€
 		for(int j=10; j>=1; j--) {
 			System.out.print(j+". ");
 		}

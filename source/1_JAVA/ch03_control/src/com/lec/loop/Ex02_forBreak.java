@@ -4,8 +4,8 @@ public class Ex02_forBreak {
 	public static void main(String[] args) {
 		for(int i=1 ; i<11 ; i++) {
 			if(i==5) {
-				//break; //¹Ýº¹¹® ºí·°À» ºü·Á ³ª°¡
-				continue; //Áõ°¨½ÄÀ¸·Î ¿Ã¶ó°¡
+				//break; //ë°˜ë³µë¬¸ ë¸”ëŸ­ì„ ë¹ ë ¤ ë‚˜ê°€
+				continue; //ì¦ê°ì‹ìœ¼ë¡œ ì˜¬ë¼ê°€
 			}
 			System.out.print(i+" ");
 		}

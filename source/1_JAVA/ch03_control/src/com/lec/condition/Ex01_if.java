@@ -4,12 +4,12 @@ public class Ex01_if {
 	public static void main(String[] args) {
 		int i = 10, j=20, h=31;
 		if(i+j == h) {
-			System.out.println("i+j´Â hÀÔ´Ï´Ù");
+			System.out.println("i+jëŠ” hìž…ë‹ˆë‹¤");
 		}
 		if(i>j) {
-			System.out.println("i>jÀÔ´Ï´Ù");
+			System.out.println("i>jìž…ë‹ˆë‹¤");
 		}else {
-			System.out.println("i>j°¡ ¾Æ´Õ´Ï´Ù");
+			System.out.println("i>jê°€ ì•„ë‹™ë‹ˆë‹¤");
 		}
 	}
 }

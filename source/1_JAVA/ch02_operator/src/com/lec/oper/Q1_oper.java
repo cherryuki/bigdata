@@ -1,18 +1,18 @@
 package com.lec.oper;
-//ÀÔ·ÂÇÑ µÎ ¼ö¸¦ ºñ±³¿¬»êÀÚ¸¦ ÀÌ¿ëÇÏ¿©, ºñ±³ÇÑ °á°ú°¡ trueÀÌ¸é O, falseÀÌ¸é X¸¦ Ãâ·Â
+//ì…ë ¥í•œ ë‘ ìˆ˜ë¥¼ ë¹„êµì—°ì‚°ìë¥¼ ì´ìš©í•˜ì—¬, ë¹„êµí•œ ê²°ê³¼ê°€ trueì´ë©´ O, falseì´ë©´ Xë¥¼ ì¶œë ¥
 import java.util.Scanner;
 
 public class Q1_oper {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("Ã¹¹øÂ° ¼ö: ");
+		System.out.print("ì²«ë²ˆì§¸ ìˆ˜: ");
 		int num1 = scanner.nextInt();
-		System.out.print("µÎ¹øÂ° ¼ö: ");
+		System.out.print("ë‘ë²ˆì§¸ ìˆ˜: ");
 		int num2 = scanner.nextInt();
 		String result = num1 == num2 ? "O" :"X";
-		System.out.println("num1==num2ÀÇ °á°ú´Â "+ result);
+		System.out.println("num1==num2ì˜ ê²°ê³¼ëŠ” "+ result);
 		boolean result2 = num1 > num2;
-		System.out.println("num1>num2ÀÇ °á°ú´Â "+ ((result2==true)? "O":"X"));
+		System.out.println("num1>num2ì˜ ê²°ê³¼ëŠ” "+ ((result2==true)? "O":"X"));
 		scanner.close();
 	}
 }

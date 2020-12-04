@@ -5,13 +5,13 @@ public class Ex03_switch {
 		int num = 2;
 		switch(num) {
 		case 1:
-			System.out.println("ÁÖ»çÀ§ 1"); break;
+			System.out.println("ì£¼ì‚¬ìœ„ 1"); break;
 		case 2:
-			System.out.println("ÁÖ»çÀ§ 2"); break;
+			System.out.println("ì£¼ì‚¬ìœ„ 2"); break;
 		case 3:
-			System.out.println("ÁÖ»çÀ§ 3"); break;
+			System.out.println("ì£¼ì‚¬ìœ„ 3"); break;
 		default:
-			System.out.println("±× ¿Ü");break;
+			System.out.println("ê·¸ ì™¸");break;
 		}
 	}
 }
