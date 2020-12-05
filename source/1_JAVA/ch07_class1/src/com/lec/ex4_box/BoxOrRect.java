@@ -1,4 +1,4 @@
-package com.lec.ex4;
+package com.lec.ex4_box;
 //박스 - 가로, 세로, 깊이
 //직사각형 - 가로, 세로, 0
 public class BoxOrRect {

@@ -1,4 +1,4 @@
-package com.lec.ex4;
+package com.lec.ex4_box;
 
 public class BoxOrRectMain {
 	public static void main(String[] args) {
