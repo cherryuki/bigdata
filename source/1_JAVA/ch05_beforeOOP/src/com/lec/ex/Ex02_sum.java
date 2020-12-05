@@ -1,6 +1,6 @@
 package com.lec.ex;
 
-public class Ex02 {
+public class Ex02_sum {
 	private static int sum(int to) {
 		int result = 0; //누적해서 전달할 변수
 		for(int i=1; i<=to; i++) {

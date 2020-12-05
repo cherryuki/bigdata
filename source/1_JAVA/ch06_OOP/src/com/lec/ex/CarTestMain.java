@@ -1,6 +1,6 @@
 package com.lec.ex;
 
-public class CarMain {
+public class CarTestMain {
 	public static void main(String[] args) {
 		//Scanner sc = new Scanner(System.in); //처럼 사용
 		Car myPorshe = new Car();

@@ -1,6 +1,6 @@
 package com.lec.ex1_student;
 
-public class StudentTestMain {
+public class StudentTestMain1 {
 	public static void main(String[] args) {
 		Student [] student = {new Student("정우성",90,90,90),
 					  new Student("김하늘",90,90,91),
