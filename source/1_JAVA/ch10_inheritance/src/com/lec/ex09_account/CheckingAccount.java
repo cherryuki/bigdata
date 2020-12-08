@@ -1,4 +1,6 @@
 package com.lec.ex09_account;
+//20-12-07_inheritance ⓒcherryuki(ji)
+
 //CkeckingAccount ca1 = new CkeckingAccount(“111-1111”,”김길동”,[1000,] ”1234-1234-1234-1234”);
 public class CheckingAccount extends Account {
 	private String cardNo;
@@ -15,7 +17,7 @@ public class CheckingAccount extends Account {
 		if(this.cardNo.equals(cardNo)) {
 			if(getBalance()>=amount) {
 				setBalance(getBalance()-amount);
-				System.out.println(amount+"원 사용되어 잔액: "+getBalance()+"원");
+				System.out.println(getOwnerName()+"님, "+amount+"원 사용되어 잔액: "+getBalance()+"원");
 			}else {
 				System.out.println("잔액이 부족합니다");
 			}

@@ -1,5 +1,5 @@
 package com.lec.ex04_override;
-
+//20-12-07_inheritance ⓒcherryuki(ji)
 public class ChildClass extends ParentClass {
 	public ChildClass() {
 		System.out.println("C 매개 변수 없는 생성자");

@@ -1,5 +1,5 @@
 package com.lec.ex08_person;
-
+//20-12-07_inheritance ⓒcherryuki(ji)
 public class TestMain {
 	public static void main(String[] args) {
 		Person papa = new Person("아빠곰", "뚱뚱해");

@@ -1,5 +1,5 @@
 package com.lec.ex07_grand;
-
+//20-12-07_inheritance ⓒcherryuki(ji)
 public class TestMain {
 	public static void main(String[] args) {
 		Parent parent = new Parent();

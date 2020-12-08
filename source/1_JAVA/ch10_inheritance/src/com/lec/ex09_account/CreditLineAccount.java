@@ -1,4 +1,6 @@
 package com.lec.ex09_account;
+//20-12-07_inheritance ⓒcherryuki(ji)
+
 //CreditLineAccount cla1 = new Account(“111-1111”,”박길동”,[1000,]”1234-1234-1234-1234”, 2200000000L);
 public class CreditLineAccount extends CheckingAccount {
 	private long creditLine;
@@ -15,12 +17,12 @@ public class CreditLineAccount extends CheckingAccount {
 		if(getCardNo().equals(cardNo)) {
 			if(creditLine>=amount) {
 				creditLine -= amount;
-				System.out.println(getOwnerName()+"님, "+amount+"원 출금(잔여 한도액: "+creditLine);
+				System.out.println(getOwnerName()+"님, "+amount+"원 사용. 잔여 한도액: "+creditLine);
 			}else {
 				System.out.println(getOwnerName()+"님, 한도 초과입니다");
 			}
 		}else {
-			System.out.println("(신용)카드번호가 일치하지 않습니다");
+			System.out.println("(신용)카드 번호가 일치하지 않습니다");
 		}
 	}
 	public long getCreditLine() {

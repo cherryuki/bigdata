@@ -1,5 +1,5 @@
 package com.lec.ex07_grand;
-
+//20-12-07_inheritance ⓒcherryuki(ji)
 public class Child1 extends Parent {
 	private int c1=1;
 	public Child1() {

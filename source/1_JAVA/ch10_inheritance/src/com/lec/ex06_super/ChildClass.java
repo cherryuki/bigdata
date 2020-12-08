@@ -1,5 +1,5 @@
 package com.lec.ex06_super;
-
+//20-12-07_inheritance ⓒcherryuki(ji)
 public class ChildClass extends ParentClass {
 	private String cStr = "자식 클래스";
 	public ChildClass() {

@@ -1,5 +1,5 @@
 package com.lec.ex04_override;
-
+//20-12-07_inheritance ⓒcherryuki(ji)
 public class TestMain {
 	public static void main(String[] args) {
 		ParentClass pObj1 = new ParentClass();

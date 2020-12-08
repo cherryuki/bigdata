@@ -1,5 +1,5 @@
 package com.lec.ex01_super;
-
+//20-12-07_inheritance ⓒcherryuki(ji)
 public class SuperIJ {
 	private int i;
 	private int j;

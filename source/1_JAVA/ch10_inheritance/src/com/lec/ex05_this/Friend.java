@@ -1,5 +1,5 @@
 package com.lec.ex05_this;
-
+//20-12-07_inheritance ⓒcherryuki(ji)
 public class Friend {
 	private String name;
 	private String tel;

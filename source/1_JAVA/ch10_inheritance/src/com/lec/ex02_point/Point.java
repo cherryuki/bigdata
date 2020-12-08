@@ -1,5 +1,5 @@
 package com.lec.ex02_point;
-
+//20-12-07_inheritance ⓒcherryuki(ji)
 public class Point {
 	private int x;
 	private int y;

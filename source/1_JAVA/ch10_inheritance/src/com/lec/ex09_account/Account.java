@@ -1,4 +1,6 @@
 package com.lec.ex09_account;
+//20-12-07_inheritance ⓒcherryuki(ji)
+
 //Account a1 = new Account(“111-1111”,”홍길동”,10);
 //Account a1 = new Account(“111-1111”,”홍길동”);
 public class Account {

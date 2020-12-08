@@ -1,5 +1,5 @@
 package com.lec.ex01_super;
-
+//20-12-07_inheritance ⓒcherryuki(ji)
 public class Child extends SuperIJ{//extends 상속받고자 하는 클래스(부모클래스)
 	private int total;
 	public Child(int i, int j) {

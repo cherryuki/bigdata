@@ -1,4 +1,5 @@
 package com.lec.ex08_person;
+//20-12-07_inheritance ⓒcherryuki(ji)
 //Person p = new Person("공유", "잘생겼다");
 public class Person {
 	private String name;
