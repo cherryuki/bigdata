@@ -1,5 +1,5 @@
 package com.lec.ex10_final;
-
+//20-12-08_final	ⓒcherryuki(ji)
 public final class Dog extends Animal {//final class: 클래스 상속 불가
 	@Override
 	public void running() {

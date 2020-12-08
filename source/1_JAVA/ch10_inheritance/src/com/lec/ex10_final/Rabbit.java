@@ -1,5 +1,5 @@
 package com.lec.ex10_final;
-
+//20-12-08_final	ⓒcherryuki(ji)
 public class Rabbit extends Animal{
 	@Override
 	public void running() {
