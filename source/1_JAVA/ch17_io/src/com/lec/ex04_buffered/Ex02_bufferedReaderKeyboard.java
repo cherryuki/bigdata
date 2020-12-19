@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 
 //키보드로부터 파일 이름을 받아 해당 파일 출력
-public class Ex02_bufferedReaderKeyboard {
+public class Ex02_BufferedReaderKeyboard {
 	public static void main(String[] args) {
 		BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 		Reader 		  reader = null;
