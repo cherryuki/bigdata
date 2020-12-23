@@ -1,3 +1,4 @@
+-- 2020-12-23 DBMS_SELECT   ⓒcherryuki(ji)
 -- [II] SELECT문
 -- 01. SQL문장 작성법
 SELECT * FROM TAB; -- 현 계정(SCOTT)이 가지고 있는 모든 테이블
