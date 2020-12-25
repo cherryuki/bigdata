@@ -1,3 +1,4 @@
+-- 2020-12-24 DBMS_JOIN   ⓒcherryuki(ji)
 -- [III] JOIN: 테이블을 2개 이상 연결하여 검색
 SELECT * FROM EMP WHERE ENAME='SCOTT'; --부서번호(DEPNO):20
 SELECT * FROM DEPT;
