@@ -1,4 +1,4 @@
--- 2020-12-24 DBMS_단일행 함수(1)   ⓒcherryuki(ji)
+-- 2020-12-24 DBMS_05.단일행 함수   ⓒcherryuki(ji)
 -- [IV] 단일행 함수
 -- 함수: 단일행 함수, 그룹함수([V] 참고)
 SELECT HIREDATE, TO_CHAR(HIREDATE, 'YY"년"MM"월"DD"일"') 입사년월일 FROM EMP;
@@ -144,3 +144,162 @@ SELECT ENAME, HIREDATE, ROUND(HIREDATE-9, 'MONTH')+24 "첫 월급날" FROM EMP;
 SELECT ENAME, HIREDATE, SAL, TRUNC(MONTHS_BETWEEN(SYSDATE, HIREDATE))*SAL "월급의 합" FROM EMP;
 -- EX4. 이름, 입사일, SAL, COMM, 이때까지 받은 연봉(SAL*12+COMM)
 SELECT ENAME, HIREDATE, SAL, COMM, TRUNC((SYSDATE-HIREDATE)/365)*(SAL*12+NVL(COMM,0)) "연봉의 합" FROM EMP;
+
+-- 2020-12-28 DBMS_단일행 함수   ⓒcherryuki(ji)
+-- 4) 형변환 함수
+-- TO_CHAR(날짜, 패턴); 날짜값을 패턴에 맞게 문자형으로 변환
+    -- YY(년도) MM(월) MON(N월 ex:12월) DD(일) DY(요일)
+    -- HH24(0~23시) AM(오전/오후) HH(0~11시) MI(분) SS(초)
+SELECT ENAME, TO_CHAR(HIREDATE, 'YYYY-MM-DD') FROM EMP;
+SELECT ENAME, TO_CHAR(HIREDATE, 'YYYY"년"MM"월"DD"일" DY"요일"') FROM EMP;
+SELECT ENAME, TO_CHAR(SYSDATE, 'YY"년"MONDD"일" AMHH"시"MI"분"SS"초"') FROM EMP;
+
+-- TO_CHAR(숫자, 패턴); 숫자값을 패턴에 맞게 문자로 형변환
+    -- 패턴 내 0: 자릿수, 자릿수가 맞지 않으면 0으로 채움
+    -- 패턴 내 9: 자릿수, 자릿수가 맞지 않으면 채우지 않음(자바에서는 #)
+    -- 패턴 내 $: 통화 단위, $가 숫자 앞에 붙음
+    -- 패턴 내 L: 지역통화 단위가 숫자 앞에 붙음
+SELECT ENAME, TO_CHAR(SAL, 'L999,999') SAL FROM EMP;
+SELECT ENAME, TO_CHAR(SAL, '$9,999') SAL FROM EMP;
+SELECT ENAME, TO_CHAR(SAL, '$000,000') SAL FROM EMP;
+
+-- TO_DATE(문자, 패턴); '81/01/01' 문자를 패턴에 맞게 날짜형으로 형변환
+-- 81/05/01~83/05/01 사이에 입사한 직원 출력
+SELECT * FROM EMP
+    WHERE HIREDATE BETWEEN '81/05/01' AND '83/05/01';
+SELECT * FROM EMP 
+    WHERE HIREDATE BETWEEN TO_DATE('19810501', 'YY/MM/DD') AND TO_DATE('19830501', 'YY/MM/DD'); --연도 4자리로
+-- 2020년 11월 30일부터 현재까지 날짜수를 출력(시스템의 날짜형 포맷 모름)
+SELECT TRUNC(SYSDATE-TO_DATE('2020/11/30', 'YYYY/MM/DD')) 경과일 FROM DUAL; --28일(내림)
+SELECT CEIL(SYSDATE-TO_DATE('2020-11-30', 'YYYY-MM-DD')) 경과일 FROM DUAL; --29일(올림)
+SELECT * FROM EMP WHERE TO_CHAR(HIREDATE, 'YY/MM/DD') BETWEEN '81/05/01' AND '83/05/01';
+
+-- TO_NUMBER(문자, 패턴); 문자를 패턴에 맞게 숫자형으로 변환
+SELECT TO_NUMBER('1,000', '9,999') FROM DUAL;
+SELECT TO_NUMBER('1,000', '9,999')*1.1 FROM DUAL;
+
+-- 5) NULL 관련 함수: NVL(NULL일 수도 있는 데이터, NULL이면 대신할 값) --매개변수 2개는 타입이 일치해야 함
+-- 사원 이름, 직속 상사의 이름(직속 상사가 없으면 CEO 출력)
+SELECT W.ENAME "사원명", NVL(M.ENAME, 'CEO') "직속 상사명" 
+    FROM EMP W, EMP M
+    WHERE W.MGR=M.EMPNO(+);
+-- 사원 이름, 직속 상사의 사번(직속 상사가 없으면 CEO 출력)
+SELECT ENAME, NVL(TO_CHAR(MGR), 'CEO') MGR FROM EMP; --CEO를 숫자로 바꿀 수 없으므로 MGR(숫자)를 문자로 형변환
+
+-- 6) DECODE(데이터, 값1, 결과1, 값2, 결과2, ..., 값N, 결과N, 그 외 결과)
+-- 이름, 부서번호, 부서이름
+SELECT ENAME, EMPNO, DNAME 
+    FROM EMP E, DEPT D
+    WHERE E.DEPTNO=D.DEPTNO; --EQUI JOIN
+SELECT ENAME, DEPTNO, 
+    DECODE(DEPTNO, 10, 'ACCOUNTING', 20, 'RESEARCH', 30, 'SALES', 40, 'OPERATIONS', 'ETC') DNAME 
+    FROM EMP;
+-- DECODE와 유사하게 사용할 수 있는 CASE
+SELECT ENAME, DEPTNO,
+    CASE WHEN DEPTNO=10 THEN 'ACCOUNTING'
+         WHEN DEPTNO=20 THEN 'RESEARCH'
+         WHEN DEPTNO=30 THEN 'SALES'
+         WHEN DEPTNO=40 THEN 'OPERATIONS'
+         ELSE 'ETC'
+    END AS "DNAME" FROM EMP;
+SELECT ENAME, DEPTNO,
+    CASE DEPTNO WHEN 10 THEN 'ACCOUNTING'
+                WHEN 20 THEN 'RESEARCH'
+                WHEN 30 THEN 'SALES'
+                WHEN 40 THEN 'OPERATIONS'
+        ELSE 'ETC'
+    END AS "DNAME" FROM EMP;
+
+-- 이름, 급여, 인상 예정 급여 출력(DECODE, CASE)
+  -- JOB에 따른 인상율: 'ANALYST' 10% 인상, 'MANAGER' 20% 인상, 'PRESIDENT' 30% 인상, 'SALESMAN' 40% 인상, 'CLERK' 인상X
+SELECT ENAME, SAL "현재 급여", 
+    DECODE(JOB, 'ANALYST', SAL*1.1, 'MANAGER', SAL*1.2, 
+                'PRESIDENT', SAL*1.3, 'SALESMAN', SAL*1.4, 'CLERK', SAL) "인상 예정 급여" 
+    FROM EMP;
+SELECT ENAME, SAL "현재 급여", 
+    DECODE(JOB, 'ANALYST', SAL*1.1, 'MANAGER', SAL*1.2, 
+                'PRESIDENT', SAL*1.3, 'SALESMAN', SAL*1.4, SAL) "인상 예정 급여" 
+    FROM EMP;
+SELECT ENAME, SAL "현재 급여", 
+    CASE JOB WHEN 'ANALYST' THEN SAL*1.1
+             WHEN 'MANAGER' THEN SAL*1.2
+             WHEN 'PRESIDENT' THEN SAL*1.3
+             WHEN 'SALESMAN' THEN SAL*1.4
+             WHEN 'CLERK' THEN SAL
+    END AS "인상 예정 급여" FROM EMP;
+
+-- 7) 그 외: EXTRACT, LEVEL별 출력
+SELECT EXTRACT(YEAR FROM HIREDATE) YEAR FROM EMP;
+SELECT TO_CHAR(HIREDATE, 'YYYY') YEAR FROM EMP;
+SELECT EXTRACT(MONTH FROM HIREDATE) MONTH FROM EMP;
+SELECT TO_CHAR(HIREDATE, 'MM') MONTH FROM EMP;
+-- LEVEL, START WITH(최상위 레벨의 조건), CONNECT BY PRIOR(상하레벨 연결 조건)
+SELECT LEVEL, LPAD(' ', LEVEL*2)||ENAME, MGR FROM EMP
+    START WITH MGR IS NULL
+    CONNECT BY PRIOR EMPNO=MGR;
+    
+-- <총 연습문제>
+-- 1. 현재 날짜를 출력하고 TITLE에 “Current Date”로 출력하는 SELECT 문장을 기술하시오.
+SELECT SYSDATE "Current Date" FROM DUAL;
+-- 2. EMP 테이블에서 현재 급여에 15%가 증가된 급여를 계산하여,
+-- 사원번호,이름,업무,급여,증가된 급여(New Salary),증가액(Increase)를 출력하는 SELECT 문장
+SELECT EMPNO, ENAME, JOB, SAL, SAL*1.15 "New Salary", SAL*0.15 "Increase" FROM EMP;
+--3. 이름, 입사일, 입사일로부터 6개월 후 돌아오는 월요일 구하여 출력하는 SELECT 문장을 기술하시오.
+SELECT ENAME, HIREDATE, NEXT_DAY(ADD_MONTHS(HIREDATE, 6), '월') "6개월 후 월요일" FROM EMP;
+--4. 이름, 입사일, 입사일로부터 현재까지의 개월수, 급여, 입사일부터 현재까지의 받은 급여의 총계를 출력
+SELECT ENAME, HIREDATE, TRUNC(MONTHS_BETWEEN(SYSDATE, HIREDATE)) 근속월수, 
+    SAL, SAL*TRUNC(MONTHS_BETWEEN(SYSDATE, HIREDATE)) "급여 총계" FROM EMP;
+--5. 모든 사원의 이름과 급여(15자리로 출력 좌측의 빈 곳은 “*”로 대치)를 출력
+SELECT ENAME, LPAD(SAL, 15, '*') 급여 FROM EMP;
+--6. 모든 사원의 정보를 이름,업무,입사일,입사한 요일을 출력하는 SELECT 문장을 기술하시오.
+SELECT ENAME, JOB, HIREDATE, TO_CHAR(HIREDATE, 'DY"요일"') "입사한 요일" FROM EMP;
+--7. 이름의 길이가 6자 이상인 사원의 정보를 이름,이름의 글자수,업무를 출력
+SELECT ENAME, LENGTH(ENAME), JOB
+    FROM EMP
+    WHERE LENGTH(ENAME)>=6;
+--8. 모든 사원의 정보를 이름, 업무, 급여, 보너스, 급여+보너스를 출력
+SELECT ENAME, JOB, SAL, COMM, SAL+NVL(COMM,0) "급여+보너스" FROM EMP;
+-- 9.사원 테이블의 사원명에서 2번째 문자부터 3개의 문자를 추출하시오. 
+SELECT SUBSTR(ENAME, 2, 3) FROM EMP;
+--10. 사원 테이블에서 입사일이 12월인 사원의 사번, 사원명, 입사일을 검색하시오. 
+SELECT EMPNO, ENAME, HIREDATE FROM EMP
+    WHERE TO_CHAR(HIREDATE, 'MM')=12;
+SELECT EMPNO, ENAME, HIREDATE FROM EMP
+    WHERE EXTRACT(MONTH FROM HIREDATE)=12;
+--11. 다음과 같은 결과를 검색할 수 있는 SQL 문장을 작성하시오
+--EMPNO		ENAME		급여
+--7369		SMITH		*******800
+--7499		ALLEN		******1600
+--7521		WARD		******1250
+SELECT EMPNO, ENAME, LPAD(SAL, 10, '*') 급여 FROM EMP;
+-- 12. 다음과 같은 결과를 검색할 수 있는 SQL 문장을 작성하시오
+-- EMPNO	 ENAME 	입사일
+-- 7369	  SMITH		1980-12-17
+-- ….
+SELECT EMPNO, ENAME, TO_CHAR(HIREDATE, 'YYYY-MM-DD') 입사일 FROM EMP;
+--13. 사원 테이블에서 부서 번호가 20인 사원의 사번, 이름, 직무, 급여를 출력하시오.
+    --(급여는 앞에 $를 삽입하고3자리마다 ,를 출력한다)
+SELECT EMPNO, ENAME, JOB, TO_CHAR(SAL, '$9,999') 급여 
+    FROM EMP 
+    WHERE DEPTNO=20;
+-- 14. 사원 테이블에서 급여에 따라 사번, 이름, 급여, 등급을 검색하는 SQL 문장을 작성 하시 오.
+-- 급여가 0~1000 E / 1001~2000 D / 2001~3000 C / 3001~4000 B / 4001~5000 A
+SELECT EMPNO, ENAME, SAL, 
+    DECODE(TRUNC((SAL-1)/1000), 0, 'E', 1, 'D', 2, 'C', 3, 'B', 4, 'A') 등급
+    FROM EMP;
+SELECT EMPNO, ENAME, SAL,
+    CASE TRUNC((SAL-1)/1000) WHEN 0 THEN 'E'
+                             WHEN 1 THEN 'D'
+                             WHEN 2 THEN 'C'
+                             WHEN 3 THEN 'B'
+                             WHEN 4 THEN 'A'
+    END AS "등급"
+    FROM EMP;
+SELECT EMPNO, ENAME, SAL,
+    CASE WHEN SAL BETWEEN 0 AND 1000 THEN 'E'
+         WHEN SAL BETWEEN 1001 AND 2000 THEN 'D'
+         WHEN SAL BETWEEN 2001 AND 3000 THEN 'C'
+         WHEN SAL BETWEEN 3001 AND 4000 THEN 'B'
+         WHEN SAL BETWEEN 4001 AND 5000 THEN 'A'
+    END "등급"
+    FROM EMP;
