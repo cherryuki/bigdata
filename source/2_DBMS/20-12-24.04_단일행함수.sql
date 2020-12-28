@@ -145,7 +145,7 @@ SELECT ENAME, HIREDATE, SAL, TRUNC(MONTHS_BETWEEN(SYSDATE, HIREDATE))*SAL "월급�
 -- EX4. 이름, 입사일, SAL, COMM, 이때까지 받은 연봉(SAL*12+COMM)
 SELECT ENAME, HIREDATE, SAL, COMM, TRUNC((SYSDATE-HIREDATE)/365)*(SAL*12+NVL(COMM,0)) "연봉의 합" FROM EMP;
 
--- 2020-12-28 DBMS_단일행 함수   ⓒcherryuki(ji)
+-- 2020-12-28 DBMS_05.단일행 함수   ⓒcherryuki(ji)
 -- 4) 형변환 함수
 -- TO_CHAR(날짜, 패턴); 날짜값을 패턴에 맞게 문자형으로 변환
     -- YY(년도) MM(월) MON(N월 ex:12월) DD(일) DY(요일)
