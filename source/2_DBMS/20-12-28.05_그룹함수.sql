@@ -1,4 +1,4 @@
--- 2020-12-28 DBMS_06.그룹 함수   ⓒcherryuki(ji)
+-- 2020-12-28 DBMS_05.그룹 함수   ⓒcherryuki(ji)
 -- [V] 그룹함수; SUM, AVG, MIN, MAX, COUNT, STDDEV(표준편차), VARIANCE(분산)
 -- ★ 1) 그룹함수
 SELECT ENAME, ROUND(SAL, -3) FROM EMP; -- 단일행 함수
