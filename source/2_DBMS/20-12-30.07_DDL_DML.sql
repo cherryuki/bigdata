@@ -1,4 +1,4 @@
--- 2020-12-30 DBMS_07.그룹 함수   ⓒcherryuki(ji)
+-- 2020-12-30 DBMS_07.DDL_DML   ⓒcherryuki(ji)
 -- [VII] DDL, DML, DCL
 -- SQL = DDL(테이블 생성, 삭제, 구조변경, 테이블 데이터 제거)
     --  +DML(SELECT, INSERT, UPDATE, DELETE)
@@ -292,6 +292,16 @@ INSERT INTO EMP1 (EMPNO, ENAME, JOB, MGR, SAL, DEPTNO)
     VALUES (1112, 'KONGU', 'MARKETER', 1111, 1000, 20);
 COMMIT;
 
-
-
-
+-- 2020-12-31 DBMS_07.DCL   ⓒcherryuki(ji)
+-- ★ 03. DCL ★ --
+-- 사용자 계정 생성, 사용자 권한 부여, 권한 박탈, 트랜잭션 명령어(TCL)
+-- 1) 계정 추가 (현 scott 계정이 DBA권한이므로)
+CREATE USER kim IDENTIFIED BY tiger; --kim(PW: tiger)계정 생성
+-- 2) 권한 부여(GRANT)
+GRANT CREATE SESSION, CREATE TABLE TO kim;
+GRANT SELECT ON EMP TO kim;
+SHOW USER;
+-- 3) 권한 박탈(REVOKE)
+REVOKE SELECT ON EMP FROM kim;
+-- 4) 계정 삭제
+DROP USER kim; 
