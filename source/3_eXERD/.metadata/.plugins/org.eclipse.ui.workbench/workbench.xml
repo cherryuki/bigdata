@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="8" version="2.0">
+<workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
-<window height="1031" width="1472" x="-153" y="63">
+<window height="1031" width="1472" x="217" y="42">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -34,8 +34,8 @@
 <editor id="com.tomato.exerd.editor.DiagramEditor" name="201231_customer.exerd" partName="201231_customer.exerd" path="C:/Bigdata/source/3_eXERD/newProject/201231_customer.exerd" title="201231_customer.exerd" tooltip="newProject/201231_customer.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/newProject/201231_customer.exerd"/>
 </editor>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="201231_ordersheet.exerd" partName="201231_ordersheet.exerd" path="C:/Bigdata/source/3_eXERD/newProject/201231_ordersheet.exerd" title="201231_ordersheet.exerd" tooltip="newProject/201231_ordersheet.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/newProject/201231_ordersheet.exerd"/>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="201231_ordersheet.exerd" partName="201231_ordersheet.exerd" title="201231_ordersheet.exerd" tooltip="C:\Users\Home\Downloads\201231_ordersheet.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/Users/Home/Downloads/201231_ordersheet.exerd"/>
 </editor>
 </editors>
 <views>
@@ -164,13 +164,17 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/201231_customer.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/201231_ordersheet.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/201231_customer.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/Home/Downloads/201231_ordersheet.exerd"/>
 </editors>
 <item historyLabel="201231_customer.exerd" index="0"/>
 <item historyLabel="201231_ordersheet.exerd" index="1"/>
 <item historyLabel="201231_customer.exerd" index="0"/>
 <item historyLabel="201231_ordersheet.exerd" index="1"/>
 <item historyLabel="201231_customer.exerd" index="0"/>
-<item active="true" historyLabel="201231_ordersheet.exerd" index="1"/>
+<item historyLabel="201231_ordersheet.exerd" index="1"/>
+<item historyLabel="201231_customer.exerd" index="2"/>
+<item active="true" historyLabel="201231_ordersheet.exerd" index="3"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -188,6 +192,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="201231_ordersheet.exerd" tooltip="C:\Users\Home\Downloads\201231_ordersheet.exerd">
+<persistable uri="file:/C:/Users/Home/Downloads/201231_ordersheet.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="201231_ordersheet.exerd" tooltip="newProject/201231_ordersheet.exerd">
 <persistable path="/newProject/201231_ordersheet.exerd"/>
 </file>
