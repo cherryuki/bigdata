@@ -24,19 +24,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor id="com.tomato.exerd.editor.DiagramEditor" name="201231_customer.exerd" partName="201231_customer.exerd" path="C:/Bigdata/source/3_eXERD/newProject/201231_customer.exerd" title="201231_customer.exerd" tooltip="newProject/201231_customer.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/newProject/201231_customer.exerd"/>
-</editor>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="201231_ordersheet.exerd" partName="201231_ordersheet.exerd" title="201231_ordersheet.exerd" tooltip="C:\Users\Home\Downloads\201231_ordersheet.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/Users/Home/Downloads/201231_ordersheet.exerd"/>
-</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.views.ResourceNavigator" partName="네비게이터">
@@ -62,7 +53,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="com.tomato.exerd.editor.DiagramEditor" activePerspective="com.tomato.exerd.perspective.design">
+<perspectives activePart="org.eclipse.ui.views.ResourceNavigator" activePerspective="com.tomato.exerd.perspective.design">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="com.tomato.exerd.perspective.ExerdPerspectiveFactory" id="com.tomato.exerd.perspective.design" label="eXERD"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -160,22 +151,7 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/201231_customer.exerd"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/201231_ordersheet.exerd"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/201231_customer.exerd"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/Home/Downloads/201231_ordersheet.exerd"/>
-</editors>
-<item historyLabel="201231_customer.exerd" index="0"/>
-<item historyLabel="201231_ordersheet.exerd" index="1"/>
-<item historyLabel="201231_customer.exerd" index="0"/>
-<item historyLabel="201231_ordersheet.exerd" index="1"/>
-<item historyLabel="201231_customer.exerd" index="0"/>
-<item historyLabel="201231_ordersheet.exerd" index="1"/>
-<item historyLabel="201231_customer.exerd" index="2"/>
-<item active="true" historyLabel="201231_ordersheet.exerd" index="3"/>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
