@@ -1,4 +1,4 @@
--- 21-01-06_JDBC		¨Ïcherryuki(ji)
+-- 21-01-06_JDBC		(c)cherryuki(ji)
 INSERT INTO DEPT VALUES(50, 'IT', 'SEOUL');
 SELECT * FROM DEPT;
 
