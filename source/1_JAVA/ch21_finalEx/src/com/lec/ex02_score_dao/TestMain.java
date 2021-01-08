@@ -1,5 +1,5 @@
 package com.lec.ex02_score_dao;
-//21-01-07_JDBC		ⓒcherryuki(ji)
+//21-01-07_JDBC_Dao&Dto		ⓒcherryuki(ji)
 
 import java.util.ArrayList;
 

@@ -40,4 +40,8 @@ SELECT ROWNUM RANK, S.*
     FROM (SELECT NAME||'('||NO||'번)' NAME, JNAME, KOR, ENG, MAT, KOR+ENG+MAT TOTAL 
             FROM JOB J, SCORE S WHERE J.JNO=S.JNO 
             ORDER BY TOTAL DESC) S;
+            
+-- 21-01-08 JDBC_Final EX	(c)cherryuki(ji)
+-- 4) Vector
+SELECT JNAME FROM JOB;
     

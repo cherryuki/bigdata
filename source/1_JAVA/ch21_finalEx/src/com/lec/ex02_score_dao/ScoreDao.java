@@ -1,15 +1,12 @@
 package com.lec.ex02_score_dao;
-
+//21-01-07_JDBC_Dao&Dto 	ⓒcherryuki(ji)
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-//21-01-07_JDBC		ⓒcherryuki(ji)
-
-
+import java.util.Vector;
 
 /* 1번: insertPerson_Score(PersonScore dto)
  * 2번: selectJname(String jname)
@@ -139,4 +136,34 @@ public class ScoreDao {
 		}
 		return dtos;
 	}
+	//GUI JComboBox 구현 위한 Vector
+	public Vector<String> jnamelist() {
+		Vector<String> jnames = new Vector<String>();
+		jnames.add("");
+		//직업 리스트를 jname에 add
+		String sql = "SELECT JNAME FROM JOB";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DriverManager.getConnection(url, "scott", "tiger");
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				jnames.add(rs.getString("jname"));
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}finally {
+			try {
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return jnames;
+	}
 }
+
