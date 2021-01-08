@@ -1,5 +1,6 @@
 package com.lec.ex02_score_dao;
 //21-01-08_JDBC_Dao&Dto		(c)cherryuki(ji)
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

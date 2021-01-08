@@ -1,4 +1,5 @@
 package com.lec.ex02_score_dao;
+//21-01-08_JDBC_Dao&Dto		(c)cherryuki(ji)
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -9,8 +10,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class ScoreGui extends JFrame implements ActionListener{
 	private Container contenPane;

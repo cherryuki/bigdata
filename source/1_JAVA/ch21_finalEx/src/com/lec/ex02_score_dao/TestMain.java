@@ -1,27 +1,27 @@
 package com.lec.ex02_score_dao;
-//21-01-07_JDBC_Dao&Dto		â“’cherryuki(ji)
+//21-01-07_JDBC_Dao&Dto		(c)cherryuki(ji)
 
 import java.util.ArrayList;
 
 public class TestMain {
 	public static void main(String[] args) {
-		System.out.println("-----1ë²ˆ TEST-----");
-		ScoreDto dto = new ScoreDto("ì¥ë™ê±´", "ë°°ìš°", 95, 70, 70);
+		System.out.println("-----1¹ø TEST-----");
+		ScoreDto dto = new ScoreDto("ÀÌÈ¿¸®", "°¡¼ö", 95, 70, 70);
 		ScoreDao dao = ScoreDao.getInstance();
 		int result = dao.insertScore(dto);
-		System.out.println(result==ScoreDao.SUCCESS? "ì¶”ê°€ ì„±ê³µ":"ì¶”ê°€ ì‹¤íŒ¨");
-		System.out.println("-----2ë²ˆ TEST-----");
-		ArrayList<ScoreDto> dtos = dao.selectJname("ë°°ìš°");
+		System.out.println(result==ScoreDao.SUCCESS? "Ãß°¡ ¼º°ø":"Ãß°¡ ½ÇÆĞ");
+		System.out.println("-----2¹øTEST-----");
+		ArrayList<ScoreDto> dtos = dao.selectJname("°¡¼ö");
 		if(dtos.size()==0) {
-			System.out.println("í•´ë‹¹ ì§ì—…ì¸ ì‚¬ëŒì´ ì—†ìŠµë‹ˆë‹¤");
+			System.out.println("ÇØ´ç Á÷¾÷ÀÎ »ç¶÷ÀÌ ¾ø½À´Ï´Ù");
 		} else {
 			for(ScoreDto d:dtos) 
 				System.out.println(d);
 		}
-		System.out.println("-----3ë²ˆ TEST-----");
+		System.out.println("-----3¹ø TEST-----");
 		dtos = dao.selectAll();
 		if(dtos.isEmpty()) {
-			System.out.println("ì¡°íšŒí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤");
+			System.out.println("Á¶È¸ÇÒ ÀÎ¿øÀÌ ¾ø½À´Ï´Ù");
 		} else {
 			for(ScoreDto d:dtos)
 				System.out.println(d);
