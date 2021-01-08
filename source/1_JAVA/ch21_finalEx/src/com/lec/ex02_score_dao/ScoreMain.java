@@ -10,48 +10,48 @@ public class ScoreMain {
 		String fn;
 		ArrayList<ScoreDto> person;
 		do {
-			System.out.println("1:�엯�젰 | 2: 吏곸뾽蹂� 議고쉶 | 3: �쟾泥� 議고쉶 | 洹� �쇅: 醫낅즺");
+			System.out.println(" 1:입력 | 2: 직업별 조회 | 3: 전체 조회 | 그 외: 종료 ");
 			fn=sc.next();
 			switch(fn) {
-			case "1": //�씠由�, 吏곸뾽紐�, 援��쁺�닔 �젏�닔 �엯�젰 諛쏆븘�꽌 dao.insertScore() �샇異�
-				System.out.print("異붽��븷 �씠由꾩쓣 �엯�젰�븯�꽭�슂: ");
+			case "1"://이름, 직업명, 국영수 점수 입력받아 dao.insertPerson() 호출
+				System.out.print("추가할 이름을 입력하세요: ");
 				String name = sc.next();
-				System.out.print(name+"�쓽 吏곸뾽: ");
+				System.out.print("직업명: ");
 				String jname = sc.next();
-				System.out.print("援��뼱 �젏�닔: ");
+				System.out.print("국어 점수: ");
 				int kor = sc.nextInt();
-				System.out.print("�쁺�뼱 �젏�닔: ");
+				System.out.print("영어 점수: ");
 				int eng = sc.nextInt();
-				System.out.print("�닔�븰 �젏�닔: ");
+				System.out.print("수학 점수: ");
 				int mat = sc.nextInt();
 				ScoreDto newPerson = new ScoreDto(name, jname, kor, eng, mat);
-				int result = dao.insertScore(newPerson);
-				System.out.println(result==ScoreDao.SUCCESS? result+"�뻾 異붽� �꽦怨�":"�엯�젰 �떎�뙣");
+				int result = dao.insertScore(newPerson); //입력 끝
+				System.out.println(result==ScoreDao.SUCCESS? result+"행 추가":"입력 오류");
 				break;
-			case "2": //吏곸뾽蹂� 議고쉶 dao.selectJname() �샇異쒗븯�뿬 寃곌낵 異쒕젰
-				System.out.print("議고쉶�븷 吏곸뾽紐�(諛곗슦|媛��닔|湲고�)瑜� �엯�젰�븯�꽭�슂: ");
+			case "2"://직업명 입력받아 dao.selectJname() 호출 + 결과 출력
+				System.out.print("조회할 직업명(배우, 가수, 기타)을 입력하세요: ");
 				jname = sc.next();
 				person = dao.selectJname(jname);
 				if(person.size()==0) {
-					System.out.println("議고쉶 媛��뒫�븳 �씤�썝�씠 �뾾�뒿�땲�떎");
-				} else {
-					System.out.println("�벑�닔\t�씠由�\t\t吏곸뾽\t援��뼱\t�쁺�뼱\t�닔�븰\t珥앹젏");
-					for(ScoreDto p:person) 
+					System.out.println("해당 직업인 사람이 없습니다");
+				}else {
+					System.out.println("등수\t이름\t\t직업\t국어\t영어\t수학\t총점");
+					for(ScoreDto p:person)
 						System.out.println(p);
 				}
 				break;
-			case "3": //�쟾泥� 議고쉶 dao.selectAll() �샇異쒗븯�뿬 寃곌낵 異쒕젰
+			case "3"://dao.selectAll()호출 + 전체 리스트 출력
 				person = dao.selectAll();
 				if(person.isEmpty()) {
-					System.out.println("議고쉶 媛��뒫�븳 �씤�썝�씠 �뾾�뒿�땲�떎");
+					System.out.println("등록된 사람이 없습니다");
 				} else {
-					System.out.println("�벑�닔\t�씠由�\t\t吏곸뾽\t援��뼱\t�쁺�뼱\t�닔�븰\t珥앹젏");
-					for(ScoreDto p:person) 
+					System.out.println("등수\t이름\t\t직업\t국어\t영어\t수학\t총점");
+					for(ScoreDto p:person)
 						System.out.println(p);
 				}
 				break;
-			}//switch
+			}
 		} while(fn.equals("1")||fn.equals("2")||fn.equals("3"));
-		System.out.println("醫낅즺�빀�땲�떎");
+		System.out.println("종료");
 	}//main
 }//class
