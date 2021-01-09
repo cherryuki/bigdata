@@ -2,7 +2,7 @@ package com.lec.ex03_student;
 //21-01-08_JDBC_Dao&Dto		(c)cherryuki(ji)
 
 public class StudentDto {
-	private String rank; //'등'까지 출력해야 하므로 String
+	private String rank; //String
 	private int sno;
 	private String name; //name & sname
 	private String mname;
