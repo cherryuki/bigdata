@@ -1,5 +1,5 @@
 package com.lec.ex02_score_dao;
-//21-01-07_JDBC_Dao&Dto 	ⓒcherryuki(ji)
+//21-01-07_JDBC_Dao&Dto		(c)cherryuki(ji)
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,16 +8,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-/* 1번: insertPerson_Score(PersonScore dto)
- * 2번: selectJname(String jname)
- * 3번: selectAll()
+/* 1: insertPerson_Score(PersonScore dto)
+ * 2: selectJname(String jname)
+ * 3: selectAll()
  */
 public class ScoreDao {
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	public static final int SUCCESS = 1;
 	public static final int FAIL = 0;
-	private static ScoreDao INSTANCE; //Singleton parttern(ch13_pattern참조)
+	private static ScoreDao INSTANCE; //Singleton pattern(ch13_pattern)
 	public static ScoreDao getInstance() {
 		if(INSTANCE==null) {
 			INSTANCE = new ScoreDao();
@@ -31,10 +31,10 @@ public class ScoreDao {
 			System.out.println(e.getMessage());
 		}
 	}
-	//1번
+	//1 insert
 	public int insertScore(ScoreDto dto) {
 		int result = FAIL;
-		//dto 값들을 DB에 넣기
+		//dto 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO SCORE VALUES(S_SEQ.NEXTVAL, ?, "
@@ -60,15 +60,14 @@ public class ScoreDao {
 		}
 		return result;
 	}
-	//2번
+	//2 select where jname
 	public ArrayList<ScoreDto> selectJname(String jname) {
 		ArrayList<ScoreDto> dtos = new ArrayList<ScoreDto>();
-		//jname 직업인 사람들 리스트 dtos에 add
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT ROWNUM RANK, S.*\r\n" + 
-				"    FROM (SELECT NAME||'('||NO||'번)' NAME, JNAME, KOR, ENG, MAT, KOR+ENG+MAT TOTAL" + 
+				"    FROM (SELECT NAME||'('||NO||'踰�)' NAME, JNAME, KOR, ENG, MAT, KOR+ENG+MAT TOTAL" + 
 				"            FROM JOB J, SCORE S WHERE J.JNO=S.JNO AND JNAME=?" + 
 				"            ORDER BY TOTAL DESC) S";
 		try {
@@ -99,14 +98,14 @@ public class ScoreDao {
 		}
 		return dtos;
 	}
-	//3번
+	//3 select all
 	public ArrayList<ScoreDto> selectAll() {
 		ArrayList<ScoreDto> dtos = new ArrayList<ScoreDto>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT ROWNUM RANK, S.*" + 
-					"    FROM (SELECT NAME||'('||NO||'번)' NAME, JNAME, KOR, ENG, MAT, KOR+ENG+MAT TOTAL" + 
+					"    FROM (SELECT NAME||'('||NO||'踰�)' NAME, JNAME, KOR, ENG, MAT, KOR+ENG+MAT TOTAL" + 
 					"            FROM JOB J, SCORE S WHERE J.JNO=S.JNO" + 
 					"            ORDER BY TOTAL DESC) S";
 		try {
@@ -136,11 +135,10 @@ public class ScoreDao {
 		}
 		return dtos;
 	}
-	//GUI JComboBox 구현 위한 Vector
+	//GUI Vector fro JComboBox
 	public Vector<String> jnamelist() {
 		Vector<String> jnames = new Vector<String>();
 		jnames.add("");
-		//직업 리스트를 jname에 add
 		String sql = "SELECT JNAME FROM JOB";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
