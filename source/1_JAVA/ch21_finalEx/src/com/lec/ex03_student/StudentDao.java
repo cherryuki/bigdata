@@ -7,6 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Vector;
+
+import com.lec.studentGui.StudentSwingDto;
 
 /* 1: insertStudent
  * 2: selectMname(String mname)
@@ -65,7 +68,7 @@ public class StudentDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT ROWNUM||'µî' RANK, SM.*" + 
+		String sql = "SELECT ROWNUM||'ÂµÃ®' RANK, SM.*" + 
 					"    FROM (SELECT SNAME||'('||SNO||')' NAME, MNAME, SCORE FROM STUDENT S, MAJOR M" + 
 					"            WHERE S.MNO=M.MNO AND SEXPEL=0 AND MNAME=?" + 
 					"            ORDER BY SCORE DESC) SM";
@@ -100,7 +103,7 @@ public class StudentDao {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	String sql = "SELECT ROWNUM||'µî' RANK, SM.*" + 
+	String sql = "SELECT ROWNUM||'ÂµÃ®' RANK, SM.*" + 
 				"    FROM (SELECT SNAME||'('||SNO||')' NAME, MNAME, SCORE FROM STUDENT S, MAJOR M" + 
 				"            WHERE S.MNO=M.MNO AND SEXPEL=0" + 
 				"            ORDER BY SCORE DESC) SM";
@@ -134,7 +137,7 @@ public class StudentDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT ROWNUM||'µî' RANK, SM.*" + 
+		String sql = "SELECT ROWNUM||'ÂµÃ®' RANK, SM.*" + 
 					"    FROM (SELECT SNAME||'('||SNO||')' NAME, MNAME, SCORE FROM STUDENT S, MAJOR M" + 
 					"            WHERE S.MNO=M.MNO AND SEXPEL=1" + 
 					"            ORDER BY SCORE DESC) SM";
