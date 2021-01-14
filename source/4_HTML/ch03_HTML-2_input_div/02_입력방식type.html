@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<!-- 21-01-04 HTML-2         (c)cherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table#top {background-color:lightblue;}
+        td {background-color:white;}
+        table {border:1px solid lightgray;}
+    </style>
+</head>
+<body>
+    <form action="" method="get">
+        <table id="top">
+            <caption>입력</caption>
+            <tr>
+                <td>아이디</td>
+                <td>
+                    <input type="text" name="id" size="5" />
+                    <input type="button" value="중복확인" />
+                </td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pw" /></td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td>
+                    <input type="tel" name="phone1" size="3" />-
+                    <input type="tel" name="phone2" size="3" />-
+                    <input type="tel" name="phone3" size="3" />
+                </td>
+            </tr>
+            <tr>
+                <td>경력</td>
+                <td><input type="number" name="career" min="0" max="40" /></td>
+            </tr>
+            <tr>
+                <td>사진</td>
+                <td><input type="file" name="filename" /></td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+                    <input type="radio" name="gender" value="m" checked="checked" />남
+                    <input type="radio" name="gender" value="f" />여
+                </td>
+            </tr>
+            <tr>
+                <td>사용 언어</td>
+                <td>
+                    <input type="checkbox" name="lang" value="kor" checked />한국어
+                    <input type="checkbox" name="lang" value="eng" />영어
+                    <input type="checkbox" name="lang" value="jpn" />일본어
+                </td>
+            </tr>
+            <tr>
+                <td>국적</td>
+                <td>
+                    <select name="nation">
+                        <option value="Korea">대한민국</option>
+                        <option value="U.S.A">미국</option>
+                        <option value="Japan">일본</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>좋아하는 음식</td>
+                <td>
+                    <select name="food" multiple="multiple" size="3">
+                        <option>김밥</option>
+                        <option>파스타</option>
+                        <option>치킨</option>
+                        <option>육회</option>
+                        <option>갈비</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>자기소개</td>
+                <td>
+                    <textarea name="intro" cols="25" rows="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>생년월일</td>
+                <td><input type="date" name="birth" /></td>
+            </tr>
+            <tr>
+                <td>SNS URL</td>
+                <td><input type="url" name="sns" /></td>
+            </tr>
+            <tr>
+                <td>좋아하는 색상<br />좋아하는 정도</td>
+                <td>
+                    <input type="color" name="color" /><br />
+                    0<input type="range" name="range" min="0" max="100" step="10" />100
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="입력" />
+                    <input type="reset" value="초기화" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
