@@ -26,7 +26,7 @@ CREATE TABLE BOOK(
 SELECT * FROM BOOK;
 
 -- 데이터형(문자형, 숫자형, 날짜형)
--- VARCHAR2(N); 최소 크기:1, 최대크기:N (최대 2000BYTES 까지 가능)
+-- VARCHAR2(N); 최소 크기:1, 최대크기:N (최대 4,000BYTES 까지 가능)
 -- NUMBER(W); 최대크기:W (최대 38자리)
 -- DATE
 
