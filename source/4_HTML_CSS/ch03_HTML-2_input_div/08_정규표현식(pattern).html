@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<!-- 21-01-14 HTML-2         (c)cherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>필드에 입력형식 힌트 주기(사용자 인터페이스 향상)</legend>
+            <!-- [0-9]    : 0~9사이 숫자 중 하나
+                 [a-zA-Z] : 알파벳 중 하나
+                 [가-힣]  : 한글 중 한 문자
+                 {n}      : n번 반복(n>0)
+                 {n,m}    : 최소 n번 최대 m번 반복(0<n<m)
+                 \d       : 숫자[0-9]와 동일
+                 \w       : 문자(숫자, 알파벳 포함)
+                 +        : 1번 이상 반복
+                 *        : 0번 이상 반복
+                 .        : '\n'을 제외한 임의의 하나의 문자
+                 \.       : .   -->
+            <ul>
+                <li>연락처 <input type="text" name="tel" placeholder="000-0000-0000/00-000-0000"
+                               pattern="\d{2,3}-[0-9]{3,4}-[0-9]{4}" title="전화번호 형식을 확인해주세요"
+                               required="required" /></li>
+                <li>이메일 <input type="text" name="email" placeholder="아이디@domain.com/id@domain.co.kr"
+                               pattern="[a-zA-Z가-힣0-9]+@\w+[\.\w+]+" title="이메일 형식을 확인해주세요" /></li>
+            </ul>
+            <p>
+                <center>
+                    <input type="submit" value="입력 완료" />
+                    <input type="reset" value="입력 취소" />
+                </center>
+            </p>
+        
+        
+        </fieldset>
+    </form>
+
+</body>
+</html>

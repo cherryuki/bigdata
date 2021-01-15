@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<!-- 21-01-15 CSS         (c)cherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        /*위에서부터 아래로 차례차례 적용(중복될 경우 하단에 있는 것이 적용됨)*/
+        header, footer {
+            color: blue; /*글자 색*/
+            border: 1px solid gray; /*회색 실선 테두리*/
+        }
+
+        h1 {
+            border: 1px dashed red; /*빨간색 점선 테두리*/
+            margin: 0;
+        }
+        /*바깥 여백 없음*/
+        li, p {
+            color: red;
+            background-color: pink;
+            font-weight: bold; /*글자 굵게*/
+        }
+
+        p {
+            color: chocolate;
+        }
+        /*중복 시 더 하단에 있는 것이 최종 적용*/
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>OO 주식회사</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>회사 소개</li>
+            <li>제품 소개</li>
+            <li>고객센터</li>
+            <li>다운로드</li>
+        </ul>
+    </nav>
+    <section>
+        <p>
+            대중적인 믿음과는 달리 Lorem Ipsum은 단순히 임의의 텍스트가 아닙니다. 기원전 45 년의 고전 라틴 문학 작품에 뿌리를두고있어 2000 년이 넘었습니다. 버지니아의 Hampden-Sydney College의 라틴어 교수 인 Richard McClintock은 Lorem Ipsum 구절에서 더 모호한 라틴어 단어 중 하나 인 consectetur를 찾아보고 고전 문학에서 그 단어의 인용문을 살펴보면서 의심 할 수없는 출처를 발견했습니다. Lorem Ipsum은 기원전 45 년에 작성된 Cicero의 "de Finibus Bonorum et Malorum"(선악의 극단)의 섹션 1.10.32 및 1.10.33에서 나옵니다. 이 책은 르네상스 시대에 매우 인기있는 윤리 이론에 관한 논문입니다. Lorem Ipsum의 첫 번째 줄인 "Lorem ipsum dolor sit amet .."은 섹션 1.10.32의 줄에서 나옵니다.
+
+            1500 년대부터 사용 된 Lorem Ipsum의 표준 청크는 관심있는 사람들을 위해 아래에 재현되어 있습니다. Cicero의 "de Finibus Bonorum et Malorum"의 섹션 1.10.32 및 1.10.33도 H. Rackham의 1914 년 번역본의 영어 버전과 함께 정확한 원본 형식으로 복제됩니다.
+        </p>
+    </section>
+    <footer>
+        <p>서울특별시 OO구 OO로 2021, 01-15</p>
+    </footer>
+</body>
+</html>

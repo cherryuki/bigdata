@@ -1,4 +1,4 @@
--- 2020-12-30 DBMS_07.DDL_DML   ⓒcherryuki(ji)
+-- 2020-12-30 DBMS_07.DDL_DML   updated(21-01-15) ⓒcherryuki(ji)
 -- [VII] DDL, DML, DCL
 -- SQL = DDL(테이블 생성, 삭제, 구조변경, 테이블 데이터 제거)
     --  +DML(SELECT, INSERT, UPDATE, DELETE)
