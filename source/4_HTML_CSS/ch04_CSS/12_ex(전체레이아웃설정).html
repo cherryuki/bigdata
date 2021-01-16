@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<!-- 21-01-15 CSS         (c)cherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #header, #content, #footer {
+            background-color: white;
+            width: 1000px;
+            overflow: hidden;
+        }
+
+        #header, #footer {
+            height: 150px;
+        }
+
+        .left, .center, .right {
+            float: left;
+            border: 1px solid lightgray;
+            background-color: #dddddd;
+        }
+
+        #header .left {
+            width: 148px;
+            height: 148px;
+            border-radius: 20px 0 20px 0;
+        }
+
+        #header .center {
+            width: 694px;
+            height: 148px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        #header .right {
+            width: 148px;
+            height: 148px;
+            border-radius: 0 20px 0 20px;
+        }
+
+        #content {
+            height: 300px;
+        }
+
+            #content .left {
+                width: 148px;
+                height: 298px;
+                border-radius: 0 20px 20px 0;
+            }
+
+            #content .center {
+                width: 694px;
+                height: 298px;
+                border-radius: 20px;
+            }
+
+                #content .center ul {
+                    overflow: hidden;
+                }
+
+                    #content .center ul li {
+                        float: left;
+                        list-style: none;
+                        padding: 20px 20px 70px 20px;
+                    }
+
+                #content .center h2 {
+                    text-align: center;
+                }
+
+                #content .center p {
+                    text-align: center;
+                }
+
+            #content .right {
+                width: 148px;
+                height: 298px;
+                border-radius: 20px 0 0 20px;
+            }
+
+                #content .right ol li:nth-child(9) ~ li {
+                    color: red;
+                }
+
+        #footer .left, #footer .center, #footer .right {
+            width: 148px;
+            height: 148px;
+            border-radius: 0 20px 0 20px;
+        }
+
+        #footer .center {
+            width: 694px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        #footer .right {
+            border-radius: 20px 0 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+    <div id="content">
+        <div class="left"></div>
+        <div class="center">
+            <ul>
+                <li>menu1</li>
+                <li>menu2</li>
+                <li>menu3</li>
+            </ul>
+            <p><h2>빅데이터 UI전문가 양성</h2></p>
+            <p>오늘도 빅데이터 전문가가 되기위해 복습중입니다</p>
+        </div>
+        <div class="right">
+            <ol>
+                <li>태그</li>
+                <li>전체(*)</li>
+                <li>id, class</li>
+                <li>속성</li>
+                <li>후손, 자손(>)</li>
+                <li>동위</li>
+                <li>반응</li>
+                <li>상태</li>
+                <li>구조</li>
+                <li>문자</li>
+                <li>링크</li>
+                <li>부정</li>
+            </ol>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
