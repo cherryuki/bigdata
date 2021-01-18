@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<!-- 21-01-18 CSS속성         (c)cherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>        /*좌표값 지정하지 않을시 위에서부터 차곡차곡 쌓임*/
+        * {margin:0; padding:0;}
+        div {
+            width:100px;
+            height:100px;
+        }
+        div:nth-child(1){
+            background-color:red;
+            position:static; /*기본값 top, left 의미 없음*/
+            top:100px; left:100px;
+        }
+        div:nth-child(2){
+            background-color:green;
+            position:relative; /*상대 좌표*/
+            top:50px; left:100px;
+        }
+        div:nth-child(3){
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<!-- 21-01-18 CSS속성         (c)cherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        *{padding:0; margin:0; /*전체 페이지 초기화*/}
+        div{width:100px;
+            height:100px;
+            border:1px solid gray;
+        }
+        div:nth-child(1) {
+            display:block; /*디폴드 값(생략 가능)*/
+            background-color:red;
+        }
+        div:nth-child(2){
+            background-color:orange;
+        }
+        div:nth-child(3){
+            display:inline;
+            background-color:yellow;
+            margin:10px; /*block이 아닌 inline속성에서는 위아래 마진X(좌우만) height&width속성도 지정 불가(필요한 만큼만)*/
+        }
+        div:nth-child(4){
+            background-color:green;
+            display:inline;
+        }
+        div:nth-child(5){
+            background-color:blue;
+            display:inline-block; /*inline속성이면서 height, width 등의 block 속성 가짐*/
+        }
+        div:nth-child(6) {
+            display:none; /*보이지 않음(공간도 차지하지 않음)*/
+        }
+        div:nth-child(7) {
+            display:inline-block;
+            background-color:purple;
+        }
+
+    </style>
+</head>
+<body>
+    <div>content1</div>
+    <div>content2</div>
+    <div>content3</div>
+    <div>content4</div>
+    <div>content5</div>
+    <div>content6</div>
+    <div>content7</div>
+    <div>content8</div>
+</body>
+</html>

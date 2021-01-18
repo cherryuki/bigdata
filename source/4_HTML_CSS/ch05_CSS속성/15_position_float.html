@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<!-- 21-01-18 CSS속성         (c)cherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #row1, #row2{
+            width:500px;
+            margin:0 auto;
+            border:10px solid #cccccc;
+            overflow:hidden;
+        }
+        #row1 .first, #row1 .second{
+            float:left;
+            width:100px;
+            height:100px;
+            margin:10px;
+            padding:10px;
+            border:1px solid red;
+        }
+        #row2 div{
+            float:right;
+            width:100px;
+            height:100px;
+            margin:10px;
+            padding:10px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="row1">
+        <div class="first">first</div>
+        <div class="second">second</div>
+    </div>
+    <div id="row2">
+        <div class="first">first</div>
+        <div class="second">second</div>
+    </div>
+</body>
+</html>

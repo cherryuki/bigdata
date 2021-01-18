@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<!-- 21-01-18 CSS속성         (c)cherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div { 
+            width:70%; /*body(브라우저 전체)의 70%*/
+            margin:0 auto;
+            height:400px;
+            border:1px solid red;
+            background-image: url("ladybug.jpg");
+            color:white;
+        }
+        div:nth-child(1) {background-position:left top; /*디폴트(0 0)*/}
+        div:nth-child(3) {background-position:center;/*50% 50%*/}
+        div:nth-child(5) {background-position:100% 0; /*right top*/}
+        div:nth-child(7) {background-position:right bottom; /*100% 100%*/}
+        div:nth-child(9) {background-repeat:no-repeat; }
+        div:nth-child(11) {
+            background-repeat:repeat-x; /*x축(가로)만 반복*/
+        }
+        div:nth-child(13) {
+            background-position:center;
+            background-attachment:fixed;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div><h1>1</h1></div>
+    <br />
+    <div><h1>2</h1></div>
+    <br />
+    <div><h1>3</h1></div>
+    <br />
+    <div><h1>4</h1></div>
+    <br />
+    <div><h1>5</h1></div>
+    <br />
+    <div><h1>6</h1></div>
+    <br />
+    <div><h1>7</h1></div>
+    <br />
+    <div><h1>8</h1></div>
+    <br />
+</body>
+</html>

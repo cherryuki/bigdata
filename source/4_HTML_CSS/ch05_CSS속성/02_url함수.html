@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<!-- 21-01-18 CSS속성         (c)cherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        /*url():폰트를 가져오거나 배경이미지 가져올 때*/
+        @font-face { /*@는 style 제일 위에 위치시켜야함*/
+            font-family: 'SangSangFlowerRoad'; /*url함수를 이용해서 새로운 폰트 정의*/
+            src: url('SangSangFlowerRoad.otf');
+        }
+
+        * {
+            font-family: SangSangFlowerRoad;
+        }
+        #wrap{
+            width:600px;
+            margin:10px auto;
+            height:400px;
+            border:1px solid gray;
+        }
+        #content {
+            width: 90%;
+            margin: 0 auto;
+            height: 100%;
+            background: url('stars-1246590__340.jpg');
+            color: white;
+            font-size:2em;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="content">&nbsp; 어쩌면 별들이 너의 슬픔을 가져갈지도 몰라</div>
+    </div>
+</body>
+</html>

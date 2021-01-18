@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<!-- 21-01-18 CSS         (c)cherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #wrap{
+            width:800px;
+            margin:0 auto;
+        }
+        #wrap #header{
+            text-align:center;
+            border-bottom:1px solid #cccccc;
+        }
+        #content ul li a{
+            text-decoration:none; /*a 태그의 밑줄 없앰*/
+            color:blue;
+        }
+        #wrap #content ul li a::after{/*링크 선택자*/
+            content:' - 'attr(href);
+        }
+        /*#content ul li a:visited{color:red;}
+        #content ul li a:active{color:black;}*/
+        #wrap #content ul li:not(.web) {/*부정 선택자*/
+            background-color:lightblue;
+        }
+        #footer ul{
+            overflow:hidden;
+            border-top:1px solid #cccccc;
+        }
+        #footer ul li{
+            float:left;
+            list-style:none;
+            margin:5px 20px;
+            padding:10px 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <h1>Weekly connect Website</h1>
+        </div>
+        <div id="content">
+            <ul>
+                <li class="web"><a href="http://www.naver.com">네이버</a></li>
+                <li><a href="http://www.google.com">구글</a></li>
+                <li><a href="http://www.daum.net">다음</a></li>
+                <li><a href="http://www.yahoo.jp">야후</a></li>
+                <li><a href="http://www.msn.com">msn</a></li>
+            </ul>
+        </div>
+        <div id="footer">
+            <ul>
+                <li><img src="0115/logo.png" alt="로고" /></li>
+                <li><img src="0115/address.png" alt="주소" width="400" /></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
