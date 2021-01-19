@@ -5,12 +5,16 @@
     <meta charset="utf-8" />
     <title></title>
     <style>
+        *{margin:0;
+          padding:0;
+        }
         #box{
             border:1px solid #cccccc;
             width:800px;
             height:600px;
             margin:0 auto;
             padding:0;
+            position:relative;
         }
         #header{
             border:1px solid #cccccc;
@@ -79,6 +83,17 @@
             line-height: 90px;
             background-color: lightyellow;
         }
+    #back { 
+        margin:0 auto;
+        width:800px;
+        height:600px;
+        position:absolute;
+        top:0; left:0;
+        background-image: url("stars-1246590__340.jpg");
+        background-size:100%;
+        opacity:0.3;
+        z-index: -999;
+    }
     </style>
 </head>
 <body>
@@ -87,11 +102,11 @@
         <div id="nav">
             <p>NAVIGATION</p>
             <ul>
-                <li><a href="#1">menu1</a>
-                <li><a href="#2">menu2</a>
-                <li><a href="#3">menu3</a>
-                <li><a href="#4">menu4</a>
-                <li><a href="#5">menu5</a>
+                <li><a href="#1">menu1</a></li>
+                <li><a href="#2">menu2</a></li>
+                <li><a href="#3">menu3</a></li>
+                <li><a href="#4">menu4</a></li>
+                <li><a href="#5">menu5</a></li>
             </ul>
         </div>
         <div id="wrap">
@@ -99,6 +114,7 @@
             <div id="banner">BANNER</div>
         </div>
         <div id="footer">FOOTER</div>
+        <div id="back"></div>
     </div>
 </body>
 </html>

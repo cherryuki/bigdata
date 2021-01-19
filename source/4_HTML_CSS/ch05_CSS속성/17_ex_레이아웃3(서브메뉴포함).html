@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<!-- 21-01-19 응용예제         (c)cherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        *{margin:0;
+          padding:0;
+        }
+        #box{
+            border:1px solid #cccccc;
+            width:800px;
+            height:600px;
+            margin:0 auto;
+            padding:0;
+            position:relative;
+        }
+        #header{
+            border:1px solid #cccccc;
+            width:790px;
+            height:85px;
+            margin:5px;
+            text-align:center;
+            line-height:90px;
+            background-color:lightyellow;
+        }
+        #nav {
+            border: 1px solid #cccccc;
+            width: 790px;
+            height:100px;
+            margin: 5px auto;
+            text-align: center;
+            z-index:99999; /*서브메뉴가 활성화 될 때 클릭 가능*/
+            position:relative; /*서브메뉴가 활성화 될 때 클릭 가능*/
+        }
+        #nav > ul {
+            overflow:hidden;
+            width:750px;
+            margin:5px auto;
+        }
+        #nav > ul > li{
+            float:left;
+            width:140px;
+            list-style:none;
+            margin:2px auto;
+            background-color:lightblue;
+        }
+        #nav > ul > li:first-child {
+            border-radius:10px 0 0 10px;
+            margin-left:20px;
+        }
+        #nav > ul > li:last-of-type{
+            border-radius:0 10px 10px 0;
+        }
+        #nav ul li a {
+            width: 140px;
+            height: 30px;
+            line-height:30px;
+            margin:0 auto;
+            color:blue;
+            font-weight:bold;
+            text-decoration:none;
+        }
+        /********서브메뉴 처리********/
+        .submenu li {
+            list-style: none;
+            text-align: center;
+            color: lightblue;
+        }
+
+        .submenu{
+            display:none;
+            background-color:white;
+        }
+
+        #nav > ul > li:hover .submenu {
+            display: block;
+        }
+        /* #nav > ul:hover .submenu { 전체 sub메뉴 나타나게
+            display: block;
+        }*/
+        
+        #wrap {
+            border: 1px solid #cccccc;
+            width: 790px;
+            height: 300px;
+            margin: 5px;
+        }
+        #wrap #content{
+            display:inline-block;
+            border:1px solid #cccccc;
+            width:550px;
+            height:290px;
+            margin:5px;
+            text-align:center;
+        }
+        #wrap #banner{
+            display:inline-block;
+            border:1px solid #cccccc;
+            width:210px;
+            height:290px;
+            text-align:center;
+            margin:5px;
+        }
+        #footer {
+            border: 1px solid #cccccc;
+            width: 790px;
+            height: 80px;
+            margin: 5px;
+            text-align: center;
+            line-height: 90px;
+            background-color: lightyellow;
+        }
+    #back { /***background image****/
+        margin:0 auto;
+        width:800px;
+        height:600px;
+        position:absolute;
+        top:0; left:0;
+        background-image: url("stars-1246590__340.jpg");
+        background-size:100%;
+        opacity:0.3;
+        z-index: -999;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="header">HEADER</div>
+        <div id="nav">
+            <p>NAVIGATION</p>
+            <ul>
+                <li><a href="#menu1">menu1</a>
+                    <ul class="submenu">
+                        <li><a href="#submenu1-1">submenu1-1</a></li>
+                        <li><a href="#submenu1-2">submenu1-2</a></li>
+                        <li><a href="#submenu1-3">submenu1-3</a></li>
+                        <li><a href="#submenu1-4">submenu1-4</a></li>
+                        <li><a href="#submenu1-5">submenu1-5</a></li>
+                    </ul>
+                </li>
+                <li><a href="#menu2">menu2</a>
+                    <ul class="submenu">
+                        <li><a href="#submenu2-1">submenu2-1</a></li>
+                        <li><a href="#submenu2-2">submenu2-2</a></li>
+                        <li><a href="#submenu2-3">submenu2-3</a></li>
+                        <li><a href="#submenu2-4">submenu2-4</a></li>
+                        <li><a href="#submenu2-5">submenu2-5</a></li>
+                    </ul>
+                </li>
+                <li><a href="#menu3">menu3</a>
+                    <ul class="submenu">
+                        <li><a href="#submenu3-1">submenu3-1</a></li>
+                        <li><a href="#submenu3-2">submenu3-2</a></li>
+                        <li><a href="#submenu3-3">submenu3-3</a></li>
+                        <li><a href="#submenu3-4">submenu3-4</a></li>
+                        <li><a href="#submenu3-5">submenu3-5</a></li>
+                    </ul>
+                </li>
+                <li><a href="#menu4">menu4</a>
+                    <ul class="submenu">
+                        <li><a href="#submenu4-1">submenu4-1</a></li>
+                        <li><a href="#submenu4-2">submenu4-2</a></li>
+                        <li><a href="#submenu4-3">submenu4-3</a></li>
+                        <li><a href="#submenu4-4">submenu4-4</a></li>
+                        <li><a href="#submenu4-5">submenu4-5</a></li>
+                    </ul>
+                </li>
+                <li><a href="#menu5">menu5</a>
+                    <ul class="submenu">
+                        <li><a href="#submenu5-1">submenu5-1</a></li>
+                        <li><a href="#submenu5-2">submenu5-2</a></li>
+                        <li><a href="#submenu5-3">submenu5-3</a></li>
+                        <li><a href="#submenu5-4">submenu5-4</a></li>
+                        <li><a href="#submenu5-5">submenu5-5</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="wrap">
+            <div id="content">CONTENT</div>
+            <div id="banner">BANNER</div>
+        </div>
+        <div id="footer">FOOTER</div>
+        <div id="back"></div>
+    </div>
+</body>
+</html>

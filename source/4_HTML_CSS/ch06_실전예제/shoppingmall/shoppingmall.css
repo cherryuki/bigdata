@@ -1,0 +1,187 @@
+﻿/* 21-01-19 응용예제 (c)cherryuki(ji) */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#header .gnb {
+    width:100%;
+    height:30px;
+    background-color:black;
+}
+#header .gnb ul{
+    overflow:hidden;
+    width: 1000px;
+    margin: 0 auto;
+}
+#header .gnb ul li{
+    list-style:none;
+    float:left;
+    width:80px;
+    padding: 0 10px;
+}
+#header .gnb ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    font-size:12px;
+}
+#header .logo {
+    width:200px;
+    height:100px;
+    line-height:100px;
+    text-align:center;
+    margin:20px auto;
+    border:1px solid #cccccc;
+}
+#header .hitmenu{
+    overflow:hidden;
+    height:50px;
+}
+#header .hitmenu ul{
+    overflow:hidden;
+    width:1000px;
+    height:50px;
+    margin:0 auto;
+}
+#header .hitmenu ul li{
+    float:right;
+    list-style:none;
+    width:80px;
+    height:40px;
+    border:1px solid #cccccc;
+    box-sizing:border-box;
+    line-height:40px;
+    text-align:center;
+}
+#header .hitmenu ul li:first-child{
+    border-radius:0 15px 15px 0;
+}
+#header .hitmenu ul li:last-child{
+    border-radius:15px 0 0 15px;
+}
+#header .hitmenu ul li a{
+    color:black;
+    font-weight:bold;
+    text-decoration:none;
+}
+#header .lnb {
+    overflow:hidden;
+    width:100%;
+    height:30px;
+    border-top:1px dashed black;
+    border-bottom:1px dashed black;
+    box-sizing:border-box;
+}
+#header .lnb ul{
+    width:1000px;
+    margin:0 auto;
+}
+#header .lnb ul li{
+    float:left;
+    list-style:none;
+    width: 100px;
+    padding:0 12px;
+}
+#header .lnb ul li a{
+    text-decoration:none;
+    color:black;
+    height:28px;
+    line-height:28px;
+    text-align:center;
+    font-weight:bold;
+}
+#content {
+    
+}
+#content .section1 {
+    overflow:hidden;
+    width:1000px;
+    height:400px;
+    margin:0 auto;
+}
+#content .section1 .slide_banner{
+    float:left;
+    width:700px;
+    height:400px;
+    border:1px solid #cccccc;
+    box-sizing:border-box;
+    line-height:400px;
+    text-align:center;
+}
+#content .section1 .side_banner{
+    float:left;
+    width:300px;
+    height:400px;
+    border:1px solid #cccccc;
+    box-sizing:border-box;
+        line-height:400px;
+    text-align:center;
+}
+#content .section2 .hit_product, #content .section2 .md_product{
+    width:1000px;
+    height:400px;
+    margin:5px auto;
+    overflow:hidden;
+    border:1px solid #cccccc;
+    box-sizing:border-box;
+}
+#content .section2 .hit_product ul li, .md_product ul li{
+    float:left;
+    list-style:none;
+    width:240px;
+    height:400px;
+    margin:0 3.5px;
+    border:1px solid #cccccc;
+    box-sizing:border-box;
+    text-align:center;
+    line-height:400px;
+}
+#content .section2 .hit_product ul li a, .md_product ul li a{
+    text-decoration:none;
+    color:blue;
+    font-weight:bold;
+}
+#content .section2 .hit_product ul li:first-child, .md_product ul li:first-child{
+    margin-right:7px;
+}
+#footer {
+    overflow:hidden;
+    width:1010px;
+    margin:0 auto;
+    border-bottom:1px solid #cccccc;
+}
+#footer .office_logo, .office_address, .shopping_info{
+    float:left;
+    width:200px;
+    height:80px;
+    font-size:13px;
+    border:1px solid #cccccc;
+    box-sizing:border-box;
+    margin:5px 0 5px 0;
+}
+#footer .office_logo{
+    margin-left:5px;
+}
+#footer .office_address{
+    width:550px;
+}
+#footer .shopping_info{
+    width:250px;
+}
+#footer .copyright{
+    clear:both;
+    width:1000px;
+    height:30px;
+    background-color:black;
+    color:white;
+    font-size:13px;
+    text-align:center;
+    line-height:30px;
+    margin:0 5px 2px 5px;
+}
+
