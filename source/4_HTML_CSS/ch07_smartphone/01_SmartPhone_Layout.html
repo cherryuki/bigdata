@@ -1,11 +1,168 @@
 ﻿<!DOCTYPE html>
-<!-- 21-01-20 smartphone layout         (c)cherryuki(ji) -->
+<!-- 21-01-20 SmartPhone Layout         (c)cherryuki(ji) -->
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no"/>
     <title></title>
+    <style>
+        /*****페이지 초기화*****/
+        * {margin:0; padding:0;}
+        li {list-style:none;}
+        a {text-decoration:none;}
+        /***** HEADER *****/
+        header {/*width는 디바이스의 너비 100% 사용할 것(width=device-width): 너비 %로 설정*/
+            height:45px;
+            line-height: 45px;
+            text-align:center;
+            background: url('imgEx01/bg_header.png');
+            position:relative; /*.left, .right이 부모단(header) 내부에 위치하도록*/
+        }
+        header .left{
+            position:absolute;
+            left:10px; top:7px;
+        }
+        header .right{
+            position:absolute;
+            right:10px; top:7px;
+        }
+        /*****gnb 디자인*****/
+        #gnb ul{
+            overflow:hidden;
+            border:5px solid #cccccc;
+        }
+        #gnb ul li{
+            float:left;
+            width:10%;
+            margin:0.5% 1.25%;
+            text-align:center;
+            border:1px solid lightblue;
+            box-sizing:border-box;
+        }
+        /*** gnb 기능(checkbox checked일 경우만 gnb 나타나게)***/
+        #gnb{
+            display:none;
+        }
+        #toggle:checked ~ #gnb{/*id없을 경우 input[type=checkbox]로도 사용 가능*/
+            display:block;
+        }
+        #toggle{/*체크박스 숨기기*/
+            display:none;
+        }
+        /*****lnb*****/
+        #lnb ul{
+            overflow:hidden;
+        }
+        #lnb ul li{
+            float:left;
+            width:20%;
+            border:1px solid #FFFFFF;
+            box-sizing:border-box;
+            background-color:#137163;
+            height:60px; line-height:60px; text-align:center; /*가운데 정렬*/
+            font-weight:bold;
+        }
+        #lnb ul li a{
+            color:white;
+        }
+        /***** CONTENT *****/
+        #content{
+            padding:10px;
+            color:#333333;
+        }
+        #content #content_header{
+            padding:10px;
+            border-bottom:1px solid #cccccc;
+        }
+        #content #content_body p:first-child{
+            color:mediumaquamarine;
+            font-weight:bold;
+            font-size:1.1em;
+            padding:10px 0;
+            /*말줄임 태그(ellipsis)*/
+            white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+        }
+        #content #content_body p:last-child{
+            background: url('imgEx01/bg_image.jpg') -500px 0; 
+            /*이미지 원하는 부분을 0,0이라고 가정-> 이미지의 0,0인 곳 위치 지정*/
+            padding:10px;
+            font-weight:bold;
+        }
+        /***** FOOTER *****/
+        footer {
+            padding:0 10px;
+            text-align:center; /*글자나 이미지 가운데 정렬*/
+        }
+        footer .logo{
+            border-top:1px solid #cccccc;
+            border-bottom:1px solid #cccccc;
+            margin:10px 0; /*위아래 밖여백만 10px, 좌우 여백:0*/
+        }
+        footer .logo img{
+            width:200px;
+        }
+        footer .info{
+            font-weight:bold;
+            font-size:1.5em;
+        }
+        footer .address{
+            font-size:.8em;
+        }
+    </style>
+
 </head>
 <body>
-
+    <input type="checkbox" id="toggle" /> <!--서브메뉴 펼쳤다 숨겼다 하기 위해 체크박스 이용-->
+    <header>
+        <a href="#" class="left">
+            <img src="imgEx01/category.png" />
+        </a>
+        <h1>Mobile</h1>
+        <label for="toggle" class="right"> <!--menu이미지 클릭시 체크박스(toggle)체크한 것과 같은 효과-->
+            <img src="imgEx01/menu.png" />
+        </label>
+    </header>
+    <div id="gnb">
+        <ul>
+            <li><a href="#gnb1">gnb1</a></li>
+            <li><a href="#gnb2">gnb2</a></li>
+            <li><a href="#gnb3">gnb3</a></li>
+            <li><a href="#gnb4">gnb4</a></li>
+            <li><a href="#gnb5">gnb5</a></li>
+            <li><a href="#gnb6">gnb6</a></li>
+            <li><a href="#gnb7">gnb7</a></li>
+            <li><a href="#gnb8">gnb8</a></li>
+        </ul>
+    </div>
+    <div id="lnb">
+        <ul>
+            <li><a href="#lib1">lib1</a></li>
+            <li><a href="#lib2">lib2</a></li>
+            <li><a href="#lib3">lib3</a></li>
+            <li><a href="#lib4">lib4</a></li>
+            <li><a href="#lib5">lib5</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="content_header">
+            <h1>신사임당</h1>
+        </div>
+        <div id="content_body">
+            <p>
+                조선전기 「자리도」, 「초충도」, 「노안도」 등의 작품을 그린 화가
+            </p>
+            <p>
+                본관은 평산(平山). 아버지는 신명화(申命和)이며, 어머니는 용인 이씨로 이사온(李思溫)의 딸이다. 남편이 증좌한성 이원수(李元秀)이고, 조선시대의 대표적 학자이며 경세가인 이이(李珥)의 어머니이다. 시·그림·글씨에 능했던 예술가이다.
+                사임당은 당호이며, 그 밖에 시임당(媤任堂)·임사재(妊思齋)라고도 하였다. 당호의 뜻은 중국 고대 주나라의 문왕의 어머니인 태임(太任)을 본받는다는 것으로서, 태임을 최고의 여성상으로 꼽았음을 알 수 있다. 외가인 강릉 북평촌(北坪村)에서 태어나 자랐다.
+            </p>
+        </div>
+    </div>
+    <footer>
+        <div class="logo">
+            <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" alt="다음 로고" />
+        </div>
+        <div class="info">XX주식 회사</div>
+        <div class="address">서울특별시 XX구 OO로 2021호</div>
+    </footer>
 </body>
 </html>
