@@ -1,0 +1,217 @@
+﻿/*21-01-20 응용예제         (c)cherryuki(ji)*/
+@font-face {
+    font-family: 'Amarante';
+    src: url("../font/Amarante-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Amarante';
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+li {
+    list-style:none;
+}
+
+#header_nav{
+    background-color:#2d1152;
+    width:100%;
+    min-width:1100px;
+    height:30px;
+    margin:0 auto;
+    overflow:hidden;
+    padding:0 20px 0 5px;
+}
+#header_nav .gnb{
+    width:75%;
+    float:left;
+}
+
+#header_nav .gnb ul{
+    overflow:hidden;
+    width:800px;
+}
+#header_nav .gnb ul li {
+    float: left;
+    padding: 0 10px;
+}
+#header_nav .gnb ul li:first-child{
+    padding:0;
+}
+#header_nav .gnb ul li a{
+    color:white;
+    line-height:30px;
+}
+#header_nav .survivalFootball {
+    width: 250px;
+    height: 30px;
+    float: right;
+    line-height: 30px;
+    text-align: right;
+    color: white;
+    background: url("../img/survivalFootball.png") no-repeat;
+    background-position-y:center;
+    background-size: 20px;
+}
+#header_nav .survivalFootball a{
+    color:white;
+    padding-right:10px;
+}
+#header_info {
+    width: 1000px;
+    overflow:hidden;
+    margin:10px auto;
+    padding:0 auto;
+}
+#header_info .logo{
+    float:left;
+    width:200px;
+    padding: 0 auto;
+}
+#header_info .search{
+    float:left;
+    width:550px;
+    margin: 10px 0;
+    padding: 0 auto;
+}
+input[type='text']{
+    width:400px;
+    height:40px;
+    border:2px solid #3488d9;
+}
+input[type='submit'] {
+    width: 130px;
+    height: 40px;
+    border: none;
+    color: white;
+    line-height: 40px;
+    background: url("../img/search_btn.png") no-repeat;
+}
+
+#header_info .service{
+    float:left;
+    width:200px;
+    padding: 0 auto;
+}
+#header_info .service ul{
+    overflow:hidden;
+    padding-left:20px;
+}
+#header_info .service ul li{
+    float:left;
+    height:40px;
+    padding: 10px 5px 10px 0;
+}
+#header_info .service ul li a{
+    color:#2d1152;
+    padding-right:10px;
+    font-size:14px;
+    width:130px;
+    font-weight:bold;
+    line-height:40px;
+}
+#content {
+    overflow:hidden;
+    margin:0 auto;
+    width:1000px;
+}
+#content #main_menu {
+    width:155px;
+    height:450px;
+    float:left;
+}
+#content #main_menu ul li{
+    line-height:45px;
+    text-align:center;
+}
+#content #main_menu ul li a {
+    color:black;
+    height:45px;
+    width:155px;
+}
+#content #main {
+    width: 610px;
+    float:left;
+}
+#content #main ul li{
+    width:600px;
+    border:1px solid #cccccc;
+    box-sizing:border-box;
+    margin:0 3px 3px 3px;
+}
+#content #main .banner1 li:nth-child(1){
+    height:300px;
+}
+#content #main .banner1 li:nth-child(2){
+    height:150px;
+}
+#content #main .banner2{
+    height:50px;
+    background-color:#500095;
+    overflow:hidden;
+    width:600px;
+    margin:0 0 3px 3px;
+    padding: 0 auto;
+}
+#content #main .banner2 li{
+    border:none;
+    float:left;
+    height:50px;
+    width:100px;
+    padding:0;
+    margin:0;
+    padding-left:10px;
+    text-align:center;
+}
+#content #main .banner2 li a {
+    color:white;
+    height:50px;
+    line-height:50px;
+    text-align:center;
+}
+#content #main .main_topic li{
+    height:100px;
+}
+
+#content #main_banner{
+    float:left;
+}
+#content #main_banner ul li {
+    width:230px;
+    height:100px;
+    border:1px solid #cccccc;
+    box-sizing:border-box;
+    margin:0 0 3px 0;
+}
+#content #main_banner ul li:nth-child(3), #content #main_banner ul li:nth-child(4) {
+    height:150px;
+}
+#content #main_banner ul li:nth-child(5) {
+    height:200px;
+}
+
+#content #main_banner ul li a {
+    color:black;
+}
+
+#footer {
+    width:1000px;
+    height:100px;
+    margin:0 auto;
+}
+#footer ul{
+    width:700px;
+    margin:auto;
+    overflow:hidden;
+}
+#footer ul li{
+    float:left;
+    margin:5px 5px 0 0;
+}
+#footer ul li a img{
+    padding-top:10px;
+}
