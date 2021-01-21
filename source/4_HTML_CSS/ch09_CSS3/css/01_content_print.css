@@ -1,0 +1,7 @@
+﻿/*21-01-21 CSS3:규칙 및 반응형 웹         (c)cherryuki(ji)*/
+#wrap .content{
+    background-color:white;
+    color:black;
+    font-size:12px;
+    padding:30px 10px;
+}

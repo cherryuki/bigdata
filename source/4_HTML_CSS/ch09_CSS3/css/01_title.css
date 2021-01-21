@@ -1,0 +1,18 @@
+﻿/*21-01-21 CSS3:규칙 및 반응형 웹         (c)cherryuki(ji)*/
+#wrap{
+    width:600px;
+    margin:0 auto;
+    border: 1px solid #cccccc;
+    padding: 10px;
+}
+
+#wrap .title{
+    text-align:center;
+    height:100px;
+    line-height:100px;
+    text-decoration:underline;
+}
+
+#wrap .title hr{
+    border:1px solid red;
+}

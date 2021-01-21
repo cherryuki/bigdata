@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<!-- 21-01-21 Tab_Layout         (c)cherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        /*페이지 초기화*/
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nanum Pen Script', cursive;
+            font-size:20px;
+        }
+        li{list-style:none;}
+        a{text-decoration:none;}
+        body{height:100%;}
+        /* 고정바 - #top_bar */
+        #top_bar {
+            position:fixed; /*스크롤바 움직여도 위치 고정됨*/
+            top:0; left:0; right:0; /*right:0;도 해줘야 함(상단 고정바)*/
+            height:100px; line-height:100px;
+            background-color:#ffd800;
+            border-bottom:1px solid #c0a300;
+            box-sizing:border-box;
+        }
+        #top_bar ul{
+            overflow:hidden;
+        }
+        #top_bar ul li{
+            float:left;
+            border-right:1px dashed #c0a300;
+            width:16.666%;
+            box-sizing:border-box;
+            text-align:center;
+        }
+        #top_bar ul li:last-child{
+            border-right:none;
+        }
+        #top_bar ul li a{
+            color:white;
+            font-weight:bold;
+            font-size:2.0em;
+            display:block;
+        }
+        /* 고정바 - #left_bar */
+        #left_bar {
+            position:fixed;
+            left:0; top:100px; bottom:100px; /*상단바와 하단바 높이 고려해서(제외해서) 겹치지 않게 위치지정*/
+            width:150px;
+            background-color:#9aa43f;
+        }
+        #left_bar ul li a{
+            color:white;
+            display:block;
+            border-bottom:1px solid #c0a300;
+            box-sizing:border-box;
+            padding: 5px 0 5px 20px;
+            font-size:1.2em;
+        }
+        /* 고정바 - #right_bar */
+        #right_bar {
+            width: 200px;
+            position: fixed;
+            right:0; top:100px; bottom:100px; /*상단바와 하단바 높이 고려해서 위치지정*/
+            background-color:lightgoldenrodyellow;
+        }
+        #right_bar ul li{
+            width:150px;
+            margin:15px 25px;
+        }
+        #right_bar img{
+            width:150px;
+            max-height:100px;
+        }
+        /* 고정바 - #bottom_bar */
+        #bottom_bar {
+            height:100px; line-height:100px;
+            position:fixed;
+            bottom:0; left:0; right:0;
+            background-color: lightgoldenrodyellow;
+            text-align:center;
+            font-weight:bold;
+        }
+        /* 가운데 - #wrap (스크롤시 이동 부분) */
+        #wrap {
+            margin:100px 200px 100px 150px; /*고정바 너비 및 높이만큼 margin 필요*/
+            padding:20px;
+            overflow:hidden;
+        }
+        #wrap img{
+            float:left;
+            margin:0 20px 5px 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="top_bar">
+        <ul>
+            <li><a href="#gnb1">GNB_1</a></li>
+            <li><a href="#gnb2">GNB_2</a></li>
+            <li><a href="#gnb3">GNB_3</a></li>
+            <li><a href="#gnb4">GNB_4</a></li>
+            <li><a href="#gnb5">GNB_5</a></li>
+            <li><a href="#gnb6">GNB_6</a></li>
+        </ul>
+    </div>
+    <div id="left_bar">
+        <ul>
+            <li><a href="#lnb1">LNB_01</a></li>
+            <li><a href="#lnb2">LNB_02</a></li>
+            <li><a href="#lnb3">LNB_03</a></li>
+            <li><a href="#lnb4">LNB_04</a></li>
+            <li><a href="#lnb5">LNB_05</a></li>
+            <li><a href="#lnb6">LNB_06</a></li>
+            <li><a href="#lnb7">LNB_07</a></li>
+            <li><a href="#lnb8">LNB_08</a></li>
+            <li><a href="#lnb9">LNB_09</a></li>
+            <li><a href="#lnb10">LNB_10</a></li>
+        </ul>
+    </div>
+    <div id="right_bar">
+        <ul>
+            <li><a href="https://www.daum.net/"><img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" alt="daum logo" /></a></li>
+            <li><a href="https://www.google.com/"><img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="google logo" /></a></li>
+            <li><a href="https://www.naver.com/"><img src="imgTab/naver.png" alt="naver logo" /></a></li>
+            <li><a href="https://placehold.it/150x150"><img src="https://placehold.it/150x150" alt="150X150" /></a></li>
+        </ul>
+
+    </div>
+    <div id="bottom_bar">
+        <p>
+            copyright ⓒcherryuki(ji) All rights reserved.
+            121 abc 2021-ro, big-gu, Seoul, Korea
+        </p>
+    </div>
+    <div id="wrap">
+        <img src="imgTab/100.jpg" />
+        <p>
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+        </p>
+    </div>
+</body>
+</html>

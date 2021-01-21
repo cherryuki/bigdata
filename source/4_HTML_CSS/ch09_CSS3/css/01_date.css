@@ -1,0 +1,8 @@
+﻿/*21-01-21 CSS3:규칙 및 반응형 웹         (c)cherryuki(ji)*/
+#wrap .date{
+    text-align:center;
+    height:70px;
+}
+#wrap .date p{
+    padding:15px;
+}
