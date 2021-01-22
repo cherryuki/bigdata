@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-22 JavaScripts      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        /* 에러 났을 때 확인 하는 방법
+         * 1. F12 눌러서 에러 확인
+         * 2. console.log(); 을 사이사이 넣어서 어디서 에러 났는지 확인 - F12 눌러서 확인
+         * 3. alert(); 을 사이사이 넣어서 어디서 에러 났는지 확인 - 에러나기 전까지 계속 확인 버튼을 눌러야 함
+         */
+        //var al_pha;
+        al_pha = 20; //숫자형 변수
+        alert('al_pha 값: ' + al_pha);
+        al_pha = 'Hello'; //문자형 변수
+        alert('al_pha 값: ' + al_pha);
+        //Java Script는 변수 타입이 고정되어 있지 않음(Java는 변수 타입 고정되어 있음)
+    </script>
+    <script>
+        document.write('변경된 al_pha값: ' + al_pha + '<br>');
+        al_pha = '2021년';
+    </script>
+    <script>
+        document.write('최종 al_pha값: ' + al_pha + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

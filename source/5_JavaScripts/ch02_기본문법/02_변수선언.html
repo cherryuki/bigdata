@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-22 JavaScripts_기본 문법      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var varString; //변수 선언 //변수 타입은 고정X (값 할당될 때마다 변함)
+        document.write('1.varString 타입: ' + typeof (varString) + ' 값: ' + varString + '<br>'); //undefined
+        var varString = '공유';
+        document.write('2.varString 타입: ' + typeof (varString) + ' 값: ' + varString + '<br>'); //string
+        varString = 1.22;
+        document.write('3.varString 타입: ' + typeof (varString) + ' 값: ' + varString + '<br>'); //number
+        varString = true;
+        document.write('4.varString 타입: ' + typeof (varString) + ' 값: ' + varString + '<br>'); //boolean
+        varString = function () {
+            alert('함수속')
+        };
+        document.write('5.varString 타입: ' + typeof (varString) + ' 값: ' + varString + '<br>'); //function
+        varString = { name: '공유', age: 45 };
+        document.write('6.varString 타입: ' + typeof (varString) + ' 값: ' + varString + '<br>'); //object
+        var varString = [10, '공유', function () { }, true, { name: '공', age: 40 }, [1, 2, 3]];
+        document.write('7.varString 타입: ' + typeof (varString) + ' 값: ' + varString + '<br>'); //object
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-22 JavaScripts_기본 문법      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function chk() {
+            if (frm.name.value.length < 2) {
+                alert("이름은 2글자 이상 입력하셔야 합니다");
+                frm.name.focus();
+                return false;
+            }
+            var ageStr = frm.age.value;
+            var age = Number(ageStr);
+            if (ageStr == '' || isNaN(age) || age < 0 || age > 120) {
+                alert("유효한 나이를 입력하세요");
+                frm.age.value = '';
+                frm.age.focus();
+                return false;
+            }
+            if (!frm.address.value) {
+                alert("주소를 입력하세요");
+                frm.address.focus();
+                return false;
+            }
+            return true;
+        }
+
+    </script>
+</head>
+<body>
+    <form action="#" name="frm" onsubmit="return chk()">
+        <table>
+            <tr>
+                <th>이름</th><td><input type="text" name="name" placeholder="이름은 2글자 이상" /></td>
+            </tr>
+            <tr>
+                <th>나이</th><td><input type="text" name="age" placeholder="나이는 0~120까지" /></td>
+            </tr>
+            <tr>
+                <th>주소</th><td><input type="text" name="address" placeholder="주소는 입력만" /></td>
+            </tr>
+            <tr>
+                <th colspan="2"><input type="submit" value="입력" /></th>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

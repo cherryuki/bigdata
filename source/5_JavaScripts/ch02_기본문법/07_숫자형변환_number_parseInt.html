@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-22 JavaScripts_기본 문법      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var str = '100';
+        var i = Number(str);
+        document.write("<h3>1.str='100'; i=Number(str);</h3>");
+        document.write('str타입: ' + typeof (str) + ' 값: ' + str + '<br>');
+        document.write('i타입: ' + typeof (i) + ' 값: ' + i + '<br>');
+        str = '100';
+        i = parseInt(str);
+        document.write("<h3>2.str='100'; i=Number(str);</h3>");
+        document.write('str타입: ' + typeof (str) + ' 값: ' + str + '<br>');
+        document.write('i타입: ' + typeof (i) + ' 값: ' + i + '<br>');
+        str = '100점';
+        i = Number(str);
+        document.write("<h3>3.str='100점'; i=Number(str);</h3>");
+        document.write('str타입: ' + typeof (str) + ' 값: ' + str + '<br>');
+        document.write('i타입: ' + typeof (i) + ' 값: ' + i + '<br>');//NaN
+        str = '100점';
+        i = parseInt(str);
+        document.write("<h3>4.str='100점'; i=Number(str);</h3>");
+        document.write('str타입: ' + typeof (str) + ' 값: ' + str + '<br>');
+        document.write('i타입: ' + typeof (i) + ' 값: ' + i + '<br>');
+        str = 'A';
+        i = Number(str);
+        document.write("<h3>5.str='A'; i=Number(str);</h3>");
+        document.write('str타입: ' + typeof (str) + ' 값: ' + str + '<br>');
+        document.write('i타입: ' + typeof (i) + ' 값: ' + i + '<br>');//NaN
+        str = 'A';
+        i = parseInt(str, 16); //16진수 중 A값(10)이 나옴(str만 적으면 NaN)
+        document.write("<h3>6.str='A'; i=Number(str);</h3>");
+        document.write('str타입: ' + typeof (str) + ' 값: ' + str + '<br>');
+        document.write('i타입: ' + typeof (i) + ' 값: ' + i + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>
