@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-22 JavaScripts_조건문      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        document.write('<h2>요일에 따라 배경색 다르게</h2>'); //document.write가 없으면 배경색도 나타나지 않음
+        var week = new Date().getDay(); //0:일 1:월 ... 6:토
+        switch (week) {
+            case 0: document.bgColor = 'red'; break;
+            case 1: document.bgColor = 'orange'; break;
+            case 2: document.bgColor = 'yellow'; break;
+            case 3: document.bgColor = 'green'; break;
+            case 4: document.bgColor = 'blue'; break;
+            case 5: document.bgColor = 'navy'; break;
+            case 6: document.bgColor = 'purple'; break;
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

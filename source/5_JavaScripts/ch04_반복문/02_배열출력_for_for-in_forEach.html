@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-22 JavaScripts_반복문      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var array = [2021, 'hello', true, function () { alert(1) }, [1, 2, 3], '공유'];
+        //1. 일반 for문 이용
+        document.write('<h3>1. 일반 for문 이용</h3>');
+        for (var idx = 0; idx < array.length; idx++) {
+            document.write(idx + '번째 값: ' + array[idx] + '<br>'); //확장for문은 없음
+        };
+        //2. for-in문 이용
+        document.write('<h3>2. for-in문 이용</h3>');
+        for (var idx in array) {//인덱스 in 배열이름
+            document.write(idx + '번째 값: ' + array[idx] + '<br>');
+        };
+        //3-1. forEach(배열에서 사용가능) 함수 이용
+        document.write('<h3>3-1. forEach()함수 이용</h3>');
+        /* 배열명: array
+        * 배열 안 데이터(data)는 2021, 'hello', true, ...
+        * 배열 인덱스(idx)는       0,   1,   2, 
+        */
+        array.forEach(function (data, idx) {
+            document.write(idx + '번째 값: ' + array[idx] + '<br>'); //array[idx]를 data로 써도 동일한 결과
+        });
+        array.forEach(function (data, idx) {
+            document.write(idx + '번째 값: ' + data + '<br>');
+        });
+        //3-2. forEach()함수 이용 - idx없이 데이터만 출력시
+        document.write('<h3>3-2. forEach()함수 이용</h3>');
+        array.forEach(function (data) {
+            document.write(data + '<br>');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

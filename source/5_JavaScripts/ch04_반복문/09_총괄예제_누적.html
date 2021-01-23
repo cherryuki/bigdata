@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-22 JavaScripts_반복문      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var i = 0, j = 0;
+        var tempStr;
+        var sum = 0;
+        for (var cnt = 0; true; cnt++) {
+            if (confirm("누적하시겠습니까?")) {
+                tempStr = prompt("누적할 점수를 입력하세요");
+                var temp = Number(tempStr);
+                if (tempStr == null || tempStr == '' || isNaN(temp) || temp < 0) {
+                    j++;
+                } else {
+                    i++;
+                    sum += temp;
+                }
+            } else {
+                break;
+            }
+        };
+        document.write(cnt + '번 입력<br>');
+        document.write('누적 점수: ' + sum + '<br>');
+        document.write('점수를 제대로 입력한 횟수: ' + i + '<br>');
+        document.write('점수를 잘못 입력한 횟수: ' + j + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

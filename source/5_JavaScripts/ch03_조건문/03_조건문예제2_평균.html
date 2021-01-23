@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-22 JavaScripts_조건문      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var kor, mat, eng;
+        while (kor == '' || isNaN(kor) || kor < 0 || kor > 100) {
+            kor = Number(prompt('국어 점수를 입력하세요', '0~100'));
+        }
+        while (mat == '' || isNaN(mat) || mat < 0 || mat > 100) {
+            mat = Number(prompt('수학 점수를 입력하세요', '0~100'));
+        }
+        while (eng == '' || isNaN(eng) || eng < 0 || eng > 100) {
+            eng = Number(prompt('영어 점수를 입력하세요', '0~100'));
+        }
+        var avg = (kor + mat + eng) / 3;
+        switch (Math.trunc(avg / 10)) {
+            case 10: case 9: document.write('수');
+                break;
+            case 8: document.write('우');
+                break;
+            case 7: document.write('미');
+                break;
+            case 6: document.write('양');
+                break;
+            default: document.write('가');
+        }
+        document.write(' / 평균 점수: ' + Math.round(avg) + '점');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

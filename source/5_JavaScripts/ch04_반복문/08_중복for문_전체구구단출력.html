@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-22 JavaScripts_반복문      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        document.write('<table>');
+        document.write('<caption><2~9단 구구단></caption><tr>');
+        for (i = 2; i < 10; i++) {
+            document.write('<th>' + i + '단 구구단</th>');
+        }
+        document.write('</tr>');
+        //2~9단 구구단 출력
+        for (j = 1; j < 10; j++) {
+            document.write('<tr>');
+            for (i = 2; i < 10; i++) {
+                document.write('<td>' + i + 'x' + j + '=' + i * j + '</td>');
+            }
+            document.write('</tr>');
+        }
+        document.write('</table>');
+    </script>
+    <style>
+        caption{
+            font-weight:bold;
+            font-size:1.2em;
+        }
+        table{
+            border:2px solid steelblue;
+            width:800px;
+            margin:20px auto;
+        }
+        th {
+            height:30px;
+            border-bottom:1px dashed steelblue;
+            
+        }
+        td {
+            padding:5px 10px;
+            text-align:center;
+        }
+        th:nth-child(2n), td:nth-child(2n) {
+            background-color:lightblue;
+        }
+        
+    </style>
+</head>
+<body>
+
+</body>
+</html>

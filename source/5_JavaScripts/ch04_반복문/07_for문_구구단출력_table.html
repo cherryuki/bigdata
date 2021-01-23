@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-22 JavaScripts_반복문      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        while (num == null || isNaN(num) || num <= 0 || num>9 ) {
+            var num = prompt('보고 싶은 구구단을 입력하세요');
+        };
+        document.write('<h3>' + num + '단 구구단</h3>');
+        document.write('<table>');
+        for (idx = 1; idx < 10; idx++) {
+            document.write('<tr><td>'+num + 'x' + idx + '=' + num * idx + '</td></tr>');
+        };
+        document.write('</table>');
+    </script>
+    <style>
+        h3 {
+            text-align:center;
+        }
+        table {
+            width:200px;
+            margin:0 auto;
+            border:1px solid steelblue;
+            box-sizing:border-box;
+        }
+        td {
+            width:200px;
+            height:50px;
+            line-height:50px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>

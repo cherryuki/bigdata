@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-22 JavaScripts_조건문      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function chk() {
+            var i1 = Number(frm.num1.value);
+            var i2 = Number(frm.num2.value);
+            var cha = (i1 >= i2) ? (i1 - i2) : (i2 - i1);
+            if (cha == 0) {
+                var result = '<p> 두 수는 같은 수 입니다</p>';
+            } else if (i1 > i2) {
+                var result = '<p>' + i1 + '가 '+ cha + '만큼 더 큽니다</p>';
+            } else {
+                var result = '<p>' + i2 + '가 ' + cha + '만큼 더 큽니다</p>';
+            }
+            document.body.innerHTML += result;
+            frm.num1.value = i1;
+            frm.num2.value = i2;
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form action="#" name="frm" onsubmit="return chk()">
+        <table>
+            <tr>
+                <th>수1</th>
+                <td><input type="number" name="num1" /></td>
+            </tr>
+            <tr>
+                <th>수2</th>
+                <td><input type="number" name="num2" /></td>
+            </tr>
+            <tr>
+                <th colspan="2"><input type="submit" value="결과" /></th>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
