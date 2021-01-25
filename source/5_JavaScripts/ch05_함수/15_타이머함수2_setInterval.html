@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-25 JavaScripts_함수      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var id = setInterval(function () {
+            document.write(new Date() + '<br>');
+        }, 1000); //setInterval(); 일정시간마다 콜백함수 실행
+        setTimeout(function () {
+            clearInterval(id);
+            document.write('Done');
+        }, 10000); //setTimeout(); 일정시간 후 한 번 콜백함수 실행
+    </script>
+</head>
+<body>
+
+</body>
+</html>

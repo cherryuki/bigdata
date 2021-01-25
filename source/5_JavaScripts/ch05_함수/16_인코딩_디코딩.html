@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-25 JavaScripts_함수      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //인코딩해서 전송, 받는 측에서 받은 데이터를 디코딩해서 원본 해석함
+        var str = '환율';
+        document.write('str: ' + str + '<br>');
+        var encodeStr = encodeURIComponent(str);
+        document.write('인코딩 된 str: ' + encodeStr + '<br>');
+        var decodeStr = decodeURIComponent(encodeStr);
+        document.write('디코딩 된 str: ' + decodeStr + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

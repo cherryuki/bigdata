@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-25 JavaScripts_함수      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //익명함수의 재정의
+        //funVar(); 익명함수는 정의(선언) 전에는 사용 불가
+        var funVar = function () {
+            alert('함수A');
+        };
+        funVar(); //함수A경고창
+        var funVar = function () {//var 생략 가능
+            alert('함수B');
+        };
+        funVar();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

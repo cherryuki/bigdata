@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-25 JavaScripts_함수      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var output = pow(2, 3);
+        var output1 = alert('test1');
+        document.write('pow(2,3)=' + output + '<br>'); //리턴값이 없을 경우 undefined 출력
+        document.write('alert("test1")= ' + output1); //undefined
+        function pow(i, j) {
+            var result = 1;
+            for (var cnt = 0; cnt < j; cnt++) {
+                result *= i;
+            }
+            return result;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

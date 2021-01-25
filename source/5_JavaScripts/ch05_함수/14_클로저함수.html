@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-25 JavaScripts_함수      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function test(name) {
+            var msg = 'Hello, ' + name + '님 안녕하세요';
+            return function () {
+                alert(msg);
+            }; //클로저 함수: return된 함수
+        }
+        var fun = test('공유');
+        fun();
+        test('박보검')(); //리턴받은 클로저 함수 바로 실행
+    </script>
+</head>
+<body>
+
+</body>
+</html>

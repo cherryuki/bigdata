@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-25 JavaScripts_함수      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        /*A가 만든 부분*/
+        function pythagoras(width, height) {//루트함수: Math.sqrt();
+            function square(x) { return x * x }; //내부함수: 함수 안에 선언된 함수(외부 동일명 함수와의 충돌 막기 위함)
+            return Math.sqrt(square(width) + square(height));
+        };
+    </script>
+    <script>
+        /*B가 만든 부분: 밑변, 높이, 빗변(hypotenuse)을 받아 직각 삼각형 여부 리턴*/
+        function square(width, height, hypotenuse) {
+            if (width * width + height * height == hypotenuse * hypotenuse) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+    <script>
+        alert(pythagoras(3, 4));
+        alert(square(3, 4, 5)); //B가 만든 square함수 호출 됨(내부함수는 호출X)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

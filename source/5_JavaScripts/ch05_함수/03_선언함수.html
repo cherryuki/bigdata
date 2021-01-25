@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-25 JavaScripts_함수      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        fun(); //동일 스크립트 내에서 선언 함수는 위에서도 호출 가능(다른 스크립트일 경우 반드시 함수 선언 스크립트가 상위에 위치해야함)
+        function fun() {//선언(적) 함수: 이름 있는 함수
+            alert('함수A');
+        };
+        fun(); //선언적 함수 호출
+        alert(fun); //함수 선언 전체 내용(주석까지) 출력
+        //alert(fun());
+        //alert(alert);//[native code]
+    </script>
+</head>
+<body>
+
+</body>
+</html>

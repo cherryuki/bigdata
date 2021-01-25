@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-25 JavaScripts_함수      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var color = ['steelblue', 'yellow', 'white'];
+        var bgImg = ['url("img/01.jpg")', 'url(img/02.jpg)', 'url(img/03.jpg)'];
+        var s = 0;
+        var id = setInterval(function () {
+            document.write(new Date() + '<br>');
+            document.body.style.color = color[s % 3];
+            document.body.style.backgroundImage = bgImg[s % 3];
+            //document.body.style.backgroundImage = 'url("img/0' + (s % 3 + 1) + '.jpg';
+            document.body.style.backgroundRepeat = 'no-repeat';
+            document.body.style.fontWeight = 'bold';
+            s++;
+        }, 1000);
+        setTimeout(function () {
+            clearInterval(id);
+        }, 10000);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

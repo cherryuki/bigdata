@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-25 JavaScripts_함수      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        for (var i = 0; i < 3; i++) {
+            setTimeout(function () { alert(i); }, 0);
+        } //3->3->3
+
+        //0->1->2로 나오게 바꾸기
+        //1. 자기호출 함수 이용
+        for (var i = 0; i < 3; i++) {
+            (function (thatTime) {
+                setTimeout(function () { alert(thatTime); }, 0);
+            })(i);
+        }
+
+        //2. 배열 forEach()함수 이용
+        [0, 1, 2].forEach(function (data, idx) {
+            setTimeout(function () { alert(data); }, 0);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

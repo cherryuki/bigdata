@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-25 JavaScripts_함수      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //선언 함수 재정의 - 가장 마지막에 (재)정의된 함수가 호출됨
+        funVar(); //선언 함수는 동일 스크립트 내에서 정의 전에 사용 가능
+        function funVar() {
+            alert('함수A');
+        };
+        funVar(); //함수B
+        function funVar() {
+            alert('함수B');
+        };
+        funVar();//함수B
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-25 JavaScripts_함수      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var i = Number(prompt('i값을 입력하세요', 0));
+        var j = Number(prompt('j값을 입력하세요', 0));
+        document.write('1. i(' + i + ')의 j(' + j + ')승은 ' + pow(i, j), '<br>');
+        //선언된 매개변수보다 많은 매개변수(pow(i, j, 1, 2, 3): 뒷부분(1,2,3)은 무시
+        document.write('2. ' + pow(2, 3, 10) + '<br>');//2^3=8
+        //선언된 매개변수보다 적은 매개변수(pow(i)): undefined로 할당
+        document.write('3. ', pow(2), '<br>');//1
+        function pow(x, y) {//x의 y승을 리턴하는 함수
+            var result = 1;
+            for (var cnt = 1; cnt <= y; cnt++) {//y번 반복
+                result *= x; //result = result*x;
+            }
+            return result;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
