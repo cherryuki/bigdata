@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-26 JavaScripts_객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var f = function () { };
+        var arr = [123, 2, 'hello'];
+        var person = {
+            name: 'kong',
+            age: 43,
+            eat: function (food) {
+                alert(this.age + '살 ' + this.name + '은 ' + food + '을 먹는다');
+            },
+        };
+        person.eat('탕수육');
+        document.write('person: ' + person + '<br>'); //[object Object]
+        document.write('arr: ' + arr + '<br>'); //123, 2, hello
+    </script>
+</head>
+<body>
+
+</body>
+</html>

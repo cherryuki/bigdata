@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-26 JavaScripts_객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        /*자바
+         class Person {
+            private String name;
+            public String toString() {
+            return this.name + '의 점수: ' + score +'점';
+            }
+        }
+        Person person = new Person('공유', 90);
+        System.out.println(person.toString());
+         */
+        var student = {
+            name: '공유', kor: 90, mat: 100, eng: 80, sci: 97,
+            toString: function () {
+                var output = '';
+                for (var key in this) {
+                    if (key != 'toString') {
+                        output += key + ': ' + this[key] + '<br>';
+                    }
+                }
+                return output;
+            },
+        };
+        document.write(student); //student.toString()과 동일
+    </script>
+</head>
+<body>
+
+</body>
+</html>

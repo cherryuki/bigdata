@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-26 JavaScripts_객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var student = { name: '공유' };
+        student['name'] = '최한결';
+        student.name = '공지철'; //기존 객체의 속성값 변경
+        student.kor = 100; //객체 속성 추가
+        student.mat = 90;
+        student.hobby = '프로그래밍';
+        student.toString = function () {
+            var output = '';
+            for (var key in this) {
+                if (key != 'toString') {
+                    output += key + ': ' + this[key] + '<br>';
+                }
+            }
+            return output;
+        };
+        document.write(student['name'] + '<br>');
+        document.write('<h3>toString</h3>');
+        document.write(student);
+        //student 객체 안에 name, kor, mat, hobby, toString 있음
+        delete (student.hobby); //객체 안 hobby 속성 제거
+        document.write('<h3>속성(hobby) 제거 후</h3>');
+        document.write(student);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

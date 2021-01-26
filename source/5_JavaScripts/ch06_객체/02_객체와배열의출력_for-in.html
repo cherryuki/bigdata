@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-26 JavaScripts_객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var arr = [1, 2, 3]; //출력: 일반 for문, for-in문, forEach();
+        for (idx in arr) {
+            document.write(idx + '번째: ' + arr[idx] + '<br>');
+        };
+        arr.forEach(function (data, idx) {
+            document.write(idx + '번째: ' + data + '<br>');
+        });
+        var obj = { name: 'kong', age: 43 }; //출력: for-in문 사용
+        for (var key in obj) {
+            document.write(key + ': ' + obj[key] + '<br>');
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

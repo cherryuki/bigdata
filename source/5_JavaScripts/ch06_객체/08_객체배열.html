@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-26 JavaScripts_객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var students = [
+            { name: '공유', kor: 100, mat: 98, eng: 88, sci: 100 },
+            { name: '박보검', kor: 90, mat: 88, eng: 90, sci: 90 },
+        ];
+        students.push({ name: '한지민', kor: 100, mat: 80, eng: 90, sci: 79 });
+        students.push({ name: '이지아', kor: 100, mat: 90, eng: 100, sci: 100 });
+        students.push({ name: '유인나', kor: 80, mat: 70, eng: 80, sci: 80 });
+        for (var idx in students) {
+            students[idx].getSum = function () {
+                return this.kor + this.mat + this.eng + this.sci; //this 반드시 넣어줘야 함
+            };
+            students[idx].getAvg = function () {
+                return this.getSum() / 4; //소수점 유지
+            };
+            students[idx].toString = function () {
+                var output = '';
+                for (var key in this) {
+                    if (key != 'getSum' && key != 'getAvg' && key != 'toString') {
+                        output += key + ': ' + this[key] + '\n';
+                    } else if (key == 'getSum' || key == 'getAvg') {
+                        output += key.substring(3) + ': ' + this[key]() + '\n';
+                    }
+                }
+                return output;
+            };
+        };
+        //1. 일반 for문
+        document.write('<h3>1. 일반 for문 이용</h3>');
+        var output = '';
+        for (var idx = 0; idx < students.length; idx++) {
+            output += idx + '번째\n';
+            output += students[idx];
+        };
+        alert(output);
+        //document.write(output.replace('\n', '<br>')); //맨 첫번째만 적용 됨
+        document.write(replaceAll(output, '\n', '<br>'));
+        //replaceAll: output에서 oldStr을 newStr로 모두 교체
+        function replaceAll(str, oldStr, newStr) {
+            //join, split
+            return str.split(oldStr).join(newStr);
+        };
+        //2. for-in문
+        document.write('<h3>2. for-in문 이용</h3>');
+        for (var idx in students) {
+            document.write(idx+'번째) '+students[idx] + '<br>');
+        };
+        //3. forEach()
+        document.write('<h3>3. forEach() 이용</h3>');
+        students.forEach(function (data, idx) {
+            document.write(idx + '번째) ' + data + '<br>');
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

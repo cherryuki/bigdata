@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-26 JavaScripts_객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var student = {
+            name: '이현우',
+            kor: 92, mat: 93, eng: 100, sci: 98,
+            output: '객체 안에 output',
+        };
+        var output = ''; //선언된 변수는 window객체 안의 변수(=window.output)
+        with (student) {//student.name, student.kor등에서 student 생략 가능하게 해줌
+            window.output += '이름: ' + name + '<br>';
+            window.output += '국어: ' + kor + '점<br>';
+            window.output += '수학: ' + mat + '점<br>';
+            window.output += '영어: ' + eng + '점<br>';
+            window.output += '과학: ' + sci + '점<br>';
+        };
+        document.write(output);
+        document.write('name in student: ' + ('name' in student));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

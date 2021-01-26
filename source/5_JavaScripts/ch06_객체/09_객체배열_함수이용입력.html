@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-26 JavaScripts_객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function makeStudent(name, kor, mat, eng, sci) {
+            var resultObj = {
+                name: name,
+                kor: kor,
+                mat: mat,
+                eng: eng,
+                sci: sci,
+                getSum: function () {
+                    return this.kor + this.mat + this.eng + this.sci;
+                },
+                getAvg: function () {
+                    return this.getSum() / 4;
+                },
+                toString: function () {
+                    var output = '';
+                    for (var key in this) {
+                        if (key != 'getSum' && key != 'getAvg' && key != 'toString') {
+                            output += key + ': ' + this[key] + '\t';
+                        } else if (key == 'getSum' || key=='getAvg') {
+                            output += key.substring(3) + ': ' + this[key]() + '\t';
+                        }
+                    }
+                    return output;
+                }, //toString
+            }; //resultObj
+            return resultObj;
+        }//makeStudent함수 끝
+        var students = [makeStudent('공지철', 100, 90, 90, 90), makeStudent('한지민', 100, 90, 80, 90)];
+        students.push(makeStudent('박보검', 90, 80, 70, 90));
+        students.push(makeStudent('이지아', 100, 90, 100, 100));
+        students.forEach(function (value, idx) {
+            document.write(idx + '번째<br>' + value + '<hr>');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

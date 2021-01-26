@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-26 JavaScripts_생성자 함수      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function Rectangle(w, h) {
+            if (w < 0) {
+                throw '가로길이를 음수로 설정할 수 없습니다'; //예외 발생
+            } else {
+                var width = w;
+            };
+            if (h < 0) {
+                throw '세로길이를 음수로 설정할 수 없습니다'; //예외 발생
+            } else {
+                var height = h;
+            };
+            this.getWidth = function () {
+                return width;
+            };
+            this.getHeight = function () {
+                return height;
+            };
+            this.setWidth = function (w) {
+                if (w < 0) {
+                    throw '가로길이를 음수로 수정할 수 없습니다'; //예외 발생
+                } else {
+                    width = w;
+                };
+            }; //setWidth
+            this.setHeight = function (h) {
+                if (h < 0) {
+                    throw '세로길이를 음수로 수정할 수 없습니다'; //예외 발생
+                } else {
+                    height = h;
+                }
+            }; //setHeight
+        };
+        Rectangle.prototype.getArea = function () {
+            return this.getWidth() * this.getHeight();
+        }; //생성자 함수와 프로토타입 완성
+
+        try {
+            var rect = new Rectangle(5, 7);
+        } catch (e) {
+            location.href = '05_공사중.html'; //다른 페이지로 넘길 때
+        };
+        document.write('가로: ' + rect.getWidth() + '<br>');
+        document.write('세로: ' + rect.getHeight() + '<br>');
+        document.write('넓이: ' + rect.getArea() + '<br>');
+        try {
+            rect.setWidth(1); rect.setHeight(-5);
+        } catch (e) {
+            document.write('<h6>' + e + '</h6>'); //예외 발생시 에러 메시지 출력
+        };
+        document.write('<h3>수정 후</h3>');
+        document.write('가로: ' + rect.getWidth() + '<br>');
+        document.write('세로: ' + rect.getHeight() + '<br>');
+        document.write('넓이: ' + rect.getArea() + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>
