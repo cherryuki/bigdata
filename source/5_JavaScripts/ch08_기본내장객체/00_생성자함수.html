@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-27 JavaScripts_기본 내장객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function Rectangle(w, h) {
+            if (w < 0) {
+                throw '가로길이를 음수로 설정할 수 없습니다'; //예외 발생
+            } else {
+                var width = w;
+            };
+            if (h < 0) {
+                throw '세로길이를 음수로 설정할 수 없습니다'; //예외 발생
+            } else {
+                var height = h;
+            };
+            this.getWidth = function () {
+                return width;
+            };
+            this.getHeight = function () {
+                return height;
+            };
+            this.setWidth = function (w) {
+                if (w < 0) {
+                    throw '가로길이를 음수로 수정할 수 없습니다'; //예외 발생
+                } else {
+                    width = w;
+                };
+            }; //setWidth
+            this.setHeight = function (h) {
+                if (h < 0) {
+                    throw '세로길이를 음수로 수정할 수 없습니다'; //예외 발생
+                } else {
+                    height = h;
+                }
+            }; //setHeight
+        };
+        Rectangle.prototype.getArea = function () {
+            return this.getWidth() * this.getHeight();
+        }; //생성자 함수와 프로토타입 완성
+
+        var rect1 = new Rectangle(2, 5);
+        var rect2 = new Rectangle(3, 4);
+        //document.write('rect1의 생성자: ' + rect1.constructor+'<br>');
+        //document.write('rect2의 생성자: ' + rect2.constructor + '<br>');
+        if (rect1.constructor == rect2.constructor) {
+            document.write('rect1과 rect2는 타입이 같습니다<br>');
+        } else {
+            document.write('rect1과 rect2는 타입이 다릅니다<br>');
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

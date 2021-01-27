@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-27 JavaScripts_기본 내장객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function Student(name, kor, mat) {
+            this.name = name;
+            this.kor = kor;
+            this.mat = mat;
+        };
+        Student.prototype.getSum = function () {
+            return this.kor + this.mat;
+        };
+        Student.prototype.getAvg = function () {
+            return this.getSum() / 2;
+        };
+        Student.prototype.toString = function () {
+            return '이름: ' + this.name + ' 총점: ' + this.getSum() + ' 평균: ' + this.getAvg();
+        };
+        var students = [new Student('김', 100, 100), new Student('박', 100, 97), new Student('이', 70, 70), new Student('강', 90, 90), new Student('최', 60, 64)];
+        //원 데이터 출력
+        students.forEach(function (data, idx) {
+            document.write(idx + '번째) ' + data + '<br>');
+        });
+        //정렬된 데이터 출력(총점 기준으로 내림차순 정렬)
+        students.sort(function (left, right) {
+            return right.getSum() - left.getSum();
+        });
+        document.write('<h3>총점 기준으로 내림차순 정렬 후</h3>');
+        students.forEach(function (data, idx) {
+            document.write(idx+1 + '등) ' + data + '<br>');
+        });
+        //1등부터 3등까지만 출력
+        document.write('<h3>1~3등 까지만 출력</h3>');
+        students.slice(0, 3).forEach(function (data, idx) {
+            document.write(idx + 1 + '등) ' + data + '<br>');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

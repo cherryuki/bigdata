@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-27 JavaScripts_기본 내장객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var str = 'abc#abcㄱㅏ12';
+        var patternNum = /[0-9]/; //정규표현식으로 나타낸 숫자 패턴
+        var patternEng = /[a-zA-Z]/; //정규표현식으로 나타낸 영문 패턴
+        var patternKor = /[가-힣ㄱ-ㅎㅏ-ㅣ]/; //한글패턴(자음과 모음만 있는 것도 허용시)
+        var patternSpe = /[~!@#$%^&*()-_=+\\?/]/; //특수문자
+        document.write('숫자 포함 여부: ' + patternNum.test(str) + '<br>');
+        document.write('영문자 포함 여부: ' + patternEng.test(str) + '<br>');
+        document.write('한글 포함 여부: ' + patternKor.test(str) + '<br>');
+        document.write('특수문자 포함 여부: ' + patternSpe.test(str) + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

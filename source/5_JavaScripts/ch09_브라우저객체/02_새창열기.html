@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-27 JavaScripts_브라우저 객체 모델(BOM)      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var child = open('', '', 'width=450, height=500, left=100, top=100');
+        /* open(속성1, 속성2, 속성3)
+         * 속성1:열릴 새창의 url
+         * 속성2: 윈도우 이름
+         * 속성3: 새창의 width, height, location(주소창 유무1,0), ...
+         */
+        if (child) {
+            child.document.write('<h2>새 창</h2>');
+        } else {
+            alert('팝업 차단을 해제하시기 바랍니다');
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

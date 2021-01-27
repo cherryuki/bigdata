@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-27 JavaScripts_브라우저 객체 모델(BOM)      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function openWin() {
+            var child = open('', 'childWin', 'width=300, height=200');
+            if (!child) {
+                alert('팝업 차단을 해제하시기 바랍니다');
+            };
+        };
+    </script>
+</head>
+<body>
+    <button onclick="openWin()">새창 열기</button>
+    <br />
+    <a href="http://www.naver.com" target="childWin">네이버로 가기</a> <!--childWin: 윈도우 이름-->
+</body>
+</html>

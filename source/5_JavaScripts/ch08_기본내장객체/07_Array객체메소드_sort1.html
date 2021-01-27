@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-27 JavaScripts_기본 내장객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var arr1 = new Array('big', 'abd', 'abcd');
+        var arr2 = [53, 1004, 273, 37, 58];
+        document.write('arr1 정렬 전: ' + arr1 + '<br>');
+        arr1.sort(); //정렬 - ascii코드 순으로 정렬
+        document.write('arr1 정렬 후: ' + arr1 + '<br>');//abcd, abd, big
+        document.write('arr2 정렬 전: ' + arr2 + '<br>');
+        arr2.sort(); //정렬 - ascii코드 순으로 정렬(숫자 순과 다름)
+        document.write('arr2 정렬 후: ' + arr2 + '<br>'); //1004,273,37,53,58
+        arr2.sort(function (left, right) {
+            //return left-right; //오름차순 정렬
+            return right - left; //내림차순 정렬
+        });
+        document.write('arr2 내림차순 정렬 후: ' + arr2 + '<br>');
+        arr2.reverse(); //배열의 요소 순서를 반대로 뒤집음
+        document.write('arr2 배열 순서 반대로: ' + arr2 + '<br>');
+        var slicedArr2 = arr2.slice(0, 3); //0인덱스부터 3인덱스 앞까지(0~2인덱스)
+        document.write('arr2 최소값 3개 출력: ' + slicedArr2 + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

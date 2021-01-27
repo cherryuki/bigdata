@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-27 JavaScripts_기본 내장객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var numLiteral = 273;
+        var numObject = new Number(273);
+        if (typeof (numLiteral) == 'number') {
+            document.write('numLiteral은 number이다<br>');
+        } else {
+            document.write('numLiteral은 number가 아니다<br>');
+        };
+        if (typeof (numObject) == 'number') {
+            document.write('numObject는 number이다<br>');
+        } else {
+            document.write('numObject는 number가 아니다<br>');
+        };
+        if (numLiteral.constructor == Number) {
+            document.write('numLiteral의 생성자는 Number이다<br>');
+        } else {
+            document.write('numLiteral의 생성자는 Number가 아니다<br>');
+        };
+        if (numObject.constructor == Number) {
+            document.write('numObject의 생성자는 Number이다<br>');
+        } else {
+            document.write('numObject의 생성자는 Number가 아니다<br>');
+        };
+        var obj = { property: 273, name: 'Kong' };
+        var output = '';
+        output += 'hasOwnProperty("name"): ' + obj.hasOwnProperty('name') + '<br>';
+        output += '반복문으로 열거할 수 있는지(name): ' + obj.propertyIsEnumerable('name') + '<br>';
+        output += obj.toString();
+        document.write('<hr>' + output+'<br>');
+        for (var key in obj) {
+            document.write(key + ': ' + obj[key]+'<br>'); //key='property', 'name'
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

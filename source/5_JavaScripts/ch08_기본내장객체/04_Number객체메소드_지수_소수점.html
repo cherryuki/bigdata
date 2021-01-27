@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-27 JavaScripts_기본 내장객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var num = 273.5580312; //지수형: 2.735580312*10의2승 //2.735580312E+2
+        //num = 0.0000273; //지수형: 2.73E-5
+        document.write('수: ' + num + '<br>');
+        document.write('지수형 표현(5): ' + num.toExponential(5) + '<br>');
+        document.write('소수점 1자리까지: ' + num.toFixed(1) + '<br>');
+        document.write('일의 자리까지: ' + Math.round(num) + '<br>'); //274
+        document.write('소수점 1자리까지: ' + Math.round(num * 10) / 10 + '<br>'); //273.6
+        document.write('숫자5개만: ' + num.toPrecision(5) + '<br>'); //273.56
+    </script>
+</head>
+<body>
+
+</body>
+</html>

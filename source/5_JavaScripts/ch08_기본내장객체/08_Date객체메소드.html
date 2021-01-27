@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-27 JavaScripts_기본 내장객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="08_dataInterval.js"></script>
+    <script>
+        var today = new Date(); //현재 날짜 및 시간
+        var limitday = new Date(2020, 11, 30, 09, 30, 0); //학습 기록 시작 날짜
+        document.write('오늘: ' + today + '<br>');
+        document.write('날짜 및 시간: ' + today.toLocaleString() + '<br>');
+        document.write('날짜: ' + today.toLocaleDateString() + '<br>');
+        document.write('시간: ' + today.toLocaleTimeString() + '<br>');
+        document.write('학습 시작 날짜: ' + limitday.toLocaleString() + '<br>');
+        //this.getInterval(that); this날과 that날 사이의 날짜 계산 - 경과일 및 D-day 계산 가능
+        var intervalDay = today.getInterval(limitday);
+        document.write('학습 시작일로부터: ' + intervalDay + '일째<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-27 JavaScripts_브라우저 객체 모델(BOM)      ⓒcherryuki(ji) -->
+<!--작은 그림이 있는 parent-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var child;
+        function openBig() {
+            child = open('04_big.html', '', 'width=700, height=650');
+            if (!child) {
+                alert('팝업차단을 해제하시기 바랍니다');
+            }
+        };
+        function closeBig() {
+            child.close();
+        };
+    </script>
+</head>
+<body>
+    <h3>작은 그림의 parent 창</h3>
+    <img src="ch09_img/small.jpg" alt="작은 지도 그림" onmouseover="openBig()" onmouseout="closeBig()"/>
+</body>
+</html>
