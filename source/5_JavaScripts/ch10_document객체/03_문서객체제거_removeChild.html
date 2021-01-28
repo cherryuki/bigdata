@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_document객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function append() {
+            //var h1 = document.createElement('h1');
+            //var textNode = document.createTextNode('HEADER');
+            //h1.appendChild(textNode);
+            //document.body.appendChild(h1);
+            document.body.innerHTML += '<h1>HEADER</h1>';
+        };
+        function remove() {
+            //var h1 = document.querySelecotrAll('h1');
+            var h1 = document.getElementsByTagName('h1');
+            for (var idx = h1.length - 1; idx >= 0; idx--) {//끝에서부터 지우기
+                document.body.removeChild(h1[idx]);
+            };
+        };
+    </script>
+</head>
+<body>
+    <button onclick="remove()">header 전부 제거</button> <!--h1태그 제거-->
+    <button onclick="append()">header 하나 추가</button> <!--h1태그 추가-->
+    <h1>HEADER</h1>
+    <h1>HEADER</h1>
+</body>
+</html>

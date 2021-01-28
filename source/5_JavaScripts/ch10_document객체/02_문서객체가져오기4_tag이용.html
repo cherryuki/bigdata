@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_document객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            var head = document.getElementsByTagName('h1');
+            //배열이지만 head.forEach() 불가능
+            for (var idx in head) {
+                head[idx].innerHTML = 'Changed';
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>HEADER</h1>
+    <h1>HEADER</h1>
+</body>
+</html>

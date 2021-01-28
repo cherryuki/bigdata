@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_document객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        p { text-align:center; };
+    </style>
+    <script>
+        function confirmOpen() {
+            var confirm = open('05_2_confirm.html', '', 'width=300, height=100, left=100');
+            if (!confirm) {
+                alert('팝업 차단을 해제하시기 바랍니다');
+            }
+        };
+    </script>
+</head>
+<body>
+    <form>
+        <p>아이디 <input type="text" name="id" id="id" /> <input type="button" value="중복확인" onclick="confirmOpen()"</p>
+    </form>
+</body>
+</html>

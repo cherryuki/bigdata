@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_이벤트      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            var btnA = document.getElementById('btnA');
+            var btnB = document.getElementById('btnB');
+            var countA = document.getElementById('countA');
+            var countB = document.getElementById('coundB');
+            //btnA를 클릭할 경우 강제로 btnB의 클릭 이벤트 발생
+            btnA.onclick = function () {
+                countA.innerHTML = Number(countA.innerHTML) + 1;//Number나 parseInt로 받지 않으면 string이어서 '0111'식으로 추가됨
+                btnB.onclick(); //이벤트 강제 실행
+            };
+            btnB.onclick = function () {
+                countB.innerHTML = parseInt(countB.innerHTML) + 1;
+            };
+        };
+    </script>
+</head>
+<body>
+    <button id="btnA">Button A</button>
+    <button id="btnB">Button B</button>
+    <h1>Button A - <span id="countA">0</span></h1>
+    <h1>Button B - <span id="coundB">0</span></h1>
+</body>
+</html>

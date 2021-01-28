@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_document객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            //getElementsByClassName의 return은 배열
+            var clock = document.getElementsByClassName('clock'); //('clock')[0];
+            clock[0].innerHTML = '날짜: ' + new Date().toLocaleDateString();
+            clock[1].value = '시간: ' + new Date().toLocaleTimeString();
+            var clock2 = document.getElementsByClassName('clock2');
+            clock2[0].innerHTML = '날짜 및 시간: ' + new Date().toLocaleString();
+        };
+    </script>
+</head>
+<body>
+    <h1 class="clock">h1</h1>
+    <input type="text" class="clock" />
+    <h3 class="clock2"></h3>
+</body>
+</html>

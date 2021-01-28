@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_document객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #wrap {
+            width: 300px;
+            margin: 50px auto;
+        }
+
+            #wrap h1 {
+                width: 250px;
+                padding: 20px 10px;
+                margin: 30px 15px;
+                border: 1px solid red;
+                background-color: lightpink;
+                border-radius: 10px 40px;
+                text-align: center;
+                font-size: 0.9em;
+                cursor: pointer; /*커서를 명령버튼처럼 보이게 하기 위함*/
+            }
+
+            #wrap input, #wrap span {
+                width: 150px;
+                height: 20px;
+                display: inline-block;
+                border: 1px solid pink;
+                outline: 0;
+            }
+
+            #wrap p {
+                text-align: center;
+            }
+    </style>
+    <script>
+        function childOpen() {
+            var child = open('04_2_child.html', '', 'width=600, height=700, left=100');
+            if (!child) {
+                alert('팝업 차단을 해제하시기 바랍니다');
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <p>사원 이름<input type="text" name="name" id="name" /></p><!--id 반드시 필요(child와 통신하기 위함)-->
+        <p>파트 명칭<span id="part"></span></p>
+        <p>결재 일자<input type="date" name="date" id="date" /></p>
+        <h1 id="insa" onclick="childOpen()">인사정보 파트선택</h1>
+    </div>
+</body>
+</html>

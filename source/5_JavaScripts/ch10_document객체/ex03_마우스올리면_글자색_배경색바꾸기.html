@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_document객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 300px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        h5, p {
+            text-align: center;
+        }
+    </style>
+    <script>
+        var bgColor = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'mediumpurple', 'white'];
+        var day = ['월', '화', '수', '목', '금', '토', '일'];
+        window.onload = function () {
+            var td = document.querySelectorAll('td');
+            for (var idx = 0; idx < td.length; idx++) {
+                td[idx].style.backgroundColor = bgColor[idx];
+            }
+        };
+        function colorChange(idx) {
+            dayChange = document.getElementById('dayChange');
+            dayChange.innerHTML = '<h1>야호 ' + day[idx] + '요일이다</h1>';
+            document.body.style.color = bgColor[idx];
+            document.body.style.backgroundColor = 'black';
+        };
+        function remove() {
+            document.body.style.backgroundColor = 'white';
+            dayChange.innerHTML = '';
+            document.body.style.color = 'black';
+        }
+    </script>
+</head>
+<body>
+    <h5>ex03: 마우스 올리면 해당 글자색, 바탕은 검정색으로</h5>
+    <table>
+        <tr onmouseout="remove()">
+            <td onmouseover="colorChange(0)"></td>
+            <td onmouseover="colorChange(1)"></td>
+            <td onmouseover="colorChange(2)"></td>
+            <td onmouseover="colorChange(3)"></td>
+            <td onmouseover="colorChange(4)"></td>
+            <td onmouseover="colorChange(5)"></td>
+            <td onmouseover="colorChange(6)"></td>
+        </tr>
+    </table>
+    <p id="dayChange"></p>
+</body>
+</html>

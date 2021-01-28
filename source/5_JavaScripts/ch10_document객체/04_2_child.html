@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_document객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #wrap {
+            width: 450px;
+            margin: 0 auto;
+        }
+
+            #wrap h1 {
+                color: red;
+                margin-top: 50px;
+                text-align: center;
+            }
+
+            #wrap h3 {
+                padding: 20px;
+                margin: 10px;
+                border: 1px solid red;
+                text-align: center;
+                border-radius: 10px;
+                font-size: .9em;
+            }
+    </style>
+    <script>
+        /* parent와 child간의 데이터 통신
+         * parent할 일: child창 open()
+         * child 할 일: 1) opener(parent)의 데이터 받아 내 창에 나타내기
+         *               2) child 데이터를 parent 창에 나타내기 + child 창 닫기
+         */
+        window.onload = function () {
+            var name = opener.document.getElementById('name').value; //반드시 id로 받아와야 함
+            var date = opener.document.getElementById('date').value;
+            var showName = document.getElementById('showName'); //1)parent로부터 받아온 데이터 나타냄
+            if (date == '') {
+                showName.innerHTML = name + ', 결재일자 미입력';
+            } else {
+                showName.innerHTML = name + ', 결재일자: ' + date;
+            }
+            var modifyName = document.getElementById('modifyName');
+            modifyName.value = name;
+        };
+        function sendData(part) {//데이터 송부 및 닫기
+            var modifyName = document.getElementById('modifyName').value;
+            opener.document.getElementById('name').value = modifyName;
+            opener.document.getElementById('part').innerHTML = part;
+            close();
+        };
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h1>인사 정보 시스템</h1>
+        <hr />
+        <h2 id="showName"></h2>
+        <h2>이름 수정 가능: <input type="text" id="modifyName" /></h2>
+        <hr />
+        <h3 onclick="sendData('인사')">인사로하고 닫기</h3>
+        <h3 onclick="sendData('재무')">재무로하고 닫기</h3>
+        <h3 onclick="sendData('총무')">총무로하고 닫기</h3>
+        <h3 onclick="sendData('개발')">개발로하고 닫기</h3>
+    </div>
+</body>
+</html>

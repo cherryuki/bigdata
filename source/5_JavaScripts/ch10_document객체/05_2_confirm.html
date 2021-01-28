@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_document객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        p {text-align:center;}
+    </style>
+    <script>
+        window.onload = function () {
+            var id = opener.document.getElementById('id').value.trim();
+            var newId = document.getElementById('newId');
+            newId.value = id;
+        };
+        function sendData(id) {
+            var newId = document.getElementById('newId').value.trim();
+            opener.document.getElementById('id').value = newId;
+            close();
+        };
+    </script>
+</head>
+<body>
+    <form action="05_1_join.html" method="get" onsubmit="sendData()">
+        <div>
+            <p>
+                ID <input type="text" name="newId" id="newId" /> <input type="button" value="체크" />
+            </p>
+            <p><input type="submit" value="아이디 사용" /></p>
+        </div>
+    </form>
+</body>
+</html>

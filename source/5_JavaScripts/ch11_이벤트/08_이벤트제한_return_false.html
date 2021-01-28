@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_이벤트      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            document.querySelector('form').onsubmit = function () {
+                var pw = document.getElementById('pw').value;
+                var pwchk = document.getElementById('pwchk').value;
+                if (pw != pwchk) {
+                    return false; //(디폴트) 이벤트 제한
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <form>
+        pw: <input type="password" name="pw" id="pw" /><br />
+        pw: <input type="password" name="pwchk" id="pwchk" /><br />
+        <input type="submit" value="비밀번호 확인" />
+    </form>
+</body>
+</html>

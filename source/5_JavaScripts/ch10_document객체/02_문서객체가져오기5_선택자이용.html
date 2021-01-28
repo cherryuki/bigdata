@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_document객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            //첫번째 .header(선택자) 하나만 가져오기
+            var header1 = document.querySelector('.header'); //'h1', 'input[type="password"]' 등 모든 선택자 가능
+            header1.innerHTML = 'Changed';
+            //.header 모든 선택자 가져오기
+            var head = document.querySelectorAll('.header'); //배열로 가져옴
+            for (var idx in head) {
+                //head[idx].style.color = 'red';
+                //head[idx].style.backgroundColor = 'yellow';
+                head[idx].style.cssText = 'color:white; backgound-color:blue;';
+                //document.body.style.backgroundColor = 'green';
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1 class="header">HEADER1</h1>
+    <h1 class="header">HEADER2</h1>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_document객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 300px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        h5 {
+            text-align: center;
+        }
+    </style>
+    <script>
+        var bgColor = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'mediumpurple', 'white'];
+        window.onload = function () {
+            var td = document.querySelectorAll('td');
+            for (var idx in td) {
+                td[idx].style.backgroundColor = bgColor[idx];
+            }
+        };
+        function bgColorChange(idx) {
+            document.body.style.backgroundColor = bgColor[idx];
+        };
+    </script>
+</head>
+<body>
+    <h5>ex01: 마우스를 올리면 바탕화면 색도 해당 색상으로 바꾸기</h5>
+    <table>
+        <tr onmouseout="bgColorChange(7)">
+            <td onmouseover="bgColorChange(0)"></td>
+            <td onmouseover="bgColorChange(1)"></td>
+            <td onmouseover="bgColorChange(2)"></td>
+            <td onmouseover="bgColorChange(3)"></td>
+            <td onmouseover="bgColorChange(4)"></td>
+            <td onmouseover="bgColorChange(5)"></td>
+            <td onmouseover="bgColorChange(6)"></td>
+        </tr>
+    </table>
+</body>
+</html>

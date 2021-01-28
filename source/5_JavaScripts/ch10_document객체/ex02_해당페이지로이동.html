@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-28 JavaScripts_document객체      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            width:300px;
+            margin:0, auto;
+            border:2px solid steelblue;
+        }
+        h2, p {
+            text-align:center;
+        }
+    </style>
+    <script>
+        function go(num) {
+            var url = ['http://www.google.com', 'http://www.naver.com', 'http://www.daum.net', 'http://www.youtube.com']
+            location.href = url[num];
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h2>메뉴</h2>
+        <p>
+            <button onclick="go(0)">구글</button>
+            <button onclick="go(1)">네이버</button>
+            <button onclick="go(2)">다음</button>
+            <button onclick="go(3)">유튜브</button>
+        </p>
+    </div>
+
+</body>
+</html>
