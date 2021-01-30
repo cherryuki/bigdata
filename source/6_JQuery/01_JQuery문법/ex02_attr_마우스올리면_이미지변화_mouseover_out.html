@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-29 JQuery 기본 문법      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(function () {
+            $('img').mouseover(function () {
+                var n = $(this).attr('src').substr(4, 1);//substring(4,5)로 써도 동일
+                $(this).attr('src', 'img/' + n + 'over.jpg');
+            });
+            $('img').mouseout(function () {
+                n = $(this).attr('src').substr(4, 1);
+                $(this).attr('src', 'img/' + n + 'out.jpg');
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>
+        <img src="img/0out.jpg" alt="Tutorial버튼" />
+        <img src="img/1out.jpg" alt="Example버튼" />
+        <img src="img/2out.jpg" alt="Special버튼" />
+        <img src="img/3out.jpg" alt="Link버튼" />
+    </p>
+</body>
+</html>

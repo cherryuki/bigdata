@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<!-- 2021-01-29 JQuery 기본 문법      ⓒcherryuki(ji) -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div{
+            width:350px;
+            margin:20px auto;
+        }
+        p, h2 {
+            text-align:center;
+        }
+        input[type=button] {
+            margin: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(function () {
+            var num1 = parseInt(Math.random() * 10);//0~9
+            var num2 = parseInt(Math.random() * 10);//0~9
+            $('.num1').attr('value', num1);
+            $('.num2').attr('value', num2);
+            $('.reset').click(function () {
+                num1 = parseInt(Math.random() * 10);
+                num2 = parseInt(Math.random() * 10);
+                $('.num1').attr('value', num1);
+                $('.num2').attr('value', num2);
+                $('.answer').val('');
+                $('h2').html('');
+            });
+            $('.check').click(function () {
+                var correctAnswer = num1 + num2;
+                var answer = $('.answer').val();
+                if (answer != '' && answer == correctAnswer) {
+                    $('h2').html('정답입니다').css('color', 'blue');
+                } else {
+                    $('h2').html('오답입니다').css('color', 'red');
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div>
+        <p>
+        1단계: <input type="text" class="num1" readonly="readonly" size="3"/> + 
+            <input type="text" class="num2" readonly="readonly" size="3"/> = 
+            <input type="text" class="answer" size="5"/>
+        </p>
+        <p>
+            <input type="button" class="reset" value="다시하기"/> <input type="button" class="check" value="채점하기" />
+        </p>
+        <hr />
+        <h2></h2>
+    </div>
+</body>
+</html>
