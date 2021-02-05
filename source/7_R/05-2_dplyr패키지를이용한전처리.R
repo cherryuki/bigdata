@@ -1,5 +1,5 @@
 # 2021-02-05 R_데이터 전처리_dplyr      ⓒcherryuki(ji) #
-# # # 5-1. dplyr 패키지를 이용한 전처리 # # #
+# # # 5장-2. dplyr 패키지를 이용한 전처리 # # #
 # 1. 외부파일 read/write
 # 1.1 엑셀파일 읽어오기 readxl 패키지 이용
 install.packages('readxl')
