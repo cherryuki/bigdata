@@ -258,3 +258,162 @@ abline(fit, lty="dotted")
 
 # 5. 데이터 분리
 # 5.1 split
+iris.species <-split(iris, iris$Species) #list형태
+iris.species
+iris.species['virginica']
+head(iris.species$'versicolor')
+iris.sepal <- split(iris, iris$Sepal.Length>5) #TRUE, FALSE로 나뉨
+iris.sepal
+iris.sepal['FALSE']
+head(iris.sepal$'FALSE')
+
+#5.2 subset
+#Q1. setosa종 중 Sepal.Length, Petal.Length 열 출력
+subset(iris, subset=(iris$Species=='setosa'), select=c('Sepal.Length', 'Petal.Length'))
+#Q2. setosa종 중 Sepal.Length, Sepal.Width, Petal.Length, Petal.Width 열 출력
+subset(iris, subset=(iris$Species=='setosa'), select=c(1:4))
+subset(iris, subset=(iris$Species=='setosa'), select=(-5))
+subset(iris, subset=(iris$Species=='setosa'), select=c(-5))
+subset(iris, subset=(iris$Species=='setosa'), select=-c(5))
+#Q3. setosa 중 Sepal.Length가 4이상인 데이터
+subset(iris, subset=(iris$Species=='setosa' &iris$Sepal.Length>=4))
+
+# 6. 데이터 합치기
+# 컬럼합치기 cbind()
+# 행 합치기 rbind()
+# 병합하기 merge()
+# 6.1 cbind
+student.a <-data.frame(name=c('kim', 'kong'), score=c(100, 90))
+student.a
+student.b <-data.frame(id=c(100,101), gender=c('f', 'm'))
+student.b
+(student <-cbind(student.a, student.b))
+
+# 6.2 rbind
+student.a <-data.frame(name=c('kim', 'kong'), score=c(100,90))
+student.b <-data.frame(name=c('park', 'han'), score=c(100,85))
+(student <-rbind(student.a, student.b))
+
+# 6.3 merge
+student.a <-data.frame(name=c('kim', 'lee'), kor=c(100, 90))
+student.b <-data.frame(name=c('kim', 'lee'), mat=c(100,80), eng=c(90,80))
+(student <-merge(student.a, student.b))
+
+student.a <-data.frame(name=c('kim', 'yun'), kor=c(100, 90))
+student.b <-data.frame(name=c('kim', 'lee'), mat=c(100, 80), eng=c(90, 80))
+(student <-merge(student.a, student.b)) 
+(student <-merge(student.a, student.b, all=T)) 
+#all=T를 붙이면 없는 항목 NA (기본값 F: 결측치 있는 데이터는 출력X)
+
+# 7. 데이터 정렬
+# sort() 정렬된 데이터 반환
+# order() 정렬된 데이터의 index 반환
+data <-c(10, 30, 100, 1, 5)
+sort(data) #오름차순 정렬
+sort(data, decreasing=T) #내림차순 정렬
+sort(iris$Sepal.Length)
+
+names(data) <-c('1번째', '2번째', '3번째', '4번째', '5번째')
+data
+sort(data)
+order(data) #정렬된 데이터의 색인
+data[order(data)] #sort(data)와 동일
+#iris데이터를 Sepal.Length를 기준으로 내림차순 정렬
+sort(iris$Sepal.Length, decreasing = T)
+order(iris$Sepal.Length, decreasing = T)
+iris[order(iris$Sepal.Length, decreasing = T),]
+orderBy(~-Sepal.Length, data=iris)
+
+#iris데이터를 Sepal.Length(내림차순), Sepal.width(오름차순) 
+#내림차순:-
+order(-iris$Sepal.Length+iris$Sepal.Width)
+iris[order(-iris$Sepal.Length+iris$Sepal.Width), 1:2]
+
+#emp 데이터셋에서 월급이 많은 순으로 ename, sal을 추출
+order(-emp$sal)
+emp[order(-emp$sal), c('ename', 'sal')]
+#월급이 많은 top5명의 ename, sal을 추출
+head(emp[order(-emp$sal), c('ename', 'sal')], 5)
+#월급이 적은 top5명의 ename, sal을 추출
+tail(emp[order(-emp$sal), c('ename','sal')],5)
+
+# 8. 데이터 프레임 이름 생략하기
+# 8.1 with절, within절
+iris.temp <-iris
+iris.temp[c(1,3), 1] <-NA
+head(iris.temp)
+#종별 중앙값
+split(iris.temp$Sepal.Length, iris.temp$Species) #결과는 list
+(mps<-sapply(split(iris.temp$Sepal.Length, iris.temp$Species), median, na.rm=T))
+(mps <-tapply(iris.temp$Sepal.Length, iris.temp$Species, median, na.rm=T))
+mps
+mps['setosa']
+iris.temp$Sepla.Length2 <-ifelse(is.na(iris.temp$Sepal.Length), mps[iris.temp$Species], iris.temp$Petal.Length)
+head(iris.temp)
+iris.temp$Sepla.Length2 <-NULL
+
+#with절은 Sepal.Length의 결측치가 대치된 결과값을 반환
+#within절은 Sepla.Length의 결측치가 대치된 데이터 프레임 셋 반환
+iris.with <-with(iris.temp, {#iris.temp 생략
+  mps <-tapply(Sepal.Length, Species, median, na.rm=T) 
+  Sepal.Length <-ifelse(is.na(Sepal.Length), mps[Species], Sepal.Length)
+})
+head(iris.with)
+
+iris.within <-within(iris.temp, {#iris.temp 생략
+  mps <-tapply(Sepal.Length, Species, median, na.rm=T) 
+  Sepal.Length <-ifelse(is.na(Sepal.Length), mps[Species], Sepal.Length)
+})
+head(iris.within)
+head(iris.temp)
+
+# 8.2 attach(), detach() 함수
+attach(iris) #이 부분 아래는 iris$ 생략해도 되는 구간
+summary(Species)
+tapply(Petal.Length, Species, mean)
+detach(iris) #attach 기능 해제
+
+# 9. 데이터 집계
+# 9.1 table
+table(iris$Species) #factor 변수 쓰기(팩터 변수가 아니면 집계 무의미)
+table(emp$deptno)
+
+head(InsectSprays)
+#InsectSprays 데이터셋에서 spray별 집계
+table(InsectSprays$spray)
+
+#emp데이터 셋에서 deptno별 집계
+str(emp)
+#emp$deptno <-factor(emp$deptno, levels=seq(10,40,10))
+table(emp$deptno)
+
+# 9.2 aggregate: 데이터를 하위 집합으로 분할하고 요약 통계 계산
+aggregate(iris[,1:4], by=list(iris[,5]), mean)
+
+#보험회사의 고객들이 보험금을 청구하는 데이터에서 고객별 입원일 조회
+#보험회사의 고객들이 보험금을 청구하는 데이터에서 고객별 입원일 조회
+cust_id <-c(1005, 1002, 1003, 1004, 1005, 1001, 1005, 1002, 1003, 1005)
+hosp_day <-c(2, 3, 20,5, 13, 0, 8, 2, 3, 1)
+length(cust_id)
+length(hosp_day)
+data <-data.frame(cust_id, hosp_day)
+day_per_cust <-aggregate(data$hosp_day, by=list(data$cust_id), sum)
+day_per_cust
+names(day_per_cust) <-c('cust_id', 'hosp_day')
+day_per_cust
+order(day_per_cust$hosp_day)
+day_per_cust[order(day_per_cust$hosp_day),]
+
+#아래가 다 같은 결과
+aggregate(data$hosp_day, by=list(data$cust_id), sum) #대상열 하나이상 가능
+tapply(data$hosp_day, data$cust_id, sum) #대상열 하나만 가능
+summaryBy(hosp_day~cust_id, data=data, FUN=c(sum, mean)) #FUN 2개 이상도 가능
+
+# 10. 조건으로 색인 찾기: which()
+subset(iris, iris$Species=='setosa') #조건으로 데이터 추출
+which(iris$Species=='setosa') #조건으로 색인 추출
+iris[which(iris$Species=='setosa'),] #조건 이용해서 데이터 출력
+
+which.max(iris$Sepal.Length)
+iris[which.max(iris$Sepal.Length),] #Sepal.Length가 가장 큰 row를 출력
+iris[which.min(iris$Sepal.Length),] #Sepla.Length가 가장 작은 row 출력
