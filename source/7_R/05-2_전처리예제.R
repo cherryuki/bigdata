@@ -1,5 +1,6 @@
-# 2021-02-05 R_데이터 전처리_dplyr      ⓒcherryuki(ji) #
-# # # 5장-3. dplyr 전처리 예제(연습문제) # # #
+# 2021-02-08 R_데이터 전처리_dplyr      ⓒcherryuki(ji) #
+# # # 5장-2. dplyr 전처리 예제(연습문제) # # #
+
 #혼자 해보기1
 # (1) dplyr 패키지 이용
 library(dplyr)
