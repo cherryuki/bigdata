@@ -194,8 +194,8 @@ flights_df %>%
 subset(flights_df, origin=='JFK'&month==6)[,c(-5,-7)]
 subset(flights_df, origin=='JFK'&month==6)[,-c(5,7)]
 
-flights_dt[origin=='JFK'&month==6, -c('arr_delay', 'dep_delay')]
-
+flights_dt[origin=='JFK'&month==6, -c('arr_delay', 'dep_delay')] #-열 제외
+flights_dt[origin=='JFK'&month==6, !c('arr_delay', 'dep_delay')] #!열 제외
 #14. 출발 공항(origin)별 비행 수 출력 (JFK 81483 LGA 84433 EWR 87400)
 table(flights_df$origin)
 flights_df %>% 
