@@ -173,9 +173,15 @@ ggplot(data=mtcars, aes(x=wt, y=mpg)) +
        subtitle="(차량 무게와 연비와의 관계)",
        caption="source: mpg datasets")
 
+# 4.1 산점도, 적합도, text, ...
 #1. x축: iris$Petal.Width, y축: iris$Petal.Length 값을 나타내는 산점도, 종에 따라 다른 색
 ggplot(data=iris, aes(x=Petal.Width, y=Petal.Length)) +
-  geom_point(aes(color=Species))
+  geom_point(aes(color=Species)) +
+  scale_color_manual(values=c('black', 'red', 'orange')) +
+  labs(title="iris 데이터의 산점도",
+       x='꽃잎 너비', '꽃잎 길이') +
+  coord_cartesian(xlim=c(0,2)) + #출력 범위 설정
+  geom_smooth()
 #2. x축: iris$Petal.Width, y축: iris$Petal.Length 값을 나타내는 산점도 
 #(단, Species에 따라 산점도의 점을 다른 색, 점의 크기는 Petal.Width의 크기가 클수록 큰 점)
 ggplot(data=iris, aes(x=Petal.Width, y=Petal.Length)) +
@@ -216,3 +222,242 @@ ggplot(data=mtcars, aes(x=mpg)) +
   labs(title="실린더에 따른 연비 히스토그램",
        x="연비", y="횟수")
 ?facet_grid
+
+
+# 2021-02-15 R_데이터 시각화      ⓒcherryuki(ji) #
+#히스토그램은 연속형 자료형에서의 도수분포표(범주형 도수분포는 histogram불가능)
+library(ggplot2)
+ggplot(data=mtcars, aes(x=cyl)) +
+  #geom_histogram() #cyl데이터는 연속형이 아니므로 사용 불가
+  geom_bar() #범주형에서는 histogram 아닌 bar 사용
+
+#ggplot2::mpg 데이터셋에서 displ 도수 분포표(class에 따라 그래프 색상 달리 표현)
+str(mpg$displ)
+ggplot(mpg, aes(x=displ)) +
+  geom_histogram(aes(fill=class)) +
+  theme(axis.text.x=element_text(color="red", size=15),
+        axis.line=element_line(color="black", size=2),
+        axis.text.y=element_blank(), #y축 눈금 숫자 사라짐
+        panel.background = element_rect(fill="paleturquoise", linetype="dashed", color="blue"),
+        plot.background = element_rect(fill="lightyellow"))
+
+?geom_histogram
+colors()
+
+ggplot(mpg, aes(x=displ)) +
+  geom_histogram(aes(fill=class),
+                 binwidth = 0.1) + #binwidth: 빈(그래프 막대)의 너비
+  labs(title="Histogram with Auto Bining",
+       subtitle="(Engine Displacement across Vihival Classes)") +
+  theme(legend.position = "bottom")
+
+ggplot(mpg, aes(x=displ)) +
+  geom_histogram(aes(fill=class),
+                 bins=5, #빈의 개수 지정(지정 안하면 30), binwidth 지정시 bins 무시됨
+                 col='black')
+
+# 4.3 상자 도표(boxplot)
+boxplot(iris$Sepal.Length)$stat #이상치 처리 위함
+ggplot(iris, aes(y=Sepal.Length)) +
+  geom_boxplot()
+
+# 종별 Sepal.Length의 차이가 있는지 보고 싶을 때
+tapply(iris$Sepal.Length, iris$Species, mean) #도표 표현
+ggplot(iris, aes(y=Sepal.Length, x=Species)) + #시각화 표현
+  geom_boxplot(aes(fill=Species), col="tan3") + #col=선, 점 색상
+  scale_fill_manual(values=c('yellow', 'orange', 'red'))
+
+library(RColorBrewer) #색 팔레트 사용 위함
+display.brewer.all()
+pal <-brewer.pal(8, 'Pastel1')
+ggplot(iris, aes(y=Sepal.Length, x=Species)) +
+  geom_boxplot(aes(fill=Species), col="dimgray") +
+  scale_fill_manual(values=pal)
+
+install.packages('gapminder')
+library(gapminder)
+table(gapminder$country)
+dim(gapminder)
+
+#대륙별 GDP 차이가 있는지
+ggplot(gapminder, aes(x=continent, y=gdpPercap)) +
+  geom_boxplot(aes(fill=continent)) +
+  scale_fill_manual(values=pal) +
+  coord_cartesian(ylim=c(0, 30000))
+
+#교수별 직급별(조교수, 부교수, 정교수) 연봉이 상이한지
+install.packages("car")
+library(car)
+Salaries
+head(Salaries)
+str(Salaries)
+
+ggplot(Salaries, aes(x=rank, y=salary)) +
+  geom_boxplot(aes(col=rank), fill="lightyellow", notch=T) +
+  #notch=T; 중위수에 대해서 ,95% 신뢰구간 표현, 신뢰구간이 겹치는지 파악 위함
+  geom_point(position='jitter', col="tan3", alpha=0.3, pch=2) +
+  #position='jitter'; 산점도를 분산해서, alpha; 투명도(0~1)
+  geom_rug(col="gray", sides="l") #관측값 밀도 상태 표현(데이터가 많을 수록 빽빽)
+
+#mtcars 데이터 cyl개수에 따른 연비 mpg의 95% 중위수 신뢰구간을 표현한 상자 도표를 시각화
+head(mtcars)
+ggplot(mtcars, aes(x=cyl, y=mpg, fill=cyl)) +
+  geom_boxplot(notch=T)
+ggplot(mtcars, aes(cyl, x=mpg, fill=cyl)) +
+  geom_boxplot(notch=T)
+
+# 4.4 바이올린 도표; boxplot과 밀도도표를 합침
+# 합창부 단원의 키와 성악부 part의 관계
+singer <-lattice::singer
+head(singer)
+str(singer)
+
+ggplot(data=singer, aes(x=voice.part, y=height)) +
+  geom_boxplot()
+
+ggplot(data=singer, aes(x=voice.part, y=height)) +
+  geom_violin(fill='honeydew2') +
+  geom_boxplot(width=0.3, fill='forestgreen')
+
+# 4.5 밀도도표
+head(mtcars)
+#실린더수(cyl)에 따른 연비(mpg)의 밀도도표
+ggplot(data=mtcars, aes(x=mpg, fill=cyl)) +
+  geom_density() +
+  labs(title="밀도 도표", x="Miles per Gallon") +
+  theme(legend.position = c(0.9, 0.8)) #그래프 안에 넣을 때는 (0,0)~(1,1) 사이
+
+# 4.6 추세선
+economics
+colnames(economics)
+#시간(date)에 따른 실업률(unemploy)
+ggplot(data=economics, aes(x=date, y=unemploy)) +
+  geom_line() + #추세선
+  geom_smooth() #적합도선
+
+# 4.7 막대도표(geom_bar함수, geom_col함수)
+#도수 분포표: 막대도표, 히스토그램 모두
+  #히스토그램: 연속형 자료를 계급으로 나누어 계급별 도수(횟수) 나타냄
+          #geom_histogram()
+  #막대 그래프: 범주형 자료의 빈도를 나타냄
+          #geom_bar(), geom_col()
+
+#mpg 데이터셋에서 제조회사별로 빈도표 나타내기
+head(mpg)
+str(mpg)
+ggplot(data=mpg, aes(x=manufacturer)) +
+  geom_histogram() #불가능
+ggplot(data=mpg, aes(x=manufacturer)) +
+  geom_bar(stat="count") #stat="count": 빈도를 시각화(생략 가능)
+
+str(mpg$class)
+ggplot(data=mpg, aes(x=manufacturer, fill=class)) +
+  geom_bar(stat='count') +
+  theme(legend.position="top",
+        axis.text.x=element_text(angle=60, vjust=0.6)) +
+  scale_fill_manual(values=topo.colors(10)) +
+  labs(title="제조사별 class 빈도표")
+
+#다이아몬드 품질별 데이터
+head(diamonds)
+str(diamonds)
+dim(diamonds)
+table(diamonds$cut)
+#다이아몬드 품질(cut)별 빈도수
+ggplot(data=diamonds, aes(x=cut, fill=cut, col=cut)) +
+  geom_bar(stat="count") + #col은 테두리 색
+  scale_fill_manual(values=topo.colors(5)) +
+  scale_color_manual(values=rainbow(5))
+
+#다이아몬드 품질별 색상 개수
+table(diamonds$cut, diamonds$color)
+library(dplyr)
+diamonds %>% 
+  group_by(cut, color) %>% 
+  summarise(n=n()) %>% 
+  ggplot(aes(x=cut, fill=color, y=n)) +
+  geom_bar(stat="identity") #y값이 있는 경우: geom_col or geom_bar(state="identity")
+?geom_bar
+diamonds %>% 
+  group_by(cut, color) %>% 
+  summarise(n=n()) %>% 
+  ggplot(aes(x=cut, fill=color, y=n)) +
+  geom_col()
+
+#cut별, color별 막대 그래프
+diamonds %>% 
+  group_by(cut, color) %>% 
+  summarise(n=n()) %>% 
+  ggplot(aes(x=cut, fill=color, y=n)) +
+  geom_bar(stat="identity", position='dodge')
+diamonds %>% 
+  group_by(cut, color) %>% 
+  summarise(n=n()) %>% 
+  ggplot(aes(x=cut, fill=color, y=n)) +
+  geom_col(position="dodge")
+
+#다이아몬드 품질별, table별 빈도수 시각화
+diamonds %>% 
+  group_by(cut, table) %>% 
+  summarise(n=n()) %>% 
+  ggplot(aes(x=cut, fill=table, y=n)) + 
+  geom_col()
+
+diamonds %>% 
+  group_by(cut, table) %>% 
+  summarise(n=n()) %>% 
+  ggplot(aes(x=table, fill=cut, y=n)) +
+  geom_col() +
+  facet_wrap(~cut) + #cut별로 그래프 따로 그림: facet_wrap
+  coord_cartesian(ylim=c(0,3000), xlim=c(50,70))
+
+#다이아몬드 품질별 table의 종류 갯수
+length(table(diamonds$table)) #127개
+diamonds %>% 
+  group_by(cut, table) %>% 
+  summarise(n=n()) %>% 
+  group_by(cut) %>% 
+  summarise(n=n()) %>% 
+  ggplot(aes(x=cut, y=n, fill=cut)) +
+  #geom_bar(stat="identity")
+  geom_col() +
+  labs(title="다이아몬드 품질별 table 종류 수",
+       x="품질(cut)별", y="테이블 종류")
+
+diamonds %>% 
+  group_by(cut) %>% 
+  summarise(n=n_distinct(table)) #cut별 table 종류 개수
+
+# 4.8 그래프를 파일로 저장
+# (1) basic 그래프, ggplot2 그래프 모두 저장 가능한 방법
+jpeg('outData/08_iris.jpg') #iris.jpg 그림파일 생성
+boxplot(iris$Sepal.Length)
+dev.off()
+png('outData/08_iris.png', width=300, height=150) #iris.png 파일 생성
+ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) +
+  geom_point() +
+  facet_wrap(~Species)
+dev.off()
+
+# (2) ggplot2 그래프에서만 저장할 수 있는 방법
+ggplot(iris, aes(x=Petal.Width, y=Petal.Length, col=Species)) +
+  geom_point(aes(size=Petal.Width), pch=2, alpha=0.5)
+ggsave('outData/08_iris.jpg') #동일 파일명 있을경우 덮어씀
+
+# 4.9 그래프 분할 출력(gridExtra)
+oldPar <-par(mfrow=c(2,3)) #basic 그래프에서 사용(ggplot에는 적용X)
+ggplot(iris, aes(x=Petal.Width, y=Petal.Length)) +
+  geom_point()
+par(oldPar)
+
+install.packages("gridExtra")
+library(gridExtra)
+g1 <- ggplot(iris, aes(x=Petal.Width, y=Petal.Length)) +
+  geom_point()
+g2 <-ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length)) +
+  geom_point()
+grid.arrange(g1, g2, ncol=2)
+
+# 5. 산점도 행렬
+plot(iris[-5])
+pairs(iris[-5], panel=panel.smooth) #추세선(적합도선) 추가; panel=panel.smooth
