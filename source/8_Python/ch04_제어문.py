@@ -4,7 +4,7 @@
 # **21-02-23 python 04_제어문 (c)cherryuki (ji)**
 
 # **<font size=5 color="red">ch04. 제어문</font>**
-# - if, for-in, while, 중첨 가능, 중첩 루프 탈출
+# - if, for-in, while, 중첩 루프, 중첩 루프 탈출
 
 # # 1절. 조건문
 
