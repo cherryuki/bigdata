@@ -1,0 +1,14 @@
+[
+	{
+		"name": "공유",
+		"age": 43,
+		"email": "kong@green.com",
+		"address": "Seoul"
+	},
+	{
+		"name": "한지민",
+		"age": 39,
+		"email": "han@green.com",
+		"address": "Incheon"
+	}
+]

@@ -1,0 +1,20 @@
+[
+	{
+		"name": "공지철",
+		"age": 43,
+		"email": "kong@green.com",
+		"address": "서울"
+	},
+	{
+		"name": "한지민",
+		"age": 39,
+		"email": "han@green.com",
+		"address": "경기도"
+	},
+	{
+		"name": "이지아",
+		"age": 43,
+		"email": "jia@green.com",
+		"address": "제주도"
+	}
+]

@@ -1,0 +1,13 @@
+Python is easy.
+Python is smart.
+프린트 함수로 파일 쓰기가 가능함
+
+방법1. 
+Hello
+World
+방법2.
+Python is easy.
+R is easy
+Java is easy
+방법3. 
+Python is easy.R is easyJava is easy
