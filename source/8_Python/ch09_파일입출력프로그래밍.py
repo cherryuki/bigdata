@@ -780,6 +780,55 @@ if __name__=='__main__':
     main()
 
 
+# In[1]:
+
+
+#문제풀이형1: open()에 대해 잘못 설명한 것: 3번 -> wb로 같이 사용 가능
+#문제풀이형2: pickling에 대해 잘못 설명한 것: 4번 -> 피클링을 하기 위한 모드는 wb여야 함
+#문제풀이형3: 입출력 모듈에 대한 설명 중 잘못된 것: 1번 -> pandas패키지를 이용하면 데이터 프레임 데이터를 쉽게 읽고 쓸 
+
+
+# In[2]:
+
+
+#pandas 패키지를 이용한 csv파일 read
+get_ipython().run_line_magic('ls', 'data')
+
+
+# In[3]:
+
+
+#ch09_member1.csv(UTF8)
+#ch09_member2.csv(CP949)
+import pandas as pd
+members1 = pd.read_csv('data/ch09_member1.csv')
+members1
+
+
+# In[5]:
+
+
+members1 = pd.read_csv("data/ch09_member1.csv", encoding='UTF8', #encoding='UTF8' 생략 가능
+                      names=['name', 'age', 'email', 'address'], header=None)
+members1
+
+
+# In[6]:
+
+
+members2 = pd.read_csv("data/ch09_member2.csv", encoding='CP949', #CP949생략 불가능
+                      names=['Name', 'Age', 'Email', 'Address', 'Job'])
+members2
+
+
+# In[7]:
+
+
+type(members1), type(members2) #DataFrame
+
+
+# [[판다스](https://pandas.pydata.org/)] API reference, User Guide 참조
+
 # In[ ]:
 
 
