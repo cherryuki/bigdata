@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# **21-03-03 python 09_파일 입출력 프로그래밍 (c)cherryuki (ji)**
+# **21-03-03 python 10_데이터 베이스 연동 (c)cherryuki (ji)**
 
-# # <font color="red">ch10. 데이터베이스 연동</font>
+# # <font color="blue">ch10. 데이터베이스 연동</font>
 
 # # 1절. SQLite 데이터 베이스 연결
 # ## 1.1 SQLite와 Python
 # - SQLite 데이터 베이스는 별도의 서버 프로세스 없이 SQL을 사용하여 DB 액세스 할 수 있도록 만든 간단한 디스크 기반 데이터 베이스를 제공하는 C라이브러리
 # - SQLite는 프로토 타입을 만들 때까지 사용. 정식 제품은 오라클이나 다른 DBMS를 연결
-# - [[SQLite DB Browser](https://sqlitebrowser.org/dl/)]
+# - [SQLite DB Browser](https://sqlitebrowser.org/dl/)
 
 # In[1]:
 
