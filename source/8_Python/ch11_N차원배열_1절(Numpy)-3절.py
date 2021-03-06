@@ -1018,6 +1018,566 @@ a
 # - 배열 인덱싱 : https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html
 # - newaxis : https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.newaxis
 
+# ## 3.2 다차원 인덱싱
+
+# In[2]:
+
+
+import numpy as np
+np.ones((2,3))
+
+
+# In[5]:
+
+
+def f(x,y):
+    return 10*x+y
+
+
+# In[6]:
+
+
+f(2,3)
+
+
+# In[7]:
+
+
+#5행4열 2차원 넘파이 배열 int16 dtype으로 생성(안에 데이터는 f함수에 의해 결정)
+a = np.fromfunction(f, (5,4,), dtype=np.int16)
+a
+
+
+# In[8]:
+
+
+a = np.fromfunction(lambda x,y:10*x+y, (5,4), dtype=np.int16)
+a
+
+
+# In[9]:
+
+
+a[2,3]
+
+
+# In[10]:
+
+
+a[-2,-1] #인덱스는 음수 가능; 음수 인덱스는 끝에서 부터 n번째
+
+
+# In[11]:
+
+
+a[0:10, -1] #마지막 열들만 출력
+
+
+# In[12]:
+
+
+#1~3행 모든 열
+a[1:4, :] 
+
+
+# In[14]:
+
+
+a[1:4,]
+
+
+# In[13]:
+
+
+a[1:4, ...] #...:누락된 인덱스의 전체를 의미
+
+
+# In[15]:
+
+
+a[1:4] #(마지막 축(열) 생략 가능 - 모든 열)
+
+
+# In[16]:
+
+
+a[:, -1:-3:-1] #모든 행에 마지막 열, 마지막 전 열
+
+
+# In[17]:
+
+
+a[..., -1:-3:-1]
+
+
+# In[18]:
+
+
+b = np.arange(24).reshape(2,3,4)
+b
+
+
+# In[19]:
+
+
+b[1,0,0]
+
+
+# In[20]:
+
+
+#1면 데이터 모두 출력
+b[1, :, :]
+
+
+# In[21]:
+
+
+b[1]
+
+
+# In[22]:
+
+
+b[1, ...] #,...은 생략 가능
+
+
+# In[23]:
+
+
+#1행 모두 출력
+b[:,1,:]
+
+
+# In[24]:
+
+
+b[:,1,...] #,...은 생략 가능
+
+
+# In[25]:
+
+
+b[:,1]
+
+
+# In[26]:
+
+
+#1열 모두 출력
+b[:,:,1]
+
+
+# In[27]:
+
+
+b[...,1] #...,은 생략 불가(마지막에 ,...이 올 경우만 생략 가능)
+
+
+# In[28]:
+
+
+b
+
+
+# In[40]:
+
+
+for i, data in enumerate(b):
+     for j, row in enumerate(data):
+            for k, item in enumerate(row):
+                print("{}면{}행{}열: {}".format(i,j,k,item), end='\t')
+            print()
+     print()
+
+
+# In[41]:
+
+
+for i, data in enumerate(b):
+    for j, row in enumerate(data):
+        for k, item in enumerate(row):
+            print(item, end=' ')
+
+
+# In[42]:
+
+
+#ravel(): n차원을 풀어서 1차원 배열로 반환(b의 차원은 그대로)
+b.ravel()
+
+
+# In[44]:
+
+
+print(list(b.flat))
+
+
+# In[45]:
+
+
+for item in b.flat:
+    print(item, end=' ')
+
+
+# In[47]:
+
+
+for item in b.ravel():
+    print(item, end=' ')
+
+
+# In[48]:
+
+
+b.flat?? #example 확인 가능
+
+
+# ## 3.3 두 배열을 쌓아 합치기
+# - vstack(튜플): 아래에 추가하는 방식으로 쌓아 합침
+# - hstack(튜플): 옆으로 추가하는 방식으로 쌓아 합침
+# - dstack(튜플): 마지막 축(열)을 쌓아 합침
+
+# In[50]:
+
+
+c = np.arange(24).reshape(2,3,4)
+c
+
+
+# In[51]:
+
+
+a, b = c[0], c[1]
+
+
+# In[52]:
+
+
+a
+
+
+# In[53]:
+
+
+b
+
+
+# In[54]:
+
+
+np.vstack((a,b)) #수직으로 합치기
+
+
+# In[55]:
+
+
+np.hstack((a,b)) #수평(옆)으로 합치기
+
+
+# In[56]:
+
+
+np.dstack((a,b)) #0열끼리 0면에, 1열끼리 1면, 2열끼리 2면
+
+
+# **column_stack(튜플); 1차원 배열을 열단위로 배열하여 2차원 배열로 만듦**
+
+# In[58]:
+
+
+a=np.array([1,2,3,4])
+b=np.array([5,6,7,8])
+c=np.array([9,10,11,12])
+get_ipython().run_line_magic('pinfo2', 'np.column_stack')
+
+
+# In[59]:
+
+
+np.column_stack((a,b,c))
+
+
+# In[60]:
+
+
+np.vstack((a,b))
+
+
+# In[61]:
+
+
+np.hstack((a,b,c))
+
+
+# In[62]:
+
+
+a
+
+
+# In[63]:
+
+
+a[:, np.newaxis]
+
+
+# In[64]:
+
+
+np.hstack((a[:, np.newaxis], b[:, np.newaxis], c[:, np.newaxis]))
+
+
+# In[65]:
+
+
+np.column_stack((a,b,c))
+
+
+# **row_stack(튜플); vstack()과 동일. 행 단위로 쌓아줌**
+
+# In[66]:
+
+
+np.row_stack((a,b,c))
+
+
+# In[67]:
+
+
+np.vstack((a,b,c))
+
+
+# **stack(튜플, axis=n); axis 속성에 따라 넘파이 배열을 합침** <br>
+# 
+# - axis=0(기본값); 첫번째 차원
+# - axis=-1; 마지막 차원
+
+# In[68]:
+
+
+a = np.arange(12).reshape(3,4)
+a
+
+
+# In[69]:
+
+
+b = np.arange(12,24).reshape(3,4)
+b
+
+
+# In[70]:
+
+
+np.stack((a,b), axis=0) #a,b를 차원이 다르게 합침(다른 면으로)
+
+
+# In[71]:
+
+
+np.stack((a,b), axis=1) #같은 행끼리 합침
+
+
+# In[72]:
+
+
+np.stack((a,b), axis=2) #행들을 열로 바꿔서 합침
+
+
+# In[73]:
+
+
+np.stack((a,b), axis=-1) #마지막 차원(열)
+
+
+# **r_[], c_[]**
+
+# In[74]:
+
+
+a = np.array([1,2,3,4])
+b = np.array([5,6,7,8])
+c = np.array([9,10,11,12])
+
+
+# In[75]:
+
+
+np.r_[a,b,c]
+
+
+# In[76]:
+
+
+np.r_[[a],[b],[c]]
+
+
+# In[77]:
+
+
+np.c_[a,b,c]
+
+
+# ## 3.4 하나의 배열을 여러개 작은 배열로 분할하기
+# - hsplit(array, indices_or_sections); 두번째 축(2차원의 경우 세로축)을 따라 분할
+# - vsplit(array, indices_or_sections); 첫번째 축(2차원의 경우 가로축)을 따라 분할
+# - dsplit(array, indices_or_sections); 3번째 차원으로 분할 <br>
+# 　　　array: 분할할 배열 <br>
+# 　　　indices_or_sections: 정수 -> 분할할 배열의 수<br>
+# 　　　　　　　　　　　　　1차원 배열 형식->분할 될 인덱스를 의미
+
+# In[78]:
+
+
+a = np.arange(12).reshape(3,4)
+a
+
+
+# In[79]:
+
+
+a_vsplit = np.vsplit(a,3) #가로 축을 따라서 3개의 배열로 분할
+a_vsplit
+
+
+# In[80]:
+
+
+type(a_vsplit) #list
+
+
+# In[81]:
+
+
+a_vsplit[0]
+
+
+# In[82]:
+
+
+a_hsplit = np.hsplit(a,4) #세로축을 따라 4개의 배열로 분할
+a_hsplit
+
+
+# In[83]:
+
+
+type(a_hsplit)
+
+
+# In[84]:
+
+
+a_hsplit[0].shape
+
+
+# In[85]:
+
+
+b = np.arange(24).reshape(2,3,4)
+b
+
+
+# In[86]:
+
+
+b_split = np.hsplit(b,3) #두번째 축(행)을 이용해서 split -> 3차원 배열 b를 3개의 차원 배열로 split
+b_split
+
+
+# In[87]:
+
+
+b_split[0].shape #3차원 배열(2면1행4열)
+
+
+# In[88]:
+
+
+b_vsplit = np.vsplit(b,2) #3차원 배열 b를 첫번째 축으 ㄹ기반으로 나눠 2개의 배열로 분할
+b_vsplit
+
+
+# In[90]:
+
+
+b_vsplit[0].shape
+
+
+# In[91]:
+
+
+b_dsplit = np.dsplit(b,2) #3번째 차원을 기준으로 2개의 3차원 배열로 나눔
+b_dsplit
+
+
+# In[92]:
+
+
+b_dsplit[0].shape
+
+
+# **split(array, indices_or_sections, axis=n)**<br>
+# 
+# - axis=0 이면 vsplit()과 동일
+# - axis=1 이면 hsplit()과 동일
+# - axis=2 이면 dsplit()과 동일(3차원 이상에서만 사용 가능)<br>
+# 
+# **array_split(array, indices_or_sections, axis=n)**
+# - split()함수와 동일하나, indices 부분에 축을 똑같이 나눌 수 없는 정수(나누어 떨어지지 않는 정수)도 사용 가능
+# - 나누어 떨어지지 않을 경우 1//n+1 개의 배열 반환
+
+# In[94]:
+
+
+a = np.arange(20).reshape(2,10)
+a
+
+
+# In[95]:
+
+
+np.split(a, [3,6], axis=1)
+
+
+# In[96]:
+
+
+np.split(a, (3,6), axis=1)
+
+
+# In[97]:
+
+
+np.hsplit(a, [1,6])
+
+
+# In[98]:
+
+
+np.vsplit(a,2)
+
+
+# In[99]:
+
+
+np.split(a,2,axis=0)
+
+
+# In[100]:
+
+
+#array_split
+np.array_split(a,3,axis=1)
+
+
+# In[101]:
+
+
+np.array_split(a,2,axis=0)
+
+
 # In[ ]:
 
 
