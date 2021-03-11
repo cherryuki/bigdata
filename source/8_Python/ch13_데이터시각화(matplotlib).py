@@ -427,6 +427,119 @@ ax.set_title(r'$sigma_i = 15$', fontsize=30)
 ax.text(2.5, 0.5, r'$\sum_{i=0}^\infty X_i$', fontsize=25)
 
 
+# **21-03-11 python 13_데이터 시각화(matplotlib) (c)cherryuki (ji)**
+
+# In[1]:
+
+
+#주피터노트북 재부팅 후 설정
+import matplotlib.pyplot as plt
+get_ipython().run_line_magic('matplotlib', 'inline')
+get_ipython().run_line_magic('config', "InlineBackend.figure_format = 'retina'")
+#한글 설정
+plt.rc('font', family='Malgun Gothic')
+plt.rc('axes', unicode_minus=False) #y축
+#경고 메시지 안보이게
+import warnings
+warnings.filterwarnings(action='ignore')
+#경고 메시지 보이게
+#warnings.filterwarnings(action='default')
+
+
+# 4) 축과 눈금<br>
+# - https://matplotlib.org/3.1.0/api/axis_api.html
+# - plt.subplots_adjust(); 서브플롯간의 간격변경
+
+# In[5]:
+
+
+import numpy as np
+x = np.linspace(0,10,100)
+y = np.cos(x)
+fig, axes = plt.subplots(2,2,figsize=(10,5))
+#plt.subplots_adjust(); 서브플롯간의 간격변경
+plt.subplots_adjust(hspace=0.4, wspace=0.3) #hspace는 상하 여백 wspace 좌우 여백
+axes[0,0].scatter(x, y, marker='.')
+axes[0,0].set(title='An Example Axes', ylabel='y축', xlabel='x축',
+             xlim=[0,12], ylim=[-2,2]) #축 범위 변경
+
+axes[0,1].scatter(x,y, marker='*', c='b')
+axes[0,1].set_xlim(0,5)
+axes[0,1].set_xlabel('x축 0~5')
+axes[0,1].set_ylim(-1.5,1.5)
+axes[0,1].set_ylabel('y축 -1.5~1.5')
+
+axes[1,0].scatter(x,y,marker='^', c='c')
+#축 눈금 위치
+axes[1,0].set_xticks(range(0,11,3))
+axes[1,0].set_xticklabels([-99,3,'6개','아무값'])
+axes[1,0].set_yticks([-2,0,1,2])
+axes[1,0].set_yticklabels(['-2개', '제로', 1, 'Max'])
+
+#한번에 셋팅 가능
+axes[1,1].scatter(x,y,c='g')
+axes[1,1].set(xticks=[0,2,3.5,5,7], xticklabels=['Min', 2, 3.5, 5, 'Max'],
+             title='test')
+axes[1,1].grid(True)
+axes[1,1].spines['top'].set_visible(False)
+axes[1,1].spines['bottom'].set_position(('outward',10)) #밑에 공간 10만큼 띄우기
+plt.show()
+
+
+# 5) 축 공유
+
+# In[6]:
+
+
+import numpy as np
+x = np.arange(0,10)
+y1 = 0.5*x**2 #0.5*(x**2)
+y2 = -1*y1
+
+
+# In[7]:
+
+
+fig, ax1 = plt.subplots() #1행1열(기본값 nrows=1, ncols=1)
+
+ax1.plot(x, y1, 'g^:')
+ax1.set(xlabel = 'X data', ylabel='y1 data', title='축 공유')
+
+ax2 = ax1.twinx() #x축을 공유하는 ax2
+ax2.plot(x, y2, 'bv--')
+ax2.set_ylabel('y2 data', color='b')
+
+ax3 = ax1.twiny() #ax1과 x축을 공유하는 ax3
+ax3.plot(-x,y1, 'rD-.')
+ax3.set_xlabel('-x data', color='r')
+
+plt.show()
+
+
+# 6) 범례 표시
+
+# In[8]:
+
+
+x = np.arange(0,10)
+y = 0.2 * x**2
+
+
+# In[9]:
+
+
+fig, ax = plt.subplots(figsize=(8,4))
+ax.plot(x,y, 'g', label='GREEN')
+ax.plot(x,-y, 'b', label='BLUE')
+ax.legend()
+plt.legend(loc='center right', bbox_to_anchor=(1.0, 0.5), ncol=1)
+plt.savefig('data/ch13_graph1.png') #그래프를 파일로 저장
+plt.show()
+
+
+# - 그래프 양식참고(범례 위치 조정 등)
+# - https://stackoverflow.com/questions/30490740/move-legend-outside-figure-in-seaborn-tsplot
+
 # In[ ]:
 
 
