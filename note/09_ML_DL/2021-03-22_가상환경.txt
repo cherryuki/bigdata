@@ -1,0 +1,45 @@
+ - 가상환경 생성
+    ⑴Anaconda Prompt를 관리자권한으로 실행 후 
+	conda info --env; 아나콘다 환경 확인(base 1개만 나옴)
+    ⑵ pip 최신버전으로 업데이트 : >python -m pip install --upgrade pip
+    ⑶ 개발가상환경을 하나 생성해요
+	① python 버전을 3.7버전으로 가상환경을 생성(처음부터 기본 라이브러리 포함)
+               => conda create -n data_env python=3.7 openssl
+	  => y
+	② 지금 설치된 가상환경들 보여줘
+	   => conda info --env
+	      > base, data_env 2개 나오는 것 확인
+	③ 생성한 가상환경으로 전환
+               => activate data_env 
+	④ 파이썬 버전 확인
+	   => python -V
+	⑤ 개발툴은 웹기반의 IDE인 jupyter notebook을 이용하기 위해 먼저 설치
+                개발에 필요한 모든거 다 깔아
+               => conda install nb_conda
+	  => y
+	⑥ 환경설정파일을 하나 생성해요
+               => jupyter notebook --generate-config
+	⑦ working 디렉토리 설정(메모장에서 jupyther_notebook_config.py 실행)
+               C:\Users\user\.jupyter\jupyter_notebook_config.py 안에 notebook_dir 검색
+	 c.NotebookApp.notebook_dir = '원하는 경로'로 수정, 앞부분 # 지우기
+	⑧ conda install tensorflow=1.15
+	  => y
+
+확인작업: 아나콘다 네비게이터 실행 > environments 클릭 : base(root), data_env 확인
+	data_env > tensorflow > 1.15 확인
+	base(root) > tensorflow > 2.4 확인
+  -> 확인 후 종료
+
+아나콘다 프롬프트(관리자 권한): jupyther notebook or 
+	주피터노트북(data_env) 속성에서 폴더 위치(원하는 경로) 변경해서 접속
+	temp 파일 참고 
+
+가상환경에서 tensorflow 1버전 실행 끝난 후
+	⑨ 특정 가상환경 삭제
+	=> conda remove -n data_env --all
+	=> y
+	⑩ ⑦번에서 작업했던 파일 원상복구
+	# c.NotebookApp.notebook_dir = ''
+
+설치된 아나콘다 환경 확인: conda info --env
+파이썬 버전 확인: python -V
