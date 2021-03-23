@@ -712,6 +712,338 @@ plt.scatter(x,y)
 plt.plot(x, x*lm[0]+lm[1], 'r')
 
 
+# **21-03-23 ML_DL 05_tensorflow ver1_머신러닝 (c)cherryuki (ji)**
+
+# In[1]:
+
+
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+import numpy as np
+import pandas as pd
+
+
+# ### 영어 공부시간, 영어권 해외 체류기간으로 영어시험 PASS/FAIL 예측하기
+
+# In[2]:
+
+
+#training data set
+x_data = np.array([[10, 0],
+                   [8,1],
+                   [3,3],
+                   [2,3],
+                   [5,1],
+                   [2,0],
+                   [1,0]])
+y_data = np.array([[1],[1],[1],[1],[0],[0],[0]])
+
+#placeholder
+X = tf.placeholder(shape=[None, 2], dtype=tf.float32)
+Y = tf.placeholder(shape=[None, 1], dtype=tf.float32)
+
+#Weight(2행1열) & bias(1개)
+W = tf.Variable(tf.random_normal([2,1]), name='weight')
+b = tf.Variable(tf.random_normal([1]), name='bias')
+
+#Hypothesis
+#logits = X@W+b
+logits = tf.matmul(X,W)+b
+H = tf.sigmoid(logits)
+
+#cost function
+#cost = tf.reduce_mean(tf.square(H-Y))
+cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits,
+                                                             labels=Y))
+#train
+train = tf.train.GradientDescentOptimizer(learning_rate=0.1).minimize(cost)
+
+#Session & Variable 초기화
+sess = tf.Session()
+sess.run(tf.global_variables_initializer())
+
+#학습
+for step in range(1, 3001):
+    _, cost_val = sess.run([train, cost], feed_dict={X:x_data, Y:y_data})
+    if step%300==0:
+        print("{:4d}번째 cost:{}".format(step, cost_val))
+        
+#학습 잘되었는지 확인
+#Accuracy
+predict = tf.cast(H>0.5, dtype=tf.float32)
+correct = tf.equal(predict, Y)
+accuracy = tf.reduce_mean(tf.cast(correct, dtype=tf.float32))
+print("정확도:", sess.run(accuracy, feed_dict={X:x_data, Y:y_data}))
+
+
+# In[3]:
+
+
+#예측
+print("H로 예측:", sess.run(H, feed_dict={X:[[5,2]]}))
+print("predict 예측:", sess.run(predict, feed_dict={X:[[5,2]]}))
+
+
+# ## 6. multinomial classfication(3개 이상 그룹)
+# - 퀴즈 1,2,3 성적과 출석에 따른 A,B,C 등급 분류
+
+# In[4]:
+
+
+#training data set
+x_data = [[10,7,8,5],
+          [8,8,9,4],
+          [7,8,2,3],
+          [6,3,9,3],
+          [7,5,7,4],
+          [3,5,6,2],
+          [2,4,3,1]]
+#multinomial classfication에서 종속변수는 
+##One-Hot 인코딩(0과 1로 분류, 한 행에 1은 1개만) 혹은 라벨링 필요
+y_data = [[1,0,0],
+          [1,0,0],
+          [0,1,0],
+          [0,1,0],
+          [0,1,0],
+          [0,0,1],
+          [0,0,1]]
+
+#placeholder
+X = tf.placeholder(shape=[None, 4], dtype=tf.float32)
+Y = tf.placeholder(shape=[None, 3], dtype=tf.float32)
+
+#Weight & bias
+W = tf.Variable(tf.random_normal([4,3]), name='weight') #(7x4) @ W = (7x3) => W:(4,3) 
+b = tf.Variable(tf.random_normal([3], name='bias')) #종속변수 개수
+
+#Hypothesis
+logits = tf.matmul(X,W)+b
+#H=tf.nn.sigmoid(logits)
+H = tf.nn.softmax(logits) #softmax; 분류분석 최종단계에서 결과의 합이 1이 되도록
+
+#cost function
+cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(logits=logits,
+                                                                labels=Y))
+
+#train
+train = tf.train.GradientDescentOptimizer(learning_rate=0.1).minimize(cost)
+
+#Session & Variable초기화
+sess = tf.Session()
+sess.run(tf.global_variables_initializer())
+
+#학습
+for step in range(1,3001):
+    _, cost_val = sess.run([train, cost], feed_dict={X:x_data, Y:y_data})
+    if step%300==0:
+        print("{:4d}번째 cost:{}".format(step, cost_val))
+
+
+# In[7]:
+
+
+#accuracy 측정
+# H => 0.0002  0.9  0.0001   H.argmax => 1
+# Y => 0       1    0        Y.argmax => 1
+predict = tf.argmax(H, axis=1) #어떤 열의 값이 제일 큰지 index 반환
+correct = tf.equal(predict, tf.argmax(Y,1))
+#print(sess.run(correct, feed_dict={X:x_data, Y:y_data}))
+accuracy = tf.reduce_mean(tf.cast(correct, dtype=tf.float32))
+print(sess.run(accuracy, feed_dict={X:x_data, Y:y_data}))
+
+
+# In[8]:
+
+
+#예측
+result = sess.run(H, feed_dict={X:[[5,5,5,5]]})
+print(result)
+print(result.argmax(axis=1)) #1번째 열만 1
+result2 = sess.run(predict, feed_dict={X:[[5,5,5,5]]})
+print(result2)
+
+print("H로 예측:", sess.run(H, feed_dict={X:[[7,8,5,4]]}).argmax(axis=1))
+print("predict 예측:", sess.run(predict, feed_dict={X:[[7,8,5,4]]}))
+
+
+# ## 7. XOR Problem
+# - 같으면 0, 다르면 1
+
+# In[11]:
+
+
+#training data set
+x_data = [[0,0], [0,1], [1,0], [1,1]]
+y_data = [[0],   [1],   [1],   [0]]
+
+#placeholder
+X=tf.placeholder(shape=[None,2], dtype=tf.float32)
+Y=tf.placeholder(shape=[None,1], dtype=tf.float32)
+
+#Weight & bias
+W = tf.Variable(tf.random_normal([2,1]), name='weight')
+b = tf.Variable(tf.random_normal([1]), name='bias')
+
+#Hypothesis
+logits = tf.matmul(X,W)+b
+H = tf.sigmoid(logits)
+
+#cost 
+cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits,
+                                                             labels=Y))
+
+#train
+train = tf.train.GradientDescentOptimizer(learning_rate=0.01).minimize(cost)
+
+#Session & 변수 초기화
+sess = tf.Session()
+sess.run(tf.global_variables_initializer())
+
+#학습
+for step in range(1, 3001):
+    _, cost_val = sess.run([train, cost], feed_dict={X:x_data, Y:y_data})
+    if step%300 == 0:
+        print("{:4d}번째 cost:{}".format(step, cost_val))
+
+#accuracy
+predict = tf.cast(H>0.5, dtype=tf.float32)
+correct = tf.equal(predict, Y)
+accuracy = tf.reduce_mean(tf.cast(correct, dtype=tf.float32))
+print("accuracy:", sess.run(accuracy, feed_dict={X:x_data, Y:y_data}))
+
+#predict
+print(sess.run(H, feed_dict={X:[[0,0]]}))
+print(sess.run(predict, feed_dict={X:[[0,0]]})) #True
+print(sess.run(predict, feed_dict={X:[[1,0]]})) #False
+print(sess.run(predict, feed_dict={X:[[0,1]]})) #True
+print(sess.run(predict, feed_dict={X:[[1,1]]})) #False
+
+
+# ## 8. 딥러닝 XOR(XOR Problem with Neural Network)
+# - 은닉층(hidden layer) 이용
+
+# In[12]:
+
+
+#training data set
+x_data = [[0,0],[0,1],[1,0],[1,1]]
+y_data = [[0],  [1],  [1],  [0]]
+
+#placeholder
+X = tf.placeholder(shape=[None, 2], dtype=tf.float32)
+Y = tf.placeholder(shape=[None, 1], dtype=tf.float32)
+
+### Layer 추가 ###
+#Weight & bias (layer1: 입력2개, 출력4개)
+W1 = tf.Variable(tf.random_normal([2,4]), name='weight1')
+b1 = tf.Variable(tf.random_normal([4]), name='bias1')
+layer1 = tf.sigmoid(tf.matmul(X,W1)+b1)
+
+#Weight & bias (layer2: 입력4개, 출력1개)
+W2 = tf.Variable(tf.random_normal([4,1]), name='weight2')
+b2 = tf.Variable(tf.random_normal([1]), name='bias2')
+
+#Hypothesis
+logits = tf.matmul(layer1, W2)+b2
+H = tf.sigmoid(logits)
+
+#cost
+cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits,
+                                                             labels=Y))
+
+#train
+train = tf.train.GradientDescentOptimizer(learning_rate=0.1).minimize(cost)
+
+#Session & 변수 초기화
+sess = tf.Session()
+sess.run(tf.global_variables_initializer())
+
+#학습
+for step in range(1, 3001):
+    _, cost_val = sess.run([train, cost], feed_dict={X:x_data, Y:y_data})
+    if step%300 == 0:
+        print("{:4d}번째 cost:{}".format(step, cost_val))
+
+#accuracy
+predict= tf.cast(H>0.5, dtype=tf.float32)
+correct = tf.equal(predict, Y)
+accuracy = tf.reduce_mean(tf.cast(correct, dtype=tf.float32))
+print("정확도:", sess.run(accuracy, feed_dict={X:x_data, Y:y_data}))
+#accuracy가 잘 안나올 경우 은닉층(hidden layer)추가  
+
+#predict
+print(sess.run(H, feed_dict={X:[[0,0]]}))
+print(sess.run(predict, feed_dict={X:[[0,0]]})) #True
+print(sess.run(predict, feed_dict={X:[[1,0]]})) #True
+print(sess.run(predict, feed_dict={X:[[0,1]]})) #True
+print(sess.run(predict, feed_dict={X:[[1,1]]})) #True
+
+
+# ### Sigmoid vs. ReLU(Recified Linear Unit)
+# - 은닉칭 추가, relu 사용시 정확도가 더 높아지는 경우
+
+# In[14]:
+
+
+#training data set
+x_data = [[0,0],[0,1],[1,0],[1,1]]
+y_data = [[0],  [1],  [1],  [0]]
+
+#placeholder
+X = tf.placeholder(shape=[None, 2], dtype=tf.float32)
+Y = tf.placeholder(shape=[None, 1], dtype=tf.float32)
+
+### Layer 추가 ###
+#Weight & bias (layer1: 입력2개, 출력4개)
+W1 = tf.Variable(tf.random_normal([2,4]), name='weight1')
+b1 = tf.Variable(tf.random_normal([4]), name='bias1')
+layer1 = tf.nn.relu(tf.matmul(X,W1)+b1)
+
+#Weight & bias (layer2: 입력4개, 출력4개)
+W2 = tf.Variable(tf.random_normal([4,4]), name='weight2')
+b2 = tf.Variable(tf.random_normal([4]), name='bias2')
+layer2 = tf.nn.relu(tf.matmul(layer1, W2)+b2)
+
+#Weight & bias (layer3: 입력4개, 출력1개)
+W3 = tf.Variable(tf.random_normal([4,1]), name='weight3')
+b3 = tf.Variable(tf.random_normal([1]), name='bias3')
+
+#Hypothesis
+logits = tf.matmul(layer2, W3)+b3
+H = tf.sigmoid(logits)
+
+#cost
+cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits, 
+                                                              labels=Y))
+
+#train
+train = tf.train.GradientDescentOptimizer(learning_rate=0.1).minimize(cost)
+
+#Session & 변수 초기화
+sess = tf.Session()
+sess.run(tf.global_variables_initializer())
+
+#학습
+for step in range(1, 3001):
+    _, cost_val = sess.run([train, cost], feed_dict={X:x_data, Y:y_data})
+    if step%300 == 0:
+        print("{:4d}번째 cost:{}".format(step, cost_val))
+
+#accuracy
+predict = tf.cast(H>0.5, dtype=tf.float32)
+correct = tf.equal(predict, Y)
+accuracy = tf.reduce_mean(tf.cast(correct, dtype=tf.float32))
+print("accuracy:", sess.run(accuracy, feed_dict={X:x_data, Y:y_data}))
+#accuracy가 잘 안나올 경우 은닉층(hidden layer)추가  
+
+#predict
+print(sess.run(H, feed_dict={X:[[0,0]]}))
+print(sess.run(predict, feed_dict={X:[[0,0]]})) #True
+print(sess.run(predict, feed_dict={X:[[1,0]]})) #True
+print(sess.run(predict, feed_dict={X:[[0,1]]})) #True
+print(sess.run(predict, feed_dict={X:[[1,1]]})) #True
+
+
 # In[ ]:
 
 
